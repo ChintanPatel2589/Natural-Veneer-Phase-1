@@ -16,6 +16,7 @@
     
     __weak IBOutlet UIButton *btnInfo;
     __weak IBOutlet UIButton *btnPlay;
+    __weak IBOutlet UIButton *btnZoom;
     
 }
 @property(nonatomic,retain)NSDictionary *dataDict;

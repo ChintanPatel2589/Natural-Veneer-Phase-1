@@ -25,6 +25,8 @@
                           options:SDWebImageRefreshCached];
     lblProductName.text = [self.dataDict valueForKey:kWS_grouplist_Res_product_name];
     lblProductDesc.text = [self.dataDict valueForKey:kWS_grouplist_Res_group_name];
+    [btnZoom setImage:[CommonMethods imageWithIcon:@"fa-search-plus" backgroundColor:[UIColor clearColor] iconColor:[UIColor whiteColor] fontSize:40] forState:UIControlStateNormal];
+    
 }
 
 #pragma mark - IBActions
@@ -40,7 +42,7 @@
 {
     
 }
-- (IBAction)imageTappedForZoom:(UITapGestureRecognizer *)sender
+- (IBAction)imageTappedForZoom:(UIButton *)sender
 {
     ImagesLocalViewController *localImage = [[ImagesLocalViewController alloc]init];
     localImage.imageArray = [[NSMutableArray alloc ]initWithObjects:imgViewProduct.image,nil];

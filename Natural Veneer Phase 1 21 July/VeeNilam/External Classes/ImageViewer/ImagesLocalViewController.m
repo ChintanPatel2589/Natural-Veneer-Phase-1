@@ -30,8 +30,9 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    self.title = @"PHOTO GALLERY";
     // Do any additional setup after loading the view.
-    scroller=[[TKScroller alloc]initWithFrame:CGRectMake(5, 5, 100, 100) array:self.imageArray mode:kScrollModeImageLocal];
+    scroller=[[TKScroller alloc]initWithFrame:self.view.frame array:self.imageArray mode:kScrollModeImageLocal];
     
     // scroller.translatesAutoresizingMaskIntoConstraints=NO;
     
@@ -49,8 +50,6 @@
     [self.view addConstraints:constraints];
     [self.view layoutIfNeeded];
 }
-
-
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
