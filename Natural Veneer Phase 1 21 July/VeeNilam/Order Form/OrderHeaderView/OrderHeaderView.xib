@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="OrderHeaderView">
+            <rect key="frame" x="0.0" y="0.0" width="312" height="50"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cGI-80-fdn">
+                    <rect key="frame" x="0.0" y="0.0" width="312" height="42"/>
+                    <color key="backgroundColor" red="0.93253302574157715" green="0.99223989248275757" blue="0.96662312746047974" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zTv-I6-2iZ">
+                    <rect key="frame" x="95" y="0.0" width="90" height="42"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8hg-NY-vTO">
+                    <rect key="frame" x="190" y="0.0" width="90" height="42"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ccZ-iW-NpB">
+                    <rect key="frame" x="284" y="0.0" width="20" height="42"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="24"/>
+                    <state key="normal">
+                        <color key="titleColor" red="0.098937088470606782" green="0.54855368434593954" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="#ORF 2133445" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yxw-ar-uTB">
+                    <rect key="frame" x="0.0" y="0.0" width="90" height="42"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="42" id="Cs9-dZ-G5U"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="yxw-ar-uTB" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="4uj-6R-rZb"/>
+                <constraint firstItem="cGI-80-fdn" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="AZy-ZY-zhU"/>
+                <constraint firstAttribute="trailing" secondItem="8hg-NY-vTO" secondAttribute="trailing" constant="32" id="J9Z-kk-T71"/>
+                <constraint firstAttribute="bottom" secondItem="cGI-80-fdn" secondAttribute="bottom" constant="8" id="QLm-JB-WLl"/>
+                <constraint firstItem="8hg-NY-vTO" firstAttribute="baseline" secondItem="zTv-I6-2iZ" secondAttribute="baseline" id="TN9-Q1-6F5"/>
+                <constraint firstAttribute="bottom" secondItem="yxw-ar-uTB" secondAttribute="bottom" constant="8" id="XVQ-9d-pWo"/>
+                <constraint firstItem="zTv-I6-2iZ" firstAttribute="width" secondItem="yxw-ar-uTB" secondAttribute="width" id="Xjm-eP-QGl"/>
+                <constraint firstItem="8hg-NY-vTO" firstAttribute="leading" secondItem="zTv-I6-2iZ" secondAttribute="trailing" constant="5" id="bFf-o1-TSC"/>
+                <constraint firstItem="zTv-I6-2iZ" firstAttribute="leading" secondItem="yxw-ar-uTB" secondAttribute="trailing" constant="5" id="c42-u6-sEl"/>
+                <constraint firstItem="8hg-NY-vTO" firstAttribute="height" secondItem="zTv-I6-2iZ" secondAttribute="height" id="ftw-Z4-mkZ"/>
+                <constraint firstItem="8hg-NY-vTO" firstAttribute="baseline" secondItem="yxw-ar-uTB" secondAttribute="baseline" id="hI0-lB-P65"/>
+                <constraint firstAttribute="trailing" secondItem="cGI-80-fdn" secondAttribute="trailing" id="kgB-EM-MWZ"/>
+                <constraint firstItem="cGI-80-fdn" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="myT-SP-4V7"/>
+                <constraint firstItem="8hg-NY-vTO" firstAttribute="width" secondItem="zTv-I6-2iZ" secondAttribute="width" id="nSN-mV-a7e"/>
+                <constraint firstItem="yxw-ar-uTB" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="vdR-cX-HF2"/>
+                <constraint firstItem="zTv-I6-2iZ" firstAttribute="height" secondItem="yxw-ar-uTB" secondAttribute="height" id="ydR-MW-oom"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="btndropdown" destination="ccZ-iW-NpB" id="MIN-cJ-ALW"/>
+                <outlet property="lblOrderName" destination="yxw-ar-uTB" id="U7u-W1-asm"/>
+                <outlet property="lbltotalItem" destination="zTv-I6-2iZ" id="lc5-bB-Puc"/>
+            </connections>
+            <point key="canvasLocation" x="415" y="174"/>
+        </view>
+    </objects>
+</document>

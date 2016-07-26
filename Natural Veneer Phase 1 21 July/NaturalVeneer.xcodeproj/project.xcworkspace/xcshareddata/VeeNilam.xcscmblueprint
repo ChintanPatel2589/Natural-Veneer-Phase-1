@@ -1,0 +1,27 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "9a265bc3-32a1-634d-99ce-6f3ea837b331++6809",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+    "9a265bc3-32a1-634d-99ce-6f3ea837b331++6809" : {
+      "DVTSourceControlWorkingCopyRepositoryBranchesLocationKey" : "VeeNilam\/branches",
+      "DVTSourceControlWorkingCopyRepositoryTagsLocationKey" : "VeeNilam\/tags",
+      "DVTSourceControlWorkingCopyRepositoryPrimaryBranchLocationKey" : "VeeNilam\/trunk"
+    }
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "9a265bc3-32a1-634d-99ce-6f3ea837b331++6809" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "0B57F5FD-77ED-4951-8199-5B9DB7E91102",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "9a265bc3-32a1-634d-99ce-6f3ea837b331++6809" : "VeeNilam\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "VeeNilam",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "trunk\/VeeNilam.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/192.168.1.29\/svn\/iOS",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Subversion",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "9a265bc3-32a1-634d-99ce-6f3ea837b331++6809"
+    }
+  ]
+}

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="OrderFormViewController">
+            <connections>
+                <outlet property="segOrderType" destination="U8C-5U-ERQ" id="QLT-Vv-UEJ"/>
+                <outlet property="tblOrderList" destination="Tbl-9h-tAU" id="SDs-aU-aSv"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="44" width="320" height="436"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wwD-Aj-lEe">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="436"/>
+                    <subviews>
+                        <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="150" sectionHeaderHeight="50" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="Tbl-9h-tAU">
+                            <rect key="frame" x="5" y="52" width="310" height="371"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <outlet property="dataSource" destination="-1" id="LAH-yW-3GB"/>
+                                <outlet property="delegate" destination="-1" id="hAV-SE-d24"/>
+                            </connections>
+                        </tableView>
+                        <segmentedControl opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="U8C-5U-ERQ">
+                            <rect key="frame" x="5" y="13" width="310" height="29"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <segments>
+                                <segment title="CONFIRMED"/>
+                                <segment title="YET TO ORDER"/>
+                                <segment title="ORDERED"/>
+                                <segment title="DELIVERED"/>
+                            </segments>
+                            <color key="tintColor" red="0.0" green="0.44705882349999998" blue="0.77647058820000003" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="segValueChanged:" destination="-1" eventType="valueChanged" id="NKS-0e-nF2"/>
+                            </connections>
+                        </segmentedControl>
+                    </subviews>
+                    <color key="backgroundColor" red="0.79600793123245239" green="0.7961234450340271" blue="0.79598277807235718" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="U8C-5U-ERQ" secondAttribute="trailing" constant="5" id="CUY-UA-pmZ"/>
+                        <constraint firstAttribute="trailing" secondItem="Tbl-9h-tAU" secondAttribute="trailing" constant="5" id="DTQ-4i-ygs"/>
+                        <constraint firstItem="Tbl-9h-tAU" firstAttribute="top" secondItem="U8C-5U-ERQ" secondAttribute="bottom" constant="11" id="Fif-bq-A2Y"/>
+                        <constraint firstItem="Tbl-9h-tAU" firstAttribute="width" secondItem="U8C-5U-ERQ" secondAttribute="width" id="JfA-zg-Nen"/>
+                        <constraint firstItem="Tbl-9h-tAU" firstAttribute="leading" secondItem="U8C-5U-ERQ" secondAttribute="leading" id="R0v-Hu-irR"/>
+                        <constraint firstItem="U8C-5U-ERQ" firstAttribute="top" secondItem="wwD-Aj-lEe" secondAttribute="top" constant="13" id="Z8W-K4-2tn"/>
+                        <constraint firstItem="U8C-5U-ERQ" firstAttribute="leading" secondItem="wwD-Aj-lEe" secondAttribute="leading" constant="5" id="cqQ-mS-aIX"/>
+                        <constraint firstAttribute="bottom" secondItem="Tbl-9h-tAU" secondAttribute="bottom" constant="13" id="rsh-G3-ZTl"/>
+                        <constraint firstItem="Tbl-9h-tAU" firstAttribute="trailing" secondItem="U8C-5U-ERQ" secondAttribute="trailing" id="wfu-3s-nuB"/>
+                        <constraint firstItem="Tbl-9h-tAU" firstAttribute="leading" secondItem="wwD-Aj-lEe" secondAttribute="leading" constant="5" id="yYd-kc-ASF"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="0.43325480486159251" green="0.46639779972513939" blue="0.61068390052356025" alpha="0.58194813829787229" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="wwD-Aj-lEe" secondAttribute="bottom" id="2Zx-0X-brV"/>
+                <constraint firstAttribute="trailing" secondItem="wwD-Aj-lEe" secondAttribute="trailing" id="3VO-tr-yJa"/>
+                <constraint firstItem="wwD-Aj-lEe" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="LWr-8J-vZg"/>
+                <constraint firstItem="wwD-Aj-lEe" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="Moq-dO-jzD"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="229" y="293"/>
+        </view>
+    </objects>
+</document>

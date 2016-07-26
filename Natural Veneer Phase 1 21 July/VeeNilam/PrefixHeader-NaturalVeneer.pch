@@ -1,0 +1,136 @@
+//
+//  PrefixHeader-VeeNilam.pch
+//  VeeNilam
+//
+//  Created by Chintan Patel on 5/24/16.
+//  Copyright © 2016 Rangam Infotech. All rights reserved.
+//
+
+#ifndef PrefixHeader_VeeNilam_pch
+#define PrefixHeader_VeeNilam_pch
+//#import "HUDCommon.h"
+#import "CPLoader.h"
+#import "WebServiceHandler.h"
+#import "CommonMethods.h"
+#import "DEMONavigationController.h"
+#import "UIImage+FontAwesome.h"
+#import "NSString+FontAwesome.h"
+#import "AppDelegate.h"
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#define IPAD     UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad
+
+#define AppdelegateObj ((AppDelegate *)[[UIApplication sharedApplication] delegate])
+#define kMediaUploadURL @"http://192.168.1.29/MyEventDayRestSrv/MyEventDaySvr.svc"
+
+#define kColorLoginButton [UIColor colorWithRed:248.0f/255.0f green:0.0f/255.0f blue:73.0f/255.0f alpha:1]
+
+#define kColorSideMenu [UIColor colorWithRed:24.0f/255.0f green:12.0f/255.0f blue:36.0f/255.0f alpha:0.65];
+
+
+#pragma mark - Service Keys
+#define kParam @"param"
+#define kValue @"Value"
+#define kKey @"Key"
+#define kSPName @"SPName"
+
+//#define kServiceURL @"http://ds.digitattva.in/services/services.php"
+
+
+#pragma mark - Common Key
+#define kServiceURL @"http://ds.naturalveneers.com/services/services_v2.php"
+
+#define IOS_8PLUS ([[UIDevice currentDevice].systemVersion intValue] >= 8)
+
+#define AppCommonColor [UIColor colorWithRed:83.0f/255.0f green:51.0f/255.0f blue:14.0f/255.0f alpha:1]
+#define AppGreenColor [UIColor colorWithRed:29.0f/255.0f green:139.0f/255.0f blue:57.0f/255.0f alpha:1]
+
+#define kNoInternetConnection_alert_Title @"No Internet Connection"
+#define kNoInternetConnection_alert_Msg @"Please check your Internet Connection."
+#define kLoading @"Loading..."
+
+#define DatabaseName @"DS.sqlite"
+
+#define kData @"data"
+//Logged User Details Keys
+#pragma mark - User Details Keys
+#define kloggedUserInfo @"loggedUserInfo"
+#define kloggedUserInfo_CreatedDate @"CreatedDate"
+#define kloggedUserInfo_Email @"Email"
+#define kloggedUserInfo_FirstName @"FirstName"
+#define kloggedUserInfo_GuestProfileId @"GuestProfileId"
+#define kloggedUserInfo_IsActive @"IsActive"
+#define kloggedUserInfo_LastName @"LastName"
+#define kloggedUserInfo_PhoneNo @"PhoneNo"
+#define kloggedUserInfo_UserUniqueId @"UserUniqueId"
+
+//1 Login
+#define kWS_loginvalidate @"loginvalidate"
+#define kWS_Login_Req_auth_token @"auth_token"
+#define kWS_Login_Req_action @"action"
+#define kWS_Login_Req_user_type @"user_type"
+#define kWS_Login_Req_email @"email"
+#define kWS_Login_Req_password @"password"
+#define kWS_user_type @"dealer"
+
+#define kWS_Login_Res_user_id @"user_id"
+#define kWS_Login_Res_user_type @"user_type"
+#define kWS_Login_Res_auth_token @"auth_token"
+
+//2 OTP Verification
+#define kWS_otp_verification @"otp_verification"
+#define kWS_otp_verification_Req_auth_token @"auth_token"
+#define kWS_otp_verification_Req_action @"action"
+#define kWS_otp_verification_Req_user_type @"user_type"
+#define kWS_otp_verification_Req_email @"email"
+#define kWS_otp_verification_Req_OTP @"otp"
+
+//3 forgot_password
+#define kWS_forgot_password @"forgot_password"
+#define kWS_forgot_password_Req_auth_token @"auth_token"
+#define kWS_forgot_password_Req_action @"action"
+#define kWS_forgot_password_Req_user_type @"user_type"
+#define kWS_forgot_password_Req_email @"email"
+
+//4 grouplist
+#define kWS_grouplist @"grouplist"
+#define kWS_grouplist_Req_auth_token @"auth_token"
+#define kWS_grouplist_Req_action @"action"
+#define kWS_grouplist_Req_user_type @"user_type"
+#define kWS_grouplist_Req_type_id @"type_id"
+#define kWS_grouplist_Req_start_index @"start_index"
+#define kWS_grouplist_Req_page_size @"page_size"
+#define kWS_grouplist_Req_search_term @"search_term"
+#define kWS_grouplist_Req_product_id @"product_id"
+#define kWS_grouplist_Req_group_id @"group_id"
+
+#define kWS_grouplist_Res_commercial_name @"commercial_name"
+#define kWS_grouplist_Res_description @"description"
+#define kWS_grouplist_Res_exclusivity @"exclusivity"
+#define kWS_grouplist_Res_grain_name @"grain_name"
+#define kWS_grouplist_Res_green_rating @"green_rating"
+#define kWS_grouplist_Res_group_id @"group_id"
+#define kWS_grouplist_Res_group_name @"group_name"
+#define kWS_grouplist_Res_image @"image"
+#define kWS_grouplist_Res_is_accept @"is_accept"
+#define kWS_grouplist_Res_product_group_id @"product_group_id"
+#define kWS_grouplist_Res_product_id @"product_id"
+#define kWS_grouplist_Res_product_name @"product_name"
+#define kWS_grouplist_Res_sizes_quantity @"sizes_quantity"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#endif /* PrefixHeader_VeeNilam_pch */
