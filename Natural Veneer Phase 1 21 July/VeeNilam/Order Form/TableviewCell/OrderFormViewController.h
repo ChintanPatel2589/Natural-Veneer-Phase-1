@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface OrderFormViewController : UIViewController{
+@interface OrderFormViewController : BaseViewController{
 
     __weak IBOutlet UITableView *tblOrderList;
     __weak IBOutlet UISegmentedControl *segOrderType;
