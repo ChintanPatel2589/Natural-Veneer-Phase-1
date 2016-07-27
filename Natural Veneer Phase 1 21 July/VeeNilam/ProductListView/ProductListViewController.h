@@ -10,7 +10,8 @@
 #import "ProductListViewCell.h"
 #import "CartViewController.h"
 #import "UIImageView+WebCache.h"
-@interface ProductListViewController : UIViewController<UICollectionViewDataSource,UICollectionViewDelegate>
+#import "BaseViewController.h"
+@interface ProductListViewController : BaseViewController<UICollectionViewDataSource,UICollectionViewDelegate>
 {
     IBOutlet UICollectionView *collectionViewProductList;
     NSMutableArray *arraayData;

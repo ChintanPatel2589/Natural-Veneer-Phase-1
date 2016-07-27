@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		36D2F9301D4863C90093ABD4 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 36D2F92E1D4863C90093ABD4 /* BaseViewController.m */; };
 		B91547AD1D3DEEC8009E71FA /* ProductListViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B91547AB1D3DEEC8009E71FA /* ProductListViewCell.m */; };
 		B91547AE1D3DEEC8009E71FA /* ProductListViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B91547AC1D3DEEC8009E71FA /* ProductListViewCell.xib */; };
 		B91547B21D3DEF66009E71FA /* ProductListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B91547B01D3DEF66009E71FA /* ProductListViewController.m */; };
@@ -87,6 +88,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		36D2F92D1D4863C90093ABD4 /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
+		36D2F92E1D4863C90093ABD4 /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
 		B0427E7D1CE99D80007A1D10 /* NaturalVeneer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NaturalVeneer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B91547AA1D3DEEC8009E71FA /* ProductListViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductListViewCell.h; sourceTree = "<group>"; };
 		B91547AB1D3DEEC8009E71FA /* ProductListViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductListViewCell.m; sourceTree = "<group>"; };
@@ -231,6 +234,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		36D2F92C1D4863AD0093ABD4 /* BaseViewController */ = {
+			isa = PBXGroup;
+			children = (
+				36D2F92D1D4863C90093ABD4 /* BaseViewController.h */,
+				36D2F92E1D4863C90093ABD4 /* BaseViewController.m */,
+			);
+			path = BaseViewController;
+			sourceTree = "<group>";
+		};
 		B0427E741CE99D80007A1D10 = {
 			isa = PBXGroup;
 			children = (
@@ -277,6 +289,7 @@
 				B92E43B71D38C8B600A6CE34 /* External Classes */,
 				B92E440D1D38C8B600A6CE34 /* Images */,
 				B92E441F1D38C8B600A6CE34 /* Info.plist */,
+				36D2F92C1D4863AD0093ABD4 /* BaseViewController */,
 				B92E44201D38C8B600A6CE34 /* LoginView */,
 				B92E43B61D38C8B600A6CE34 /* CART */,
 				B96655731D3CEE60004E4334 /* Order Form */,
@@ -687,6 +700,7 @@
 				B95BCDE51D3F347800EEE569 /* AsyncImageView.m in Sources */,
 				B92E442C1D38C8B600A6CE34 /* CommonMethods.m in Sources */,
 				B9909F6E1D429FEB00FD923D /* OrderFormViewController.m in Sources */,
+				36D2F9301D4863C90093ABD4 /* BaseViewController.m in Sources */,
 				B92E44491D38C8B600A6CE34 /* REFrostedViewController.m in Sources */,
 				B92E443E1D38C8B600A6CE34 /* UIButton+WebCache.m in Sources */,
 				B92E445E1D38C8B600A6CE34 /* main.m in Sources */,

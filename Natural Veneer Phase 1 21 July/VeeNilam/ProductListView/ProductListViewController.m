@@ -17,21 +17,14 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    //self.title = @"NATURAL";
-    [self setMenuIcon];
+    lblTitle.text = @"NATURAL";
+    //[self setMenuIcon];
     [collectionViewProductList registerNib:[UINib nibWithNibName:@"ProductListViewCell" bundle:nil] forCellWithReuseIdentifier:@"ProductListViewCell"];
     [[CPLoader sharedLoader]showLoader:self.view];
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [self callWsGetProductList];
     });
 }
-- (void)viewWillAppear:(BOOL)animated
-{
-     NSLog(@"%@",[CommonMethods getValueFromNSUserDefaultsWithKey:kloggedUserInfo]);
-    self.navigationController.navigationBarHidden = NO;
-    
-}
-
 
 -(void)search
 {
@@ -110,7 +103,7 @@
 #pragma mark - Menu Icon Action
 -(void)setMenuIcon
 {
-    self.navigationController.navigationBar.translucent = NO;
+    
     UIImage *icon = [UIImage imageWithIcon:@"fa-bars" backgroundColor:[UIColor clearColor] iconColor:[UIColor whiteColor] fontSize:20];
     icon = [icon imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     UIBarButtonItem *_btn=[[UIBarButtonItem alloc]initWithImage:icon

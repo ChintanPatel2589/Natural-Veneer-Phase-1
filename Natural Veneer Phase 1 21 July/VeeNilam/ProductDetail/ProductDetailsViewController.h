@@ -7,8 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface ProductDetailsViewController : UIViewController
+#import "BaseViewController.h"
+@interface ProductDetailsViewController : BaseViewController
 {
     __weak IBOutlet UILabel *lblProductName;
     __weak IBOutlet UILabel *lblProductDesc;

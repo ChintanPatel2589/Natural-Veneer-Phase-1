@@ -20,10 +20,7 @@
     [self setMenuIcon];
     // Do any additional setup after loading the view from its nib.
 }
-- (void)viewWillAppear:(BOOL)animated
-{
-    self.navigationController.navigationBarHidden = NO;
-}
+
 -(void)setMenuIcon
 {
     self.navigationController.navigationBar.translucent = NO;
