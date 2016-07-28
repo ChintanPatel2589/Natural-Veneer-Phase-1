@@ -10,6 +10,9 @@
 #import "ViewController.h"
 #import "DEMONavigationController.h"
 #import "UIViewController+REFrostedViewController.h"
+#import "ProductListViewController.h"
+#import "OrderFormViewController.h"
+#import "CartViewController.h"
 @implementation DEMOMenuViewController
 
 - (void)viewDidLoad
@@ -44,22 +47,20 @@
         lblWelcome.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;
         
         UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, (lblWelcome.frame.origin.y+lblWelcome.frame.size.height + 5), 0, 24)];
-        label.text =[NSString stringWithFormat:@"%@ %@",[CommonMethods getLoggedUserValueFromNSUserDefaultsWithKey:kloggedUserInfo_FirstName],[CommonMethods getLoggedUserValueFromNSUserDefaultsWithKey:kloggedUserInfo_LastName]];
+        label.text =[NSString stringWithFormat:@"%@",[CommonMethods getValueFromNSUserDefaultsWithKey:kWS_Login_Req_email]];
         label.font = [UIFont fontWithName:@"HelveticaNeue" size:21];
         label.backgroundColor = [UIColor clearColor];
         label.textColor = [UIColor whiteColor];
         [label sizeToFit];
         label.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;
-        
-        
-        
+
         //[view addSubview:imageView];
         [view addSubview:lblWelcome];
         [view addSubview:label];
         view;
     });
     
-    arrayMenu = [[NSArray alloc]initWithObjects:@"Event", @"View Invitation", @"Media Share",@"Update/Send RSVP", @"Logout", nil];
+    arrayMenu = [[NSArray alloc]initWithObjects:@"Products", @"View Cart", @"Order Form", @"Logout", nil];
 }
 
 #pragma mark -
@@ -102,21 +103,27 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    id viewControllerOBJ = nil;
     switch (indexPath.row) {
         case 0:{
-            
-        }
+                viewControllerOBJ =(ProductListViewController *)[[ProductListViewController alloc]initWithNibName:@"ProductListViewController" bundle:nil];
+            }
             break;
         case 1:
-            
+            {
+                viewControllerOBJ =(CartViewController *)[[CartViewController alloc]initWithNibName:@"CartViewController" bundle:nil];
+            }
             break;
-        case 2:
-            
+        case 2:{
+                viewControllerOBJ =(OrderFormViewController *)[[OrderFormViewController alloc]initWithNibName:@"OrderFormViewController" bundle:nil];
+            }
             break;
-        case 3:
+        case 3:{
+                [CommonMethods saveDataIntoPreference:nil forKey:kloggedUserInfo];
+                viewControllerOBJ =(ViewController *)[[ViewController alloc]initWithNibName:@"ViewController" bundle:nil];
+        }
             break;
         case 4:
-            [self logOut];
             break;
         case 5:
             break;
@@ -126,6 +133,8 @@
             
             break;
     }
+    DEMONavigationController *navigationController = [[DEMONavigationController alloc] initWithRootViewController:viewControllerOBJ];
+    self.frostedViewController.contentViewController = navigationController;
     [self.frostedViewController hideMenuViewController];
 }
 #pragma mark - Menu Switch Methods
@@ -166,8 +175,8 @@
     }
     
     if (indexPath.section == 0) {
-        NSArray *titles = @[@"Event", @"View Invitation", @"Media Share",@"Update/Send RSVP", @"Logout"];
-        cell.textLabel.text = titles[indexPath.row];
+        //NSArray *titles = @[@"Event", @"View Invitation", @"Media Share",@"Update/Send RSVP", @"Logout"];
+        cell.textLabel.text = arrayMenu[indexPath.row];
         
     } 
     

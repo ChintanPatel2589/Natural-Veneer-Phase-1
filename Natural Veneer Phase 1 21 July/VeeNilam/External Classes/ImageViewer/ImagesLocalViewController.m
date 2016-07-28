@@ -30,6 +30,7 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    self.navigationController.navigationBarHidden = false;
     self.title = @"PHOTO GALLERY";
     // Do any additional setup after loading the view.
     scroller=[[TKScroller alloc]initWithFrame:self.view.frame array:self.imageArray mode:kScrollModeImageLocal];
@@ -49,6 +50,10 @@
                                                             views:viewsDictionary];
     [self.view addConstraints:constraints];
     [self.view layoutIfNeeded];
+}
+-(void)viewDidDisappear:(BOOL)animated
+{
+    self.navigationController.navigationBarHidden = true;
 }
 - (void)didReceiveMemoryWarning
 {

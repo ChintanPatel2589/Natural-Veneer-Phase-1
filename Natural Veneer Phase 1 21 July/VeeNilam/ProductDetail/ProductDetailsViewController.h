@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "BaseViewController.h"
 #import "AddToCartCell.h"
+#import "ProductInfoViewController.h"
 @interface ProductDetailsViewController : BaseViewController<UITableViewDataSource,UITextViewDelegate,AddToCartCellDelegate>
 {
     __weak IBOutlet UILabel *lblProductName;
@@ -24,6 +25,7 @@
     __weak IBOutlet UITextView *txtViewDesc;
     NSMutableArray *arraySizeDetails;
     BOOL isKeyUp;
+    ProductInfoViewController *prodInfoViewOBJ;
 }
 @property(nonatomic,retain)NSDictionary *dataDict;
 @end

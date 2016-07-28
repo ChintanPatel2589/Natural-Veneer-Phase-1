@@ -16,7 +16,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    self.navigationController.navigationBarHidden = true;
     [self setDefaultData];
 }
 -(void)setDefaultData
@@ -47,7 +47,9 @@
 }
 - (IBAction)btnInfoTapped:(id)sender
 {
-    
+    prodInfoViewOBJ = [[ProductInfoViewController alloc]initWithNibName:@"ProductInfoViewController" bundle:nil];
+    prodInfoViewOBJ.dataDict = self.dataDict;
+    [self.view addSubview:prodInfoViewOBJ.view];
 }
 - (IBAction)btnPlayTapped:(id)sender
 {

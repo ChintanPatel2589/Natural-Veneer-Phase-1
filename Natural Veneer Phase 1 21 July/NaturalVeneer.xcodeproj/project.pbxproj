@@ -10,6 +10,10 @@
 		36D2F9301D4863C90093ABD4 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 36D2F92E1D4863C90093ABD4 /* BaseViewController.m */; };
 		36ED2DCB1D49B5BD008FD862 /* AddToCartCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 36ED2DC91D49B5BD008FD862 /* AddToCartCell.m */; };
 		36ED2DCC1D49B5BD008FD862 /* AddToCartCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36ED2DCA1D49B5BD008FD862 /* AddToCartCell.xib */; };
+		36ED2DD11D4A0D85008FD862 /* ProductInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 36ED2DCF1D4A0D85008FD862 /* ProductInfoViewController.m */; };
+		36ED2DD21D4A0D85008FD862 /* ProductInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36ED2DD01D4A0D85008FD862 /* ProductInfoViewController.xib */; };
+		36ED2DD71D4A0FAB008FD862 /* ProductViewInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 36ED2DD51D4A0FAB008FD862 /* ProductViewInfoCell.m */; };
+		36ED2DD81D4A0FAB008FD862 /* ProductViewInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36ED2DD61D4A0FAB008FD862 /* ProductViewInfoCell.xib */; };
 		B91547AD1D3DEEC8009E71FA /* ProductListViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B91547AB1D3DEEC8009E71FA /* ProductListViewCell.m */; };
 		B91547AE1D3DEEC8009E71FA /* ProductListViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B91547AC1D3DEEC8009E71FA /* ProductListViewCell.xib */; };
 		B91547B21D3DEF66009E71FA /* ProductListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B91547B01D3DEF66009E71FA /* ProductListViewController.m */; };
@@ -95,6 +99,12 @@
 		36ED2DC81D49B5BD008FD862 /* AddToCartCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddToCartCell.h; sourceTree = "<group>"; };
 		36ED2DC91D49B5BD008FD862 /* AddToCartCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddToCartCell.m; sourceTree = "<group>"; };
 		36ED2DCA1D49B5BD008FD862 /* AddToCartCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddToCartCell.xib; sourceTree = "<group>"; };
+		36ED2DCE1D4A0D85008FD862 /* ProductInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductInfoViewController.h; sourceTree = "<group>"; };
+		36ED2DCF1D4A0D85008FD862 /* ProductInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductInfoViewController.m; sourceTree = "<group>"; };
+		36ED2DD01D4A0D85008FD862 /* ProductInfoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProductInfoViewController.xib; sourceTree = "<group>"; };
+		36ED2DD41D4A0FAB008FD862 /* ProductViewInfoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductViewInfoCell.h; sourceTree = "<group>"; };
+		36ED2DD51D4A0FAB008FD862 /* ProductViewInfoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductViewInfoCell.m; sourceTree = "<group>"; };
+		36ED2DD61D4A0FAB008FD862 /* ProductViewInfoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProductViewInfoCell.xib; sourceTree = "<group>"; };
 		B0427E7D1CE99D80007A1D10 /* NaturalVeneer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NaturalVeneer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B91547AA1D3DEEC8009E71FA /* ProductListViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductListViewCell.h; sourceTree = "<group>"; };
 		B91547AB1D3DEEC8009E71FA /* ProductListViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductListViewCell.m; sourceTree = "<group>"; };
@@ -256,6 +266,27 @@
 				36ED2DCA1D49B5BD008FD862 /* AddToCartCell.xib */,
 			);
 			path = AddToCartCell;
+			sourceTree = "<group>";
+		};
+		36ED2DCD1D4A0D6F008FD862 /* ProductInfoView */ = {
+			isa = PBXGroup;
+			children = (
+				36ED2DD31D4A0F86008FD862 /* ProductViewInfoCell */,
+				36ED2DCE1D4A0D85008FD862 /* ProductInfoViewController.h */,
+				36ED2DCF1D4A0D85008FD862 /* ProductInfoViewController.m */,
+				36ED2DD01D4A0D85008FD862 /* ProductInfoViewController.xib */,
+			);
+			path = ProductInfoView;
+			sourceTree = "<group>";
+		};
+		36ED2DD31D4A0F86008FD862 /* ProductViewInfoCell */ = {
+			isa = PBXGroup;
+			children = (
+				36ED2DD41D4A0FAB008FD862 /* ProductViewInfoCell.h */,
+				36ED2DD51D4A0FAB008FD862 /* ProductViewInfoCell.m */,
+				36ED2DD61D4A0FAB008FD862 /* ProductViewInfoCell.xib */,
+			);
+			path = ProductViewInfoCell;
 			sourceTree = "<group>";
 		};
 		B0427E741CE99D80007A1D10 = {
@@ -605,6 +636,7 @@
 		B9DF40971D3E7EE6004FFB88 /* ProductDetail */ = {
 			isa = PBXGroup;
 			children = (
+				36ED2DCD1D4A0D6F008FD862 /* ProductInfoView */,
 				36ED2DC71D49B5A6008FD862 /* AddToCartCell */,
 				B9DF40981D3E7EFF004FFB88 /* ProductDetailsViewController.h */,
 				B9DF40991D3E7EFF004FFB88 /* ProductDetailsViewController.m */,
@@ -684,6 +716,7 @@
 				B92E444D1D38C8B600A6CE34 /* Default-568h@2x~iphone.png in Resources */,
 				B92E44591D38C8B600A6CE34 /* MainLogo.png in Resources */,
 				B92E44531D38C8B600A6CE34 /* Default~iphone.png in Resources */,
+				36ED2DD81D4A0FAB008FD862 /* ProductViewInfoCell.xib in Resources */,
 				B92E44561D38C8B600A6CE34 /* logo~ipad.png in Resources */,
 				B91547B31D3DEF66009E71FA /* ProductListViewController.xib in Resources */,
 				B9909F661D429FAD00FD923D /* OrderHeaderView.xib in Resources */,
@@ -693,6 +726,7 @@
 				B92E44691D38C9AD00A6CE34 /* CartViewCell.xib in Resources */,
 				B92E44571D38C8B600A6CE34 /* logo~iphone.png in Resources */,
 				B9DF409C1D3E7EFF004FFB88 /* ProductDetailsViewController.xib in Resources */,
+				36ED2DD21D4A0D85008FD862 /* ProductInfoViewController.xib in Resources */,
 				B92E442D1D38C8B600A6CE34 /* FontAwesome.ttf in Resources */,
 				B92E444E1D38C8B600A6CE34 /* Default-667h@2x.png in Resources */,
 				B92E44631D38C96F00A6CE34 /* CartViewController.xib in Resources */,
@@ -732,6 +766,7 @@
 				B9909F651D429FAD00FD923D /* OrderHeaderView.m in Sources */,
 				B92E444B1D38C8B600A6CE34 /* UIView+REFrostedViewController.m in Sources */,
 				B95BCDED1D3F349400EEE569 /* TKScroller.m in Sources */,
+				36ED2DD11D4A0D85008FD862 /* ProductInfoViewController.m in Sources */,
 				B92E44301D38C8B600A6CE34 /* IconDownloader.m in Sources */,
 				B92E44391D38C8B600A6CE34 /* SDWebImageDecoder.m in Sources */,
 				B92E44471D38C8B600A6CE34 /* RECommonFunctions.m in Sources */,
@@ -748,6 +783,7 @@
 				B92E443F1D38C8B600A6CE34 /* UIImage+GIF.m in Sources */,
 				B92E44401D38C8B600A6CE34 /* UIImage+MultiFormat.m in Sources */,
 				B9909F641D429FAD00FD923D /* UISegmentedControl+Multiline.m in Sources */,
+				36ED2DD71D4A0FAB008FD862 /* ProductViewInfoCell.m in Sources */,
 				B91547AD1D3DEEC8009E71FA /* ProductListViewCell.m in Sources */,
 				B92E44311D38C8B600A6CE34 /* WebServiceHandler.m in Sources */,
 				B92E443D1D38C8B600A6CE34 /* SDWebImagePrefetcher.m in Sources */,
