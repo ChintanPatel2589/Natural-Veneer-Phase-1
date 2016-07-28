@@ -30,7 +30,7 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    self.navigationController.navigationBarHidden = false;
+    //self.navigationController.navigationBarHidden = false;
     self.title = @"PHOTO GALLERY";
     // Do any additional setup after loading the view.
     scroller=[[TKScroller alloc]initWithFrame:self.view.frame array:self.imageArray mode:kScrollModeImageLocal];

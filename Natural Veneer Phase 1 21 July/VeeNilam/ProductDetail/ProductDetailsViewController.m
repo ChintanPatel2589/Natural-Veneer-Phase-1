@@ -16,6 +16,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    lblTitle.text = @"GROUP";
     self.navigationController.navigationBarHidden = true;
     [self setDefaultData];
 }
