@@ -27,13 +27,23 @@
     lblProductName.text = [self.dataDict valueForKey:kWS_grouplist_Res_product_name];
     lblProductDesc.text = [self.dataDict valueForKey:kWS_grouplist_Res_group_name];
     [btnZoom setImage:[CommonMethods imageWithIcon:@"fa-search-plus" backgroundColor:[UIColor clearColor] iconColor:[UIColor whiteColor] fontSize:40] forState:UIControlStateNormal];
-    
 }
 
 #pragma mark - IBActions
 - (IBAction)btnAddtoCartTapped:(id)sender
 {
+    [btnCloseAddtoCartView setImage:[CommonMethods imageWithIcon:@"fa-times-circle-o" backgroundColor:[UIColor clearColor] iconColor:[UIColor whiteColor] fontSize:30] forState:UIControlStateNormal];
+    [self.view addSubview:viewAddToCart];
+    [txtViewDesc.layer setBorderWidth:1];
+    [txtViewDesc.layer setBorderColor:[[UIColor grayColor] CGColor]];
+}
+- (IBAction)btnAddToCartSubmitTapped:(id)sender
+{
     
+}
+- (IBAction)btnCloseAddToCartTapped:(id)sender
+{
+    [viewAddToCart removeFromSuperview];
 }
 - (IBAction)btnInfoTapped:(id)sender
 {
@@ -54,7 +64,77 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+#pragma mark - OrderList TableView Methods
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    return 5;
+}
 
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 27;
+}
+
+
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    static  NSString *identifier=@"AddToCartCell";
+    AddToCartCell *cell = (AddToCartCell *) [tableView dequeueReusableCellWithIdentifier:identifier];
+    if(cell == nil){
+        NSArray *nib = [[NSBundle mainBundle] loadNibNamed:identifier owner:self options:nil];
+        cell = [nib objectAtIndex:0];
+    }
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    
+    if (arraySizeDetails.count>0) {
+        
+    }
+    return cell;
+}
+#pragma mark - TableView Delegate
+- (void)textFieldEditingBegin:(id)cell withTextField:(UITextField *)textField
+{
+    
+}
+#pragma textView Delegate
+-(void)textViewDidBeginEditing:(UITextView *)textView
+{
+    [self slideUpKeyBoard];
+}
+- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text {
+    
+    if([text isEqualToString:@"\n"]) {
+        [textView resignFirstResponder];
+        [self hideKeyboard];
+        return NO;
+    }
+    
+    return YES;
+}
+-(void)slideUpKeyBoard
+{
+    if (!isKeyUp) {
+        [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(hideKeyboard) name:@"NeedToHideKeyboard" object:nil];
+        isKeyUp=true;
+        [UIView beginAnimations:@"S" context:nil];
+        self.view.frame = CGRectOffset(self.view.frame, 0, -110);
+        [UIView commitAnimations];
+    }
+}
+-(void)hideKeyboard
+{
+    if (isKeyUp) {
+        [[NSNotificationCenter defaultCenter]removeObserver:self];
+        isKeyUp=false;
+        [[self view] endEditing:TRUE];
+        [UIView beginAnimations:@"S" context:nil];
+        self.view.frame = CGRectOffset(self.view.frame, 0, 110);
+        [UIView commitAnimations];
+    }
+}
+-(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
+{
+    [self hideKeyboard];
+}
 /*
 #pragma mark - Navigation
 

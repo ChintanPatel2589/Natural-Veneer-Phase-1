@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		36D2F9301D4863C90093ABD4 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 36D2F92E1D4863C90093ABD4 /* BaseViewController.m */; };
+		36ED2DCB1D49B5BD008FD862 /* AddToCartCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 36ED2DC91D49B5BD008FD862 /* AddToCartCell.m */; };
+		36ED2DCC1D49B5BD008FD862 /* AddToCartCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36ED2DCA1D49B5BD008FD862 /* AddToCartCell.xib */; };
 		B91547AD1D3DEEC8009E71FA /* ProductListViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B91547AB1D3DEEC8009E71FA /* ProductListViewCell.m */; };
 		B91547AE1D3DEEC8009E71FA /* ProductListViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B91547AC1D3DEEC8009E71FA /* ProductListViewCell.xib */; };
 		B91547B21D3DEF66009E71FA /* ProductListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B91547B01D3DEF66009E71FA /* ProductListViewController.m */; };
@@ -90,6 +92,9 @@
 /* Begin PBXFileReference section */
 		36D2F92D1D4863C90093ABD4 /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
 		36D2F92E1D4863C90093ABD4 /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
+		36ED2DC81D49B5BD008FD862 /* AddToCartCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddToCartCell.h; sourceTree = "<group>"; };
+		36ED2DC91D49B5BD008FD862 /* AddToCartCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddToCartCell.m; sourceTree = "<group>"; };
+		36ED2DCA1D49B5BD008FD862 /* AddToCartCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddToCartCell.xib; sourceTree = "<group>"; };
 		B0427E7D1CE99D80007A1D10 /* NaturalVeneer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NaturalVeneer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B91547AA1D3DEEC8009E71FA /* ProductListViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductListViewCell.h; sourceTree = "<group>"; };
 		B91547AB1D3DEEC8009E71FA /* ProductListViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductListViewCell.m; sourceTree = "<group>"; };
@@ -241,6 +246,16 @@
 				36D2F92E1D4863C90093ABD4 /* BaseViewController.m */,
 			);
 			path = BaseViewController;
+			sourceTree = "<group>";
+		};
+		36ED2DC71D49B5A6008FD862 /* AddToCartCell */ = {
+			isa = PBXGroup;
+			children = (
+				36ED2DC81D49B5BD008FD862 /* AddToCartCell.h */,
+				36ED2DC91D49B5BD008FD862 /* AddToCartCell.m */,
+				36ED2DCA1D49B5BD008FD862 /* AddToCartCell.xib */,
+			);
+			path = AddToCartCell;
 			sourceTree = "<group>";
 		};
 		B0427E741CE99D80007A1D10 = {
@@ -590,6 +605,7 @@
 		B9DF40971D3E7EE6004FFB88 /* ProductDetail */ = {
 			isa = PBXGroup;
 			children = (
+				36ED2DC71D49B5A6008FD862 /* AddToCartCell */,
 				B9DF40981D3E7EFF004FFB88 /* ProductDetailsViewController.h */,
 				B9DF40991D3E7EFF004FFB88 /* ProductDetailsViewController.m */,
 				B9DF409A1D3E7EFF004FFB88 /* ProductDetailsViewController.xib */,
@@ -658,6 +674,7 @@
 				B92E44521D38C8B600A6CE34 /* Default@2x~iphone.png in Resources */,
 				B9909F6F1D429FEB00FD923D /* OrderFormViewController.xib in Resources */,
 				B9909F681D429FAD00FD923D /* OrderViewCell.xib in Resources */,
+				36ED2DCC1D49B5BD008FD862 /* AddToCartCell.xib in Resources */,
 				B92E445D1D38C8B600A6CE34 /* ViewController~iphone.xib in Resources */,
 				B92E44551D38C8B600A6CE34 /* logo@2x~iphone.png in Resources */,
 				B92E445B1D38C8B600A6CE34 /* Info.plist in Resources */,
@@ -693,6 +710,7 @@
 			files = (
 				B92E442E1D38C8B600A6CE34 /* NSString+FontAwesome.m in Sources */,
 				B92E444A1D38C8B600A6CE34 /* UIImage+REFrostedViewController.m in Sources */,
+				36ED2DCB1D49B5BD008FD862 /* AddToCartCell.m in Sources */,
 				B92E44481D38C8B600A6CE34 /* REFrostedContainerViewController.m in Sources */,
 				B92E442A1D38C8B600A6CE34 /* RTSpinKitUtils.m in Sources */,
 				B92E44411D38C8B600A6CE34 /* UIImage+WebP.m in Sources */,
