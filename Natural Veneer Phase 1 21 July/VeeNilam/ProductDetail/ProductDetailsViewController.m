@@ -33,6 +33,7 @@
 #pragma mark - IBActions
 - (IBAction)btnAddtoCartTapped:(id)sender
 {
+    arraySizeAndQty = [NSArray arrayWithArray:[self.dataDict valueForKey:kWS_grouplist_Res_sizes_quantity]];
     [btnCloseAddtoCartView setImage:[CommonMethods imageWithIcon:@"fa-times-circle-o" backgroundColor:[UIColor clearColor] iconColor:[UIColor whiteColor] fontSize:30] forState:UIControlStateNormal];
     [self.view addSubview:viewAddToCart];
     [txtViewDesc.layer setBorderWidth:1];
@@ -69,7 +70,7 @@
 }
 #pragma mark - OrderList TableView Methods
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 5;
+    return arraySizeAndQty.count;
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath

@@ -11,10 +11,11 @@
 #import "CartViewController.h"
 #import "UIImageView+WebCache.h"
 #import "BaseViewController.h"
-@interface ProductListViewController : BaseViewController<UICollectionViewDataSource,UICollectionViewDelegate>
+@interface ProductListViewController : BaseViewController<UICollectionViewDataSource,UICollectionViewDelegate, UISearchBarDelegate, UISearchDisplayDelegate>
 {
     IBOutlet UICollectionView *collectionViewProductList;
     NSMutableArray *arraayData;
+    __weak IBOutlet UISearchBar *searchBarProduct;
 }
 
 @end

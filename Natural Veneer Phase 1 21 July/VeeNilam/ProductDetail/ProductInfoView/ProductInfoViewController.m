@@ -7,7 +7,8 @@
 //
 
 #import "ProductInfoViewController.h"
-
+#define kTitle @"Title"
+#define kDesc @"Desc"
 @interface ProductInfoViewController ()
 
 @end
@@ -16,6 +17,15 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    arrayProductInfo = [[NSArray alloc]initWithObjects:
+        [NSDictionary dictionaryWithObjectsAndKeys:@"Series/Process",kTitle,kWS_grouplist_Res_series_name,kDesc, nil],
+        [NSDictionary dictionaryWithObjectsAndKeys:@"Product",kTitle,kWS_grouplist_Res_product_name,kDesc, nil],
+        [NSDictionary dictionaryWithObjectsAndKeys:@"Group",kTitle,kWS_grouplist_Res_group_name,kDesc, nil],
+        [NSDictionary dictionaryWithObjectsAndKeys:@"Description/Comment",kTitle,kWS_grouplist_Res_description,kDesc, nil],
+        [NSDictionary dictionaryWithObjectsAndKeys:@"Grain",kTitle,kWS_grouplist_Res_grain_name,kDesc, nil],
+        [NSDictionary dictionaryWithObjectsAndKeys:@"Exclusivity",kTitle,kWS_grouplist_Res_exclusivity,kDesc, nil],
+        [NSDictionary dictionaryWithObjectsAndKeys:@"Green Rating",kTitle,kWS_grouplist_Res_green_rating,kDesc, nil],nil];
+        
     [btnCloseProductInfoView setImage:[CommonMethods imageWithIcon:@"fa-times-circle-o" backgroundColor:[UIColor clearColor] iconColor:[UIColor whiteColor] fontSize:30] forState:UIControlStateNormal];
     // Do any additional setup after loading the view from its nib.
 }
@@ -24,7 +34,7 @@
 }
 #pragma mark - OrderList TableView Methods
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 5;
+    return 7;
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -45,7 +55,8 @@
     [cell.layer setBorderColor:[[UIColor darkGrayColor] CGColor]];
     [cell.layer setBorderWidth:1];
     if (arrayProductInfo.count>0) {
-        
+        cell.lblTitle.text = [[arrayProductInfo objectAtIndex:indexPath.row] valueForKey:kTitle];
+        cell.lblDetails.text = [CommonMethods checkStr:[self.dataDict valueForKey:[[arrayProductInfo objectAtIndex:indexPath.row] valueForKey:kDesc]]];
     }
     return cell;
 }

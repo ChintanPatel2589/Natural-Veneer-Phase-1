@@ -40,7 +40,7 @@
 
 
 #pragma mark - Common Key
-#define kServiceURL @"http://ds.naturalveneers.com/services/services_v2.php"
+#define kServiceURL @"http://ds.naturalveneers.com/services/services_v3.php"
 
 #define IOS_8PLUS ([[UIDevice currentDevice].systemVersion intValue] >= 8)
 
@@ -119,7 +119,10 @@
 #define kWS_grouplist_Res_product_id @"product_id"
 #define kWS_grouplist_Res_product_name @"product_name"
 #define kWS_grouplist_Res_sizes_quantity @"sizes_quantity"
-
+#define kWS_grouplist_Res_product_size_id @"product_size_id"
+#define kWS_grouplist_Res_quantity @"quantity"
+#define kWS_grouplist_Res_size_name @"size_name"
+#define kWS_grouplist_Res_series_name @"series_name"
 
 
 

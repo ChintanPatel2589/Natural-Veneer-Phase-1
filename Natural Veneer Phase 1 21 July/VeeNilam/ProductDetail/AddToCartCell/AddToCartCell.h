@@ -18,5 +18,6 @@
     __weak IBOutlet UITextField *txtRequiredQuantity;
     __weak id <AddToCartCellDelegate> delegate;
 }
+- (void)setLayoutWithData:(NSDictionary *)dataDict;
 @property(nonatomic) __weak id <AddToCartCellDelegate> delegate;
 @end

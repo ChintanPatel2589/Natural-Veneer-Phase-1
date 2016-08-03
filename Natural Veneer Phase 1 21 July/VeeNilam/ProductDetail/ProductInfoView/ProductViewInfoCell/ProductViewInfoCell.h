@@ -9,8 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface ProductViewInfoCell : UITableViewCell
-{
-    __weak IBOutlet UILabel *lblTitle;
-    __weak IBOutlet UILabel *lblDetails;
-}
+@property(nonatomic)__weak IBOutlet UILabel *lblTitle;
+@property(nonatomic)__weak IBOutlet UILabel *lblDetails;
 @end

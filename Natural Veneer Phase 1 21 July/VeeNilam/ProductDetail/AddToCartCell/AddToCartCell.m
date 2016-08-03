@@ -20,6 +20,11 @@
 
     // Configure the view for the selected state
 }
+- (void)setLayoutWithData:(NSDictionary *)dataDict
+{
+    lblQty.text = [dataDict valueForKey:kWS_grouplist_Res_quantity];
+    lblSize.text = [dataDict valueForKey:kWS_grouplist_Res_size_name];
+}
 -(BOOL)textFieldShouldReturn:(UITextField *)textField
 {
     [textField resignFirstResponder];

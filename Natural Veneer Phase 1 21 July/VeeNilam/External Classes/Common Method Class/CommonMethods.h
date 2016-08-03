@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import "Reachability.h"
 @interface CommonMethods : NSObject
 + (BOOL)isDeviceDateFormatIs24;
 + (void)saveDataIntoPreference:(NSDictionary *)dataDict forKey:(NSString *)key;
@@ -28,4 +28,5 @@
 + (void)setRadiousAndBorderToTextField:(UITextField *)textField;
 +(UIImage*)imageWithIcon:(NSString*)identifier backgroundColor:(UIColor*)bgColor iconColor:(UIColor*)iconColor  fontSize:(int)fontSize;
 + (UIBarButtonItem *)getBarButtonItemWithImage:(NSString *)imageName;
++ (BOOL)connected;
 @end

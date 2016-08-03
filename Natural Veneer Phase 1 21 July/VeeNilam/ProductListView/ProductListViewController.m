@@ -22,7 +22,12 @@
     [collectionViewProductList registerNib:[UINib nibWithNibName:@"ProductListViewCell" bundle:nil] forCellWithReuseIdentifier:@"ProductListViewCell"];
     [[CPLoader sharedLoader]showLoader:self.view];
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [self callWsGetProductList];
+        if ([CommonMethods connected]) {
+            [self callWsGetProductListWithSearchTerm:nil];
+        }else{
+            [[CPLoader sharedLoader]hideSpinner];
+            [CommonMethods showAlertViewWithMessage:kNoInternetConnection_alert_Title];
+        }
     });
 }
 
@@ -40,7 +45,7 @@
 }
 
 #pragma mark WebService Calling
--(void)callWsGetProductList
+-(void)callWsGetProductListWithSearchTerm:(NSString *)strForSearch
 {
     NSMutableDictionary *paramDict =[NSMutableDictionary dictionary];
     [paramDict setObject:[CommonMethods getLoggedUserValueFromNSUserDefaultsWithKey:kWS_Login_Req_auth_token] forKey:kWS_grouplist_Req_auth_token];
@@ -49,6 +54,9 @@
     [paramDict setObject:[CommonMethods getLoggedUserValueFromNSUserDefaultsWithKey:kWS_Login_Res_user_id] forKey:kWS_grouplist_Req_type_id];
     [paramDict setObject:@"0" forKey:kWS_grouplist_Req_start_index];
     [paramDict setObject:@"20" forKey:kWS_grouplist_Req_page_size];
+    if (strForSearch.length > 0) {
+        [paramDict setObject:strForSearch forKey:kWS_grouplist_Req_search_term];
+    }
     [[WebServiceHandler sharedWebServiceHandler] callWebServiceWithParam:paramDict withCompletion:^(NSDictionary *result) {
         if ([[result valueForKey:@"success"]intValue] == 1){
             arraayData =[[NSMutableArray alloc]initWithArray:[result valueForKey:kData]];
@@ -90,6 +98,42 @@
             [self.navigationController pushViewController:prodDetailOBJ animated:YES];
     }
 
+}
+#pragma mark - Serach View Controller
+#pragma mark Content Filtering
+
+#pragma mark - search
+
+
+- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText{
+}
+
+- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar{
+    [self cancelSearching];
+    [[CPLoader sharedLoader]showLoader:self.view];
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self callWsGetProductListWithSearchTerm:nil];
+    });
+   
+    [collectionViewProductList reloadData];
+}
+- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar{
+    [[CPLoader sharedLoader]showLoader:self.view];
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self callWsGetProductListWithSearchTerm:searchBar.text];
+    });
+    [self.view endEditing:YES];
+}
+- (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar{
+    [searchBarProduct setShowsCancelButton:YES animated:YES];
+}
+- (void)searchBarTextDidEndEditing:(UISearchBar *)searchBar{
+    [searchBarProduct setShowsCancelButton:NO animated:YES];
+}
+-(void)cancelSearching{
+    
+    [searchBarProduct resignFirstResponder];
+    searchBarProduct.text  = @"";
 }
 - (void)gotoOrderForm
 {

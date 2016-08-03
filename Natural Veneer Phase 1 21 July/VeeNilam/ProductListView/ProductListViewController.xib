@@ -15,6 +15,8 @@
                 <outlet property="btnSearch" destination="udX-VZ-L0a" id="Agu-LN-FwN"/>
                 <outlet property="collectionViewProductList" destination="qD4-PD-AWI" id="yU6-uq-bDf"/>
                 <outlet property="lblTitle" destination="5QU-C6-qDR" id="XCi-j0-can"/>
+                <outlet property="searchBarProduct" destination="cod-bo-Fcz" id="ywc-WN-FN3"/>
+                <outlet property="searchDisplayController" destination="pNS-MU-hzJ" id="0HV-E0-kxR"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
                 <outlet property="viewNavigation" destination="U1N-eH-h42" id="r25-Xj-OKV"/>
             </connections>
@@ -25,7 +27,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="qD4-PD-AWI">
-                    <rect key="frame" x="0.0" y="65" width="320" height="415"/>
+                    <rect key="frame" x="0.0" y="104" width="320" height="376"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="5" minimumInteritemSpacing="5" id="ve2-yt-Jf6">
                         <size key="itemSize" width="100" height="154"/>
@@ -82,10 +84,26 @@
                     </subviews>
                     <color key="backgroundColor" red="0.031453845059999999" green="0.65070762429999995" blue="0.1465957131" alpha="1" colorSpace="calibratedRGB"/>
                 </view>
+                <searchBar contentMode="redraw" fixedFrame="YES" placeholder="Search " translatesAutoresizingMaskIntoConstraints="NO" id="cod-bo-Fcz">
+                    <rect key="frame" x="0.0" y="60" width="320" height="44"/>
+                    <textInputTraits key="textInputTraits"/>
+                    <connections>
+                        <outlet property="delegate" destination="-1" id="AUE-em-wsP"/>
+                    </connections>
+                </searchBar>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <nil key="simulatedTopBarMetrics"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="111" y="291"/>
         </view>
+        <searchDisplayController id="pNS-MU-hzJ">
+            <connections>
+                <outlet property="delegate" destination="-1" id="bCj-LN-wwg"/>
+                <outlet property="searchContentsController" destination="-1" id="VgF-K6-udX"/>
+                <outlet property="searchResultsDataSource" destination="-1" id="onM-J5-e37"/>
+                <outlet property="searchResultsDelegate" destination="-1" id="6hE-cR-Huj"/>
+            </connections>
+        </searchDisplayController>
     </objects>
 </document>

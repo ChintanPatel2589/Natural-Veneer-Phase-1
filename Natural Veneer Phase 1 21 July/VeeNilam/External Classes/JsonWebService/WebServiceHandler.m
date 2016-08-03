@@ -23,19 +23,22 @@ static WebServiceHandler * sharedWebServiceHandler = nil;
 }
 - (void)callWebServiceWithParam :(NSDictionary *)paramDict withCompletion:(void (^)(NSDictionary *result))block
 {
-    NSError *error;
-    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:paramDict options:NSJSONWritingPrettyPrinted error:&error];
-    NSLog(@"\n %@  ====> \n %@",self.serviceName,[[NSString alloc]initWithData:jsonData encoding:NSUTF8StringEncoding]);
-    NSString *postLength = [NSString stringWithFormat:@"%lu", (unsigned long)[jsonData length]];
-    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:kServiceURL]];
-    [request setHTTPMethod:@"POST"];
-    [request addValue: @"application/json" forHTTPHeaderField:@"Content-Type"];
-    [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
-    [request setHTTPBody:jsonData];
-    NSURLResponse *result= nil;
-    NSData * data = [NSURLConnection sendSynchronousRequest:request returningResponse:&result  error:&error];
-    NSDictionary *parsedObject = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
-    block(parsedObject);
+    
+        NSError *error;
+        NSData *jsonData = [NSJSONSerialization dataWithJSONObject:paramDict options:NSJSONWritingPrettyPrinted error:&error];
+        NSLog(@"\n %@  ====> \n %@",self.serviceName,[[NSString alloc]initWithData:jsonData encoding:NSUTF8StringEncoding]);
+        NSString *postLength = [NSString stringWithFormat:@"%lu", (unsigned long)[jsonData length]];
+        NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:kServiceURL]];
+        [request setHTTPMethod:@"POST"];
+        [request addValue: @"application/json" forHTTPHeaderField:@"Content-Type"];
+        [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
+        [request setHTTPBody:jsonData];
+        NSURLResponse *result= nil;
+        NSData * data = [NSURLConnection sendSynchronousRequest:request returningResponse:&result  error:&error];
+        NSDictionary *parsedObject = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
+        block(parsedObject);
+  
+    
 }
 
 //

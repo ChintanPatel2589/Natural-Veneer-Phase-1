@@ -12,8 +12,9 @@
 {
     __weak IBOutlet UIButton *btnCloseProductInfoView;
     __weak IBOutlet UITableView *tblView;
-    NSMutableArray *arrayProductInfo;
-   
+    NSArray *arrayProductInfo;
+    //__weak IBOutlet UILabel *lblTitle;
+    //__weak IBOutlet UILabel *lblDetails;
 }
 @property(nonatomic,retain) NSDictionary *dataDict;
 @end
