@@ -36,6 +36,7 @@
     arraySizeAndQty = [NSArray arrayWithArray:[self.dataDict valueForKey:kWS_grouplist_Res_sizes_quantity]];
     [btnCloseAddtoCartView setImage:[CommonMethods imageWithIcon:@"fa-times-circle-o" backgroundColor:[UIColor clearColor] iconColor:[UIColor whiteColor] fontSize:30] forState:UIControlStateNormal];
     [self.view addSubview:viewAddToCart];
+    viewAddToCart.frame = self.view.frame;
     [txtViewDesc.layer setBorderWidth:1];
     [txtViewDesc.layer setBorderColor:[[UIColor grayColor] CGColor]];
 }
@@ -52,6 +53,7 @@
     prodInfoViewOBJ = [[ProductInfoViewController alloc]initWithNibName:@"ProductInfoViewController" bundle:nil];
     prodInfoViewOBJ.dataDict = self.dataDict;
     [self.view addSubview:prodInfoViewOBJ.view];
+    prodInfoViewOBJ.view.frame = self.view.frame;
 }
 - (IBAction)btnPlayTapped:(id)sender
 {
@@ -75,7 +77,7 @@
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 27;
+    return 30;
 }
 
 
@@ -89,8 +91,8 @@
     }
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     
-    if (arraySizeDetails.count>0) {
-        
+    if (arraySizeAndQty.count>0) {
+        [cell setLayoutWithData:[arraySizeAndQty objectAtIndex:indexPath.row]];
     }
     return cell;
 }

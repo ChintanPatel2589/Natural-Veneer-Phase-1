@@ -39,7 +39,7 @@
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 27;
+    return 35;
 }
 
 
@@ -51,6 +51,8 @@
         NSArray *nib = [[NSBundle mainBundle] loadNibNamed:identifier owner:self options:nil];
         cell = [nib objectAtIndex:0];
     }
+    cell.lblTitle.layer.sublayerTransform = CATransform3DMakeTranslation(5, 0, 0);
+    cell.lblDetails.layer.sublayerTransform = CATransform3DMakeTranslation(5, 0, 0);
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     [cell.layer setBorderColor:[[UIColor darkGrayColor] CGColor]];
     [cell.layer setBorderWidth:1];

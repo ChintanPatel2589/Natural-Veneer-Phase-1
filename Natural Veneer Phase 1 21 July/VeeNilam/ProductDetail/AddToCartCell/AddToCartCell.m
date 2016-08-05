@@ -22,7 +22,7 @@
 }
 - (void)setLayoutWithData:(NSDictionary *)dataDict
 {
-    lblQty.text = [dataDict valueForKey:kWS_grouplist_Res_quantity];
+    lblQty.text = [NSString stringWithFormat:@"%d",[[dataDict valueForKey:kWS_grouplist_Res_quantity] intValue]];
     lblSize.text = [dataDict valueForKey:kWS_grouplist_Res_size_name];
 }
 -(BOOL)textFieldShouldReturn:(UITextField *)textField

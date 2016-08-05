@@ -23,7 +23,7 @@
     IBOutlet UIView *viewAddToCart;
     __weak IBOutlet UITableView *tblView;
     __weak IBOutlet UITextView *txtViewDesc;
-    NSMutableArray *arraySizeDetails;
+    
     BOOL isKeyUp;
     ProductInfoViewController *prodInfoViewOBJ;
     NSArray *arraySizeAndQty;
