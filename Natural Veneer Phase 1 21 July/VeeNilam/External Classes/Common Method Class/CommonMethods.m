@@ -217,4 +217,32 @@
     NetworkStatus networkStatus = [reachability currentReachabilityStatus];
     return !(networkStatus == NotReachable);
 }
++ (BOOL)checkNumberOnly:(NSString *)txt
+{
+    BOOL valid;
+    NSCharacterSet *alphaNums = [NSCharacterSet decimalDigitCharacterSet];
+    NSCharacterSet *inStringSet = [NSCharacterSet characterSetWithCharactersInString:txt];
+    valid = [alphaNums isSupersetOfSet:inStringSet];
+    return valid;
+}
++ (NSMutableDictionary *)getDefaultValueDictWithActionName:(NSString *)actionName
+{
+    NSMutableDictionary *paramDict =[NSMutableDictionary dictionary];
+    [paramDict setObject:[CommonMethods getLoggedUserValueFromNSUserDefaultsWithKey:kWS_Login_Req_auth_token] forKey:kWS_grouplist_Req_auth_token];
+    [paramDict setObject:kWS_user_type forKey:kWS_grouplist_Req_user_type];
+    [paramDict setObject:[CommonMethods getLoggedUserValueFromNSUserDefaultsWithKey:kWS_Login_Res_user_id] forKey:kWS_grouplist_Req_type_id];
+    [paramDict setObject:actionName forKey:kAction];
+    return paramDict;
+}
+ + (NSString *)getJSONString:(NSDictionary *)dataDict
+{
+    NSError * err;
+    NSData * jsonData = [NSJSONSerialization dataWithJSONObject:dataDict options:0 error:&err];
+    return  [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+    
+}
++ (void)showSomeErrorOccuredAlert
+{
+    [CommonMethods showAlertViewWithMessage:@"Some error occured while placing your order. Please try after some time."];
+}
 @end

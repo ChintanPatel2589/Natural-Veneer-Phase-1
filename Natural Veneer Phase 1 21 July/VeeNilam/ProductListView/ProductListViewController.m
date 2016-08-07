@@ -62,7 +62,7 @@
             arraayData =[[NSMutableArray alloc]initWithArray:[result valueForKey:kData]];
             [collectionViewProductList reloadData];
         }else{
-            [CommonMethods showAlertViewWithMessage:[result valueForKey:@"error"]];
+            [CommonMethods showAlertViewWithMessage:[result valueForKey:@"error while getting products."]];
         }
         [[CPLoader sharedLoader]hideSpinner];
     }];

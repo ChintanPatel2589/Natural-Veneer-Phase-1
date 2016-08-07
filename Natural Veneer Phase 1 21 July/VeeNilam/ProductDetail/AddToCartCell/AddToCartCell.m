@@ -24,14 +24,23 @@
 {
     lblQty.text = [NSString stringWithFormat:@"%d",[[dataDict valueForKey:kWS_grouplist_Res_quantity] intValue]];
     lblSize.text = [dataDict valueForKey:kWS_grouplist_Res_size_name];
+    
 }
 -(BOOL)textFieldShouldReturn:(UITextField *)textField
 {
     [textField resignFirstResponder];
     return YES;
 }
-- (void)textFieldDidBeginEditing:(UITextField *)textField
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string{
+    
+    return [CommonMethods checkNumberOnly:string];
+}
+- (void)textFieldDidEndEditing:(UITextField *)textField
 {
-    [self.delegate textFieldEditingBegin:self withTextField:textField];
+    if ([textField.text intValue] >0) {
+        [self.delegate textFieldEditingBegin:self withTextField:textField];
+    }
+
+    
 }
 @end

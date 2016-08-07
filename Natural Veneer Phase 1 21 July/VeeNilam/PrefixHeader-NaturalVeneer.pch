@@ -50,9 +50,10 @@
 #define kNoInternetConnection_alert_Title @"No Internet Connection"
 #define kNoInternetConnection_alert_Msg @"Please check your Internet Connection."
 #define kLoading @"Loading..."
-
+#define kErrorAlertMsg @"Some error occured Please try after some time."
 #define DatabaseName @"DS.sqlite"
 
+#define kAction @"action"
 #define kData @"data"
 //Logged User Details Keys
 #pragma mark - User Details Keys
@@ -123,6 +124,27 @@
 #define kWS_grouplist_Res_quantity @"quantity"
 #define kWS_grouplist_Res_size_name @"size_name"
 #define kWS_grouplist_Res_series_name @"series_name"
+
+//5 add to cart
+#define kWS_addtocart @"addtocart"
+#define kWS_addtocart_req_auth_token @"auth_token"
+#define kWS_addtocart_req_action @"action"
+#define kWS_addtocart_req_user_type @"user_type"
+#define kWS_addtocart_req_type_id @"type_id"
+#define kWS_addtocart_req_product_group_id @"product_group_id"
+#define kWS_addtocart_req_product_id @"product_id"
+#define kWS_addtocart_req_group_id @"group_id"
+#define kWS_addtocart_req_required_quantity @"required_quantity"
+
+//6 Cart List
+#define  kWS_cartlist @"cartlist"
+#define kWS_cartlist_Res_category_name @"category_name"
+
+//7 removecartitem
+#define  kWS_removecartitem @"removecartitem"
+#define  kWS_removecartitem_req_inquiry_id @"inquiry_id"
+
+
 
 
 

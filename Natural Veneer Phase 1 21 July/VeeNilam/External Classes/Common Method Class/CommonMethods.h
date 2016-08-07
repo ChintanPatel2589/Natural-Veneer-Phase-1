@@ -29,4 +29,8 @@
 +(UIImage*)imageWithIcon:(NSString*)identifier backgroundColor:(UIColor*)bgColor iconColor:(UIColor*)iconColor  fontSize:(int)fontSize;
 + (UIBarButtonItem *)getBarButtonItemWithImage:(NSString *)imageName;
 + (BOOL)connected;
++ (BOOL)checkNumberOnly:(NSString *)txt;
++ (NSMutableDictionary *)getDefaultValueDictWithActionName:(NSString *)actionName;
++ (NSString *)getJSONString:(NSDictionary *)dataDict;
++ (void)showSomeErrorOccuredAlert;
 @end

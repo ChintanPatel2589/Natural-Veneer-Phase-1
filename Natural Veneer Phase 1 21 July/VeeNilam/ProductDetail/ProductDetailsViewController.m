@@ -33,7 +33,7 @@
 #pragma mark - IBActions
 - (IBAction)btnAddtoCartTapped:(id)sender
 {
-    arraySizeAndQty = [NSArray arrayWithArray:[self.dataDict valueForKey:kWS_grouplist_Res_sizes_quantity]];
+    arraySizeAndQty = [NSMutableArray arrayWithArray:[self.dataDict valueForKey:kWS_grouplist_Res_sizes_quantity]];
     [btnCloseAddtoCartView setImage:[CommonMethods imageWithIcon:@"fa-times-circle-o" backgroundColor:[UIColor clearColor] iconColor:[UIColor whiteColor] fontSize:30] forState:UIControlStateNormal];
     [self.view addSubview:viewAddToCart];
     viewAddToCart.frame = self.view.frame;
@@ -42,7 +42,37 @@
 }
 - (IBAction)btnAddToCartSubmitTapped:(id)sender
 {
-    
+    if ([CommonMethods connected]) {
+        [[CPLoader sharedLoader]showLoader:self.view];
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [self submitAddToCart];
+        });
+    }else{
+        [CommonMethods showAlertViewWithMessage:kNoInternetConnection_alert_Msg];
+    }
+}
+- (void)submitAddToCart
+{
+    NSMutableDictionary *tmpOrderArray = [NSMutableDictionary dictionary];
+    for (NSDictionary *tmpDict in arraySizeAndQty) {
+        [tmpOrderArray setObject:[tmpDict valueForKey:kWS_addtocart_req_required_quantity] forKey:[tmpDict valueForKey:kWS_grouplist_Res_product_size_id]];
+    }
+    NSMutableDictionary *paramDict =[[NSMutableDictionary alloc]initWithDictionary:[CommonMethods getDefaultValueDictWithActionName:kWS_addtocart]];
+    [paramDict setObject:[self.dataDict valueForKey:kWS_grouplist_Res_group_id] forKey:kWS_addtocart_req_product_group_id];
+    [paramDict setObject:[self.dataDict valueForKey:kWS_grouplist_Res_product_id] forKey:kWS_addtocart_req_product_id];
+    [paramDict setObject:[self.dataDict valueForKey:kWS_grouplist_Res_group_id] forKey:kWS_addtocart_req_group_id];
+    [paramDict setObject:[CommonMethods getJSONString:tmpOrderArray] forKey:kWS_addtocart_req_required_quantity];
+    [paramDict setObject:kWS_addtocart forKey:kAction];
+    [[WebServiceHandler sharedWebServiceHandler] callWebServiceWithParam:paramDict withCompletion:^(NSDictionary *result) {
+        [[CPLoader sharedLoader] hideSpinner];
+        if ([[result valueForKey:@"success"]intValue] == 1){
+            [self btnCloseAddToCartTapped:nil];
+            [CommonMethods showAlertViewWithMessage:@"Your order placed successfully. Thanks for order."];
+        }else{
+            [CommonMethods showAlertViewWithMessage:@"Some error occured while placing your order. Please try after some time."];
+        }
+        
+    }];
 }
 - (IBAction)btnCloseAddToCartTapped:(id)sender
 {
@@ -88,18 +118,34 @@
     if(cell == nil){
         NSArray *nib = [[NSBundle mainBundle] loadNibNamed:identifier owner:self options:nil];
         cell = [nib objectAtIndex:0];
+        cell.delegate = self;
     }
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     
     if (arraySizeAndQty.count>0) {
         [cell setLayoutWithData:[arraySizeAndQty objectAtIndex:indexPath.row]];
+        cell.txtRequiredQuantity.tag = indexPath.row;
     }
     return cell;
 }
 #pragma mark - TableView Delegate
 - (void)textFieldEditingBegin:(id)cell withTextField:(UITextField *)textField
 {
+    int availabelQty = [[[arraySizeAndQty objectAtIndex:textField.tag] valueForKey:kWS_grouplist_Res_quantity] intValue];
+    if (availabelQty >= [textField.text intValue]) {
+        [self replaceObjextAtIndex:textField.tag dict:textField.text];
+    }else{
+        textField.text = [NSString stringWithFormat:@"%d",availabelQty];
+        [textField becomeFirstResponder];
+        [CommonMethods showAlertViewWithMessage:[NSString stringWithFormat:@"Only %d availabel. you can't order more then this.",availabelQty]];
+    }
     
+}
+- (void)replaceObjextAtIndex:(NSInteger)index dict:(NSString *)reqQty
+{
+    NSMutableDictionary *tmpDict = [[arraySizeAndQty objectAtIndex:index] mutableCopy];
+    [tmpDict setObject:reqQty forKey:kWS_addtocart_req_required_quantity];
+    [arraySizeAndQty replaceObjectAtIndex:index withObject:tmpDict];
 }
 #pragma textView Delegate
 -(void)textViewDidBeginEditing:(UITextView *)textView

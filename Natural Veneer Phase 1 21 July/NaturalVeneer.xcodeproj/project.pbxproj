@@ -676,7 +676,7 @@
 				TargetAttributes = {
 					B0427E7C1CE99D80007A1D10 = {
 						CreatedOnToolsVersion = 7.3;
-						DevelopmentTeam = ZSEQU3SBA9;
+						DevelopmentTeam = QA8FQA7376;
 					};
 				};
 			};
@@ -897,7 +897,7 @@
 				INFOPLIST_FILE = VeeNilam/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.chintan.test;
+				PRODUCT_BUNDLE_IDENTIFIER = com.naturalVeneer.TestAppChintan;
 				PRODUCT_NAME = NaturalVeneer;
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
@@ -914,7 +914,7 @@
 				INFOPLIST_FILE = VeeNilam/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.chintan.test;
+				PRODUCT_BUNDLE_IDENTIFIER = com.naturalVeneer.TestAppChintan;
 				PRODUCT_NAME = NaturalVeneer;
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;

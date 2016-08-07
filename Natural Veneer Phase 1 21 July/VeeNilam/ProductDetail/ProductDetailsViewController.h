@@ -26,7 +26,7 @@
     
     BOOL isKeyUp;
     ProductInfoViewController *prodInfoViewOBJ;
-    NSArray *arraySizeAndQty;
+    NSMutableArray *arraySizeAndQty;
 }
 @property(nonatomic,retain)NSDictionary *dataDict;
 @end

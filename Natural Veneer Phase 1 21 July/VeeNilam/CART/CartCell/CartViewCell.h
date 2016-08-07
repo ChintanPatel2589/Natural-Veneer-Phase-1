@@ -26,5 +26,5 @@
 @property(nonatomic,weak) IBOutlet UIImageView *imgViewProduct;
 @property(nonatomic,weak) IBOutlet UIView *viewBorder;
 
-
+- (void)setLayoutWithDict:(NSDictionary *)tmpDataDict;
 @end
