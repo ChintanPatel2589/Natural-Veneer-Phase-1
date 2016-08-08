@@ -17,6 +17,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.navigationController.navigationBarHidden = true;
     lblTitle.text = @"NATURAL";
     //[self setMenuIcon];
     [collectionViewProductList registerNib:[UINib nibWithNibName:@"ProductListViewCell" bundle:nil] forCellWithReuseIdentifier:@"ProductListViewCell"];
@@ -84,7 +85,7 @@
     ProductListViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"ProductListViewCell" forIndexPath:indexPath];
     if (arraayData.count > 0) {
         [cell setCellLayout:[arraayData objectAtIndex:indexPath.row]];
-        [cell.imgViewProuct sd_setImageWithURL:[NSURL URLWithString:[[arraayData objectAtIndex:indexPath.row] valueForKey:kWS_grouplist_Res_image] ]
+        [cell.imgViewProuct sd_setImageWithURL:[NSURL URLWithString:[[arraayData objectAtIndex:indexPath.row] valueForKey:kWS_grouplist_Res_image_big] ]
                           placeholderImage:nil];
     }
     return cell;

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -98,7 +98,7 @@
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                 </imageView>
                 <view contentMode="scaleToFill" id="GnE-0c-L8Y">
-                    <rect key="frame" x="8" y="318" width="304" height="93"/>
+                    <rect key="frame" x="8" y="318" width="304" height="146"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                     <subviews>
                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" placeholder="Enter Email ID" textAlignment="natural" minimumFontSize="17" id="YG6-fq-TcA">
@@ -122,6 +122,16 @@
                             </state>
                             <connections>
                                 <action selector="btnResetPassPressed:" destination="-1" eventType="touchUpInside" id="l04-Ps-5ST"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="DAT-Zx-LzD">
+                            <rect key="frame" x="65" y="121" width="173" height="30"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <state key="normal" title="Back To Login">
+                                <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="backToLogin:" destination="-1" eventType="touchUpInside" id="R42-1W-jvG"/>
                             </connections>
                         </button>
                     </subviews>

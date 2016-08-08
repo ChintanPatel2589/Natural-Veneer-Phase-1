@@ -82,6 +82,7 @@
 		B95BCDE71D3F347800EEE569 /* ImageCacheObject.m in Sources */ = {isa = PBXBuildFile; fileRef = B95BCDE41D3F347800EEE569 /* ImageCacheObject.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		B95BCDEC1D3F349400EEE569 /* ImagesLocalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B95BCDE91D3F349400EEE569 /* ImagesLocalViewController.m */; };
 		B95BCDED1D3F349400EEE569 /* TKScroller.m in Sources */ = {isa = PBXBuildFile; fileRef = B95BCDEB1D3F349400EEE569 /* TKScroller.m */; };
+		B971C24B1D58F41B002CED60 /* ImagesLocalViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B971C24A1D58F41B002CED60 /* ImagesLocalViewController.xib */; };
 		B9909F641D429FAD00FD923D /* UISegmentedControl+Multiline.m in Sources */ = {isa = PBXBuildFile; fileRef = B9909F581D429FAD00FD923D /* UISegmentedControl+Multiline.m */; };
 		B9909F651D429FAD00FD923D /* OrderHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = B9909F5B1D429FAD00FD923D /* OrderHeaderView.m */; };
 		B9909F661D429FAD00FD923D /* OrderHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9909F5C1D429FAD00FD923D /* OrderHeaderView.xib */; };
@@ -222,6 +223,7 @@
 		B95BCDE91D3F349400EEE569 /* ImagesLocalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImagesLocalViewController.m; sourceTree = "<group>"; };
 		B95BCDEA1D3F349400EEE569 /* TKScroller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKScroller.h; sourceTree = "<group>"; };
 		B95BCDEB1D3F349400EEE569 /* TKScroller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKScroller.m; sourceTree = "<group>"; };
+		B971C24A1D58F41B002CED60 /* ImagesLocalViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ImagesLocalViewController.xib; sourceTree = "<group>"; };
 		B9909F571D429FAD00FD923D /* UISegmentedControl+Multiline.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UISegmentedControl+Multiline.h"; sourceTree = "<group>"; };
 		B9909F581D429FAD00FD923D /* UISegmentedControl+Multiline.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UISegmentedControl+Multiline.m"; sourceTree = "<group>"; };
 		B9909F5A1D429FAD00FD923D /* OrderHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderHeaderView.h; sourceTree = "<group>"; };
@@ -579,6 +581,7 @@
 			children = (
 				B95BCDE81D3F349400EEE569 /* ImagesLocalViewController.h */,
 				B95BCDE91D3F349400EEE569 /* ImagesLocalViewController.m */,
+				B971C24A1D58F41B002CED60 /* ImagesLocalViewController.xib */,
 				B95BCDEA1D3F349400EEE569 /* TKScroller.h */,
 				B95BCDEB1D3F349400EEE569 /* TKScroller.m */,
 				B95BCDDF1D3F347800EEE569 /* AsyncImageView.h */,
@@ -703,6 +706,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B971C24B1D58F41B002CED60 /* ImagesLocalViewController.xib in Resources */,
 				B92E44521D38C8B600A6CE34 /* Default@2x~iphone.png in Resources */,
 				B9909F6F1D429FEB00FD923D /* OrderFormViewController.xib in Resources */,
 				B9909F681D429FAD00FD923D /* OrderViewCell.xib in Resources */,

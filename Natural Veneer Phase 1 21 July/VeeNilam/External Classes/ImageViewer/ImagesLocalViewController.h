@@ -12,8 +12,10 @@
 
 @interface ImagesLocalViewController : UIViewController
 {
-    
+    __weak IBOutlet UIButton *btnBack;
+    __weak IBOutlet UILabel *lblViewTitle;
 }
-@property(nonatomic,retain)TKScroller *scroller;
+@property(nonatomic,retain) TKScroller *scroller;
 @property(nonatomic,retain)NSMutableArray *imageArray;
+@property (nonatomic,retain)NSString *viewTitle;
 @end

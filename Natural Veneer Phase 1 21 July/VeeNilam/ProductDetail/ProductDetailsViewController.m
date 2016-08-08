@@ -22,11 +22,13 @@
 }
 -(void)setDefaultData
 {
-    [imgViewProduct sd_setImageWithURL:[NSURL URLWithString:[self.dataDict valueForKey:kWS_grouplist_Res_image]]
+    [imgViewProduct sd_setImageWithURL:[NSURL URLWithString:[self.dataDict valueForKey:kWS_grouplist_Res_image_big]]
                  placeholderImage:nil
                           options:SDWebImageRefreshCached];
     lblProductName.text = [self.dataDict valueForKey:kWS_grouplist_Res_product_name];
     lblProductDesc.text = [self.dataDict valueForKey:kWS_grouplist_Res_group_name];
+    [btnBack setImage:[CommonMethods imageWithIcon:@"fa-chevron-left" backgroundColor:[UIColor clearColor] iconColor:[UIColor whiteColor] fontSize:20] forState:UIControlStateNormal];
+    
     [btnZoom setImage:[CommonMethods imageWithIcon:@"fa-search-plus" backgroundColor:[UIColor clearColor] iconColor:[UIColor whiteColor] fontSize:40] forState:UIControlStateNormal];
 }
 
@@ -51,17 +53,23 @@
         [CommonMethods showAlertViewWithMessage:kNoInternetConnection_alert_Msg];
     }
 }
+- (IBAction)btnBackTapped:(id)sender
+{
+    [self.navigationController popViewControllerAnimated:YES];
+}
 - (void)submitAddToCart
 {
-    NSMutableDictionary *tmpOrderArray = [NSMutableDictionary dictionary];
+    NSMutableArray *tmpArray = [NSMutableArray array];
     for (NSDictionary *tmpDict in arraySizeAndQty) {
+        NSMutableDictionary *tmpOrderArray = [NSMutableDictionary dictionary];
         [tmpOrderArray setObject:[tmpDict valueForKey:kWS_addtocart_req_required_quantity] forKey:[tmpDict valueForKey:kWS_grouplist_Res_product_size_id]];
+        [tmpArray addObject:tmpOrderArray];
     }
     NSMutableDictionary *paramDict =[[NSMutableDictionary alloc]initWithDictionary:[CommonMethods getDefaultValueDictWithActionName:kWS_addtocart]];
     [paramDict setObject:[self.dataDict valueForKey:kWS_grouplist_Res_group_id] forKey:kWS_addtocart_req_product_group_id];
     [paramDict setObject:[self.dataDict valueForKey:kWS_grouplist_Res_product_id] forKey:kWS_addtocart_req_product_id];
     [paramDict setObject:[self.dataDict valueForKey:kWS_grouplist_Res_group_id] forKey:kWS_addtocart_req_group_id];
-    [paramDict setObject:[CommonMethods getJSONString:tmpOrderArray] forKey:kWS_addtocart_req_required_quantity];
+    [paramDict setObject:[CommonMethods getJSONString:tmpArray] forKey:kWS_addtocart_req_required_quantity];
     [paramDict setObject:kWS_addtocart forKey:kAction];
     [[WebServiceHandler sharedWebServiceHandler] callWebServiceWithParam:paramDict withCompletion:^(NSDictionary *result) {
         [[CPLoader sharedLoader] hideSpinner];
@@ -71,7 +79,6 @@
         }else{
             [CommonMethods showAlertViewWithMessage:@"Some error occured while placing your order. Please try after some time."];
         }
-        
     }];
 }
 - (IBAction)btnCloseAddToCartTapped:(id)sender
@@ -94,6 +101,7 @@
     ImagesLocalViewController *localImage = [[ImagesLocalViewController alloc]init];
     localImage.imageArray = [[NSMutableArray alloc ]initWithObjects:imgViewProduct.image,nil];
     localImage.title = @"PHOTO GALLERY";
+    localImage.viewTitle = lblProductName.text;
     [self.navigationController pushViewController:localImage animated:YES];
 }
 - (void)didReceiveMemoryWarning {

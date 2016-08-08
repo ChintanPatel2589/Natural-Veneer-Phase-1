@@ -67,6 +67,11 @@
     [self fadeInAnimationForView:viewResetPass];
     viewResetPass.frame = self.view.frame;
 }
+- (IBAction)backToLogin:(id)sender
+{
+    [self fadeOutAnimationForView:viewResetPass];
+    
+}
 - (IBAction)btnSubmitOTPPressed:(id)sender
 {
     if (![CommonMethods isValidStr:txtOTP.text]) {

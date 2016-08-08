@@ -124,6 +124,7 @@
 #define kWS_grouplist_Res_quantity @"quantity"
 #define kWS_grouplist_Res_size_name @"size_name"
 #define kWS_grouplist_Res_series_name @"series_name"
+#define kWS_grouplist_Res_image_big @"image_big"
 
 //5 add to cart
 #define kWS_addtocart @"addtocart"

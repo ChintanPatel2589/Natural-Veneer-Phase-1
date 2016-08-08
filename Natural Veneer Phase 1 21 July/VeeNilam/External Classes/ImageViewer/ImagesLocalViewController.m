@@ -26,17 +26,17 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [btnBack setImage:[CommonMethods imageWithIcon:@"fa-chevron-left" backgroundColor:[UIColor clearColor] iconColor:[UIColor whiteColor] fontSize:20] forState:UIControlStateNormal];
+    lblViewTitle.text = _viewTitle;
 }
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    //self.navigationController.navigationBarHidden = false;
+}
+- (void)viewDidAppear:(BOOL)animated
+{
     self.title = @"PHOTO GALLERY";
-    // Do any additional setup after loading the view.
-    scroller=[[TKScroller alloc]initWithFrame:self.view.frame array:self.imageArray mode:kScrollModeImageLocal];
-    
-    // scroller.translatesAutoresizingMaskIntoConstraints=NO;
-    
+    scroller=[[TKScroller alloc]initWithFrame:self.view.bounds array:self.imageArray mode:kScrollModeImageLocal];
     scroller.translatesAutoresizingMaskIntoConstraints=NO;
     scroller.backgroundColor=[UIColor clearColor];
     [self.view addSubview:scroller];
@@ -44,16 +44,18 @@
     NSDictionary *viewsDictionary = NSDictionaryOfVariableBindings(scroller);
     NSArray *constraints = [NSLayoutConstraint constraintsWithVisualFormat:@"H:|-1-[scroller]-1-|" options:0 metrics:nil views:viewsDictionary];
     [self.view addConstraints:constraints];
-    constraints = [NSLayoutConstraint constraintsWithVisualFormat:@"V:|-1-[scroller]-|"
+    constraints = [NSLayoutConstraint constraintsWithVisualFormat:@"V:|-60-[scroller]-10-|"
                                                           options: NSLayoutFormatAlignAllRight
                                                           metrics:nil
                                                             views:viewsDictionary];
     [self.view addConstraints:constraints];
     [self.view layoutIfNeeded];
+    [scroller updateFrame];
 }
--(void)viewDidDisappear:(BOOL)animated
+
+- (IBAction)btnBackTapped:(id)sender
 {
-    self.navigationController.navigationBarHidden = true;
+    [self.navigationController popViewControllerAnimated:YES];
 }
 - (void)didReceiveMemoryWarning
 {

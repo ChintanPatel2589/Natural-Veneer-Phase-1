@@ -31,6 +31,6 @@
 + (BOOL)connected;
 + (BOOL)checkNumberOnly:(NSString *)txt;
 + (NSMutableDictionary *)getDefaultValueDictWithActionName:(NSString *)actionName;
-+ (NSString *)getJSONString:(NSDictionary *)dataDict;
++ (NSString *)getJSONString:(NSMutableArray *)dataDict;
 + (void)showSomeErrorOccuredAlert;
 @end

@@ -234,7 +234,7 @@
     [paramDict setObject:actionName forKey:kAction];
     return paramDict;
 }
- + (NSString *)getJSONString:(NSDictionary *)dataDict
+ + (NSString *)getJSONString:(NSMutableArray *)dataDict
 {
     NSError * err;
     NSData * jsonData = [NSJSONSerialization dataWithJSONObject:dataDict options:0 error:&err];

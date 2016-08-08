@@ -20,7 +20,7 @@
     [self setMenuIcon];
     
     if ([CommonMethods connected]) {
-        [[CPLoader sharedLoader]showLoader:self.view];
+        //[[CPLoader sharedLoader]showLoader:self.view];
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
             [self getCartList];
         });
@@ -58,10 +58,10 @@
 - (void)btnRemoveFromCartTapped:(NSInteger)tappedIndex{
     if ([CommonMethods connected]) {
         [[CPLoader sharedLoader]showLoader:self.view];
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        //dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
             [self removeItemFromCartAtIndex:tappedIndex];
             
-        });
+        //});
     }else{
         [CommonMethods showAlertViewWithMessage:kErrorAlertMsg];
     }
@@ -70,9 +70,9 @@
 {
     NSMutableDictionary *paramDict = [CommonMethods getDefaultValueDictWithActionName:kWS_removecartitem];
     [paramDict setObject:[[arrayCartList objectAtIndex:tappedIndex] valueForKey:kWS_removecartitem_req_inquiry_id]  forKey:kWS_removecartitem_req_inquiry_id];
-    [[CPLoader sharedLoader]showLoader:self.view];
+    
     [[WebServiceHandler sharedWebServiceHandler]callWebServiceWithParam:paramDict withCompletion:^(NSDictionary *result) {
-        [self performSelectorOnMainThread:@selector(hideSpinner) withObject:nil waitUntilDone:YES];
+  
         if ([[result valueForKey:@"success"]intValue] == 1){
             [arrayCartList removeObjectAtIndex:tappedIndex];
             [tblViewCartList reloadData];

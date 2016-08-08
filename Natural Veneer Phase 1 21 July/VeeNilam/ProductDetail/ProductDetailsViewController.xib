@@ -7,9 +7,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ProductDetailsViewController">
             <connections>
+                <outlet property="btnBack" destination="TrJ-sR-6vS" id="cW2-Ty-1M9"/>
                 <outlet property="btnCloseAddtoCartView" destination="ZDB-y9-fG3" id="fro-HF-5LV"/>
                 <outlet property="btnInfo" destination="70R-gX-HfI" id="oda-Nm-F7A"/>
-                <outlet property="btnMenu" destination="TrJ-sR-6vS" id="Pjx-gu-p6c"/>
                 <outlet property="btnPlay" destination="fha-eg-xoC" id="XdS-l7-TUq"/>
                 <outlet property="btnZoom" destination="OfZ-vG-z6C" id="1Jo-oh-YLx"/>
                 <outlet property="imgViewProduct" destination="pMK-f7-hhA" id="DOu-n9-CxB"/>
@@ -32,7 +32,7 @@
                     <rect key="frame" x="5" y="65" width="181" height="21"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
@@ -40,7 +40,7 @@
                     <rect key="frame" x="5" y="86" width="181" height="16"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
@@ -112,9 +112,12 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="TrJ-sR-6vS">
-                            <rect key="frame" x="5" y="24" width="30" height="30"/>
+                            <rect key="frame" x="5" y="23" width="30" height="30"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="btnBackTapped:" destination="-1" eventType="touchUpInside" id="AC2-jF-RsW"/>
+                            </connections>
                         </button>
                     </subviews>
                     <color key="backgroundColor" red="0.031453845059999999" green="0.65070762429999995" blue="0.1465957131" alpha="1" colorSpace="calibratedRGB"/>
@@ -123,7 +126,7 @@
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <nil key="simulatedTopBarMetrics"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="308" y="343"/>
+            <point key="canvasLocation" x="508" y="254"/>
         </view>
         <view contentMode="scaleToFill" id="R9q-Nh-K4C">
             <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
@@ -209,7 +212,7 @@
             </subviews>
             <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.80000000000000004" colorSpace="calibratedRGB"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="611" y="244"/>
+            <point key="canvasLocation" x="779" y="254"/>
         </view>
     </objects>
     <resources>
