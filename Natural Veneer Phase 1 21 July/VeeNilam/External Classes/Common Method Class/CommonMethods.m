@@ -245,4 +245,5 @@
 {
     [CommonMethods showAlertViewWithMessage:@"Some error occured while placing your order. Please try after some time."];
 }
+
 @end

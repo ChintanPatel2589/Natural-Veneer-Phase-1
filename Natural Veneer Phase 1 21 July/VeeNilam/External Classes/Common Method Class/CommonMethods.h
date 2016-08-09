@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "Reachability.h"
+#import "MBProgressHUD.h"
 @interface CommonMethods : NSObject
 + (BOOL)isDeviceDateFormatIs24;
 + (void)saveDataIntoPreference:(NSDictionary *)dataDict forKey:(NSString *)key;

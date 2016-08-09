@@ -26,6 +26,7 @@
     [btnClone setImage:[CommonMethods imageWithIcon:@"fa-clone" backgroundColor:[UIColor clearColor] iconColor:[UIColor whiteColor] fontSize:20] forState:UIControlStateNormal];
     [btnForm setImage:[CommonMethods imageWithIcon:@"fa-building-o" backgroundColor:[UIColor clearColor] iconColor:[UIColor whiteColor] fontSize:20] forState:UIControlStateNormal];
     [btnAlert setImage:[CommonMethods imageWithIcon:@"fa-bell-o" backgroundColor:[UIColor clearColor] iconColor:[UIColor whiteColor] fontSize:20] forState:UIControlStateNormal];
+    [btnBack setImage:[CommonMethods imageWithIcon:@"fa-chevron-left" backgroundColor:[UIColor clearColor] iconColor:[UIColor whiteColor] fontSize:20] forState:UIControlStateNormal];
 
     // Do any additional setup after loading the view from its nib.
 }
@@ -43,6 +44,11 @@
             [self gotoOrderForm];
         }
             break;
+        case 5:
+        {
+            [self gotoCartPage];
+        }
+            break;
             
         default:
             break;
@@ -53,6 +59,16 @@
     OrderFormViewController *orderOBJ = [[OrderFormViewController alloc] initWithNibName:@"OrderFormViewController" bundle:nil];
     [self.navigationController pushViewController:orderOBJ animated:YES];
 }
+- (void)gotoCartPage
+{
+    CartViewController *cartOBJ = [[CartViewController alloc]initWithNibName:@"CartViewController" bundle:nil];
+    [self.navigationController pushViewController:cartOBJ animated:YES];
+}
+- (IBAction)btnBackTapped:(id)sender
+{
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

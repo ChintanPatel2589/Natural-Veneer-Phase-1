@@ -19,17 +19,15 @@
     [super viewDidLoad];
     self.navigationController.navigationBarHidden = true;
     lblTitle.text = @"NATURAL";
-    //[self setMenuIcon];
     [collectionViewProductList registerNib:[UINib nibWithNibName:@"ProductListViewCell" bundle:nil] forCellWithReuseIdentifier:@"ProductListViewCell"];
-    [[CPLoader sharedLoader]showLoader:self.view];
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        if ([CommonMethods connected]) {
-            [self callWsGetProductListWithSearchTerm:nil];
-        }else{
-            [[CPLoader sharedLoader]hideSpinner];
-            [CommonMethods showAlertViewWithMessage:kNoInternetConnection_alert_Title];
-        }
-    });
+    if ([CommonMethods connected]) {
+        [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+        [self callWsGetProductListWithSearchTerm:nil];
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
+        
+    }else{
+        [CommonMethods showAlertViewWithMessage:kNoInternetConnection_alert_Title];
+    }
 }
 
 -(void)search

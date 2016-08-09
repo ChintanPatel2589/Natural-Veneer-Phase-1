@@ -19,7 +19,7 @@
     __weak IBOutlet UIButton *btnNextArrow;
     __weak IBOutlet UIButton *btnMenu;
     __weak IBOutlet UIView *viewNavigation;
-   // __weak IBOutlet UIButton *btnBack;
+    __weak IBOutlet UIButton *btnBack;
     
 }
 @end

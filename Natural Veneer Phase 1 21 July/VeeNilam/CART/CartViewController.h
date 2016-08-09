@@ -8,10 +8,14 @@
 
 #import <UIKit/UIKit.h>
 #import "CartCell/CartViewCell.h"
-@interface CartViewController : UIViewController<CartViewCellDelegate,UITableViewDataSource,UITableViewDelegate>
+#import "BaseViewController.h"
+@interface CartViewController : BaseViewController<CartViewCellDelegate,UITableViewDataSource,UITableViewDelegate>
 {
     NSMutableArray *arrayCartList;
     __weak IBOutlet UITableView *tblViewCartList;
+    __weak IBOutlet UIButton *btnContinueShopping;
+    __weak IBOutlet UIButton *btnGenerateOrderForm;
+    
 }
 
 @end

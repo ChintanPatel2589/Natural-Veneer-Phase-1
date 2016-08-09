@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		36517E241D59B20000478184 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 36517E231D59B20000478184 /* MBProgressHUD.m */; };
 		36D2F9301D4863C90093ABD4 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 36D2F92E1D4863C90093ABD4 /* BaseViewController.m */; };
 		36ED2DCB1D49B5BD008FD862 /* AddToCartCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 36ED2DC91D49B5BD008FD862 /* AddToCartCell.m */; };
 		36ED2DCC1D49B5BD008FD862 /* AddToCartCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36ED2DCA1D49B5BD008FD862 /* AddToCartCell.xib */; };
@@ -95,6 +96,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		36517E221D59B20000478184 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
+		36517E231D59B20000478184 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		36D2F92D1D4863C90093ABD4 /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
 		36D2F92E1D4863C90093ABD4 /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
 		36ED2DC81D49B5BD008FD862 /* AddToCartCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddToCartCell.h; sourceTree = "<group>"; };
@@ -251,6 +254,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		36517E211D59B20000478184 /* MBProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				36517E221D59B20000478184 /* MBProgressHUD.h */,
+				36517E231D59B20000478184 /* MBProgressHUD.m */,
+			);
+			path = MBProgressHUD;
+			sourceTree = "<group>";
+		};
 		36D2F92C1D4863AD0093ABD4 /* BaseViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -363,6 +375,7 @@
 		B92E43B71D38C8B600A6CE34 /* External Classes */ = {
 			isa = PBXGroup;
 			children = (
+				36517E211D59B20000478184 /* MBProgressHUD */,
 				B95BCDDE1D3F346E00EEE569 /* ImageViewer */,
 				B92E43B81D38C8B600A6CE34 /* AlertView */,
 				B92E43C31D38C8B600A6CE34 /* Common Method Class */,
@@ -801,6 +814,7 @@
 				B92E443C1D38C8B600A6CE34 /* SDWebImageManager.m in Sources */,
 				B92E44341D38C8B600A6CE34 /* Reachability.m in Sources */,
 				B92E44281D38C8B600A6CE34 /* CPLoader.m in Sources */,
+				36517E241D59B20000478184 /* MBProgressHUD.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

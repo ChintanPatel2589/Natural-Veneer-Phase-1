@@ -16,16 +16,14 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = @"CART";
-    [self setMenuIcon];
+    lblTitle.text = @"CART";
+    //[self setMenuIcon];
     
     if ([CommonMethods connected]) {
-        //[[CPLoader sharedLoader]showLoader:self.view];
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            [self getCartList];
-        });
+        [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+        [self getCartList];
+       [MBProgressHUD hideHUDForView:self.view animated:YES];
     }else{
-        [[CPLoader sharedLoader]hideSpinner];
         [CommonMethods showAlertViewWithMessage:kNoInternetConnection_alert_Title];
     }
     
@@ -35,9 +33,16 @@
 {
     [[WebServiceHandler sharedWebServiceHandler] callWebServiceWithParam:[CommonMethods getDefaultValueDictWithActionName:kWS_cartlist] withCompletion:^(NSDictionary *result) {
         if ([[result valueForKey:@"success"]intValue] == 1){
-            
             arrayCartList =[[NSMutableArray alloc]initWithArray:[result valueForKey:@"data"]];
-            [tblViewCartList reloadData];
+            
+            if (arrayCartList.count > 0) {
+                [tblViewCartList reloadData];
+                btnContinueShopping.enabled = true;
+                btnGenerateOrderForm.enabled = true;
+            }else{
+                btnContinueShopping.enabled = false;
+                btnGenerateOrderForm.enabled = false;
+            }
         }else{
             [CommonMethods showAlertViewWithMessage:kErrorAlertMsg];
         }
@@ -57,11 +62,9 @@
 #pragma mark - Cell Delegate
 - (void)btnRemoveFromCartTapped:(NSInteger)tappedIndex{
     if ([CommonMethods connected]) {
-        [[CPLoader sharedLoader]showLoader:self.view];
-        //dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            [self removeItemFromCartAtIndex:tappedIndex];
-            
-        //});
+        [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+        [self performSelector:@selector(removeItemFromCartAtIndex:) withObject:[NSNumber numberWithInteger:tappedIndex] afterDelay:0.1];
+        //[self removeItemFromCartAtIndex:tappedIndex];
     }else{
         [CommonMethods showAlertViewWithMessage:kErrorAlertMsg];
     }
@@ -79,13 +82,14 @@
         }else{
             [CommonMethods showAlertViewWithMessage:kErrorAlertMsg];
         }
-        
+        [MBProgressHUD hideHUDForView:self.view animated:NO];
     }];
 }
 -(void)hideSpinner
 {
     [[CPLoader sharedLoader]hideSpinner];
 }
+#pragma mark IBACtions
 - (IBAction)btnGenerateOrderFormTapped:(id)sender{
 
     
@@ -94,6 +98,7 @@
 
     
 }
+
 #pragma mark - UITablview DataSource and Delegate
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return arrayCartList.count;

@@ -27,7 +27,7 @@
                           options:SDWebImageRefreshCached];
     lblProductName.text = [self.dataDict valueForKey:kWS_grouplist_Res_product_name];
     lblProductDesc.text = [self.dataDict valueForKey:kWS_grouplist_Res_group_name];
-    [btnBack setImage:[CommonMethods imageWithIcon:@"fa-chevron-left" backgroundColor:[UIColor clearColor] iconColor:[UIColor whiteColor] fontSize:20] forState:UIControlStateNormal];
+    
     
     [btnZoom setImage:[CommonMethods imageWithIcon:@"fa-search-plus" backgroundColor:[UIColor clearColor] iconColor:[UIColor whiteColor] fontSize:40] forState:UIControlStateNormal];
 }
@@ -53,10 +53,7 @@
         [CommonMethods showAlertViewWithMessage:kNoInternetConnection_alert_Msg];
     }
 }
-- (IBAction)btnBackTapped:(id)sender
-{
-    [self.navigationController popViewControllerAnimated:YES];
-}
+
 - (void)submitAddToCart
 {
     NSMutableArray *tmpArray = [NSMutableArray array];

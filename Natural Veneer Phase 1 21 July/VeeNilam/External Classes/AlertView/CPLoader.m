@@ -53,17 +53,19 @@ static  CPLoader *rtViewController = nil;
     CGRect screenBounds = [blackView bounds];
     loaderView.center = CGPointMake(CGRectGetMidX(screenBounds), CGRectGetMidY(screenBounds));
     
-    spinner = [[RTSpinKitView alloc] initWithStyle:RTSpinKitViewStyleBounce color:[UIColor whiteColor]];
-    screenBounds = [loaderView bounds];
-    spinner.center = CGPointMake(CGRectGetMidX(screenBounds), CGRectGetMidY(screenBounds));
-    [spinner startAnimating];
-    [loaderView addSubview:spinner];
-    [blackView addSubview:loaderView];
-    [parentView addSubview:blackView];
-    
+//    spinner = [[RTSpinKitView alloc] initWithStyle:RTSpinKitViewStyleBounce color:[UIColor whiteColor]];
+//    screenBounds = [loaderView bounds];
+//    spinner.center = CGPointMake(CGRectGetMidX(screenBounds), CGRectGetMidY(screenBounds));
+//    [spinner startAnimating];
+//    [loaderView addSubview:spinner];
+//    [blackView addSubview:loaderView];
+//    [parentView addSubview:blackView];
+//    
+    [MBProgressHUD showHUDAddedTo:parentView animated:YES];
 }
 - (void)hideSpinner
 {
+
     if (spinner) {
         [spinner stopAnimating];
         [loaderView removeFromSuperview];

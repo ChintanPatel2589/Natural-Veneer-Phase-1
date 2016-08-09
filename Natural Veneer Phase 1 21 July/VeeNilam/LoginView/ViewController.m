@@ -54,14 +54,11 @@
         return;
     }
     [self hideKeyboard];
-    [[CPLoader sharedLoader]showLoader:self.view];
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [self checkLoginDetails];
-    });
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    [self performSelector:@selector(checkLoginDetails) withObject:nil afterDelay:0.1];
 }
 - (IBAction)btnForgotPasswordPressed:(id)sender
 {
-    
     [CommonMethods setRadiousAndBorderToTextField:txtForgotPassEmail];
     txtForgotPassEmail.text = [CommonMethods getValueFromNSUserDefaultsWithKey:kWS_Login_Req_email];
     [self fadeInAnimationForView:viewResetPass];
@@ -115,7 +112,6 @@
     //[paramDict setObject:kWS_user_type forKey:kWS_Login_Req_user_type];
     //[paramDict setObject:@"-" forKey:kWS_Login_Req_auth_token];
     [paramDict setObject:kWS_loginvalidate forKey:kWS_Login_Req_action];
-
     [[WebServiceHandler sharedWebServiceHandler] callWebServiceWithParam:paramDict withCompletion:^(NSDictionary *result) {
         if ([[result valueForKey:@"success"]intValue] == 1){
             [[NSUserDefaults standardUserDefaults]setObject:txtEmail.text forKey:kWS_Login_Req_email];
@@ -126,7 +122,7 @@
         }else{
             [CommonMethods showAlertViewWithMessage:@"Invalid username or password."];
         }
-        [[CPLoader sharedLoader]hideSpinner];
+        [MBProgressHUD hideHUDForView:self.view animated:NO];
     }];
 }
 -(void)checkOTP

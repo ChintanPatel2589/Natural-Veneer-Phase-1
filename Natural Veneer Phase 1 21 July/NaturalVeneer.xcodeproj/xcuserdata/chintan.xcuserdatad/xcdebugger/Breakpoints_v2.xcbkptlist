@@ -10,12 +10,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "VeeNilam/ProductDetail/ProductDetailsViewController.m"
-            timestampString = "491398386.864076"
+            timestampString = "492416062.652034"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "98"
-            endingLineNumber = "98"
-            landmarkName = "-textFieldEditingBegin:withTextField:"
+            startingLineNumber = "95"
+            endingLineNumber = "95"
+            landmarkName = "-btnPlayTapped:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

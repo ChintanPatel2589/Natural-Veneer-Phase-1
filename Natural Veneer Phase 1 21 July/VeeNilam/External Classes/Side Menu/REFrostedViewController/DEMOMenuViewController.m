@@ -60,7 +60,7 @@
         view;
     });
     
-    arrayMenu = [[NSArray alloc]initWithObjects:@"Products", @"View Cart", @"Order Form", @"Logout", nil];
+    arrayMenu = [[NSArray alloc]initWithObjects:@"Products",  @"Order Form", @"Logout", nil];
 }
 
 #pragma mark -
@@ -109,25 +109,25 @@
                 viewControllerOBJ =(ProductListViewController *)[[ProductListViewController alloc]initWithNibName:@"ProductListViewController" bundle:nil];
             }
             break;
-        case 1:
-            {
-                viewControllerOBJ =(CartViewController *)[[CartViewController alloc]initWithNibName:@"CartViewController" bundle:nil];
-            }
-            break;
-        case 2:{
+//        case 1:
+//            {
+//                viewControllerOBJ =(CartViewController *)[[CartViewController alloc]initWithNibName:@"CartViewController" bundle:nil];
+//            }
+//            break;
+        case 1:{
                 viewControllerOBJ =(OrderFormViewController *)[[OrderFormViewController alloc]initWithNibName:@"OrderFormViewController" bundle:nil];
             }
             break;
-        case 3:{
+        case 2:{
                 [CommonMethods saveDataIntoPreference:nil forKey:kloggedUserInfo];
                 viewControllerOBJ =(ViewController *)[[ViewController alloc]initWithNibName:@"ViewController" bundle:nil];
         }
             break;
+        case 3:
+            break;
         case 4:
             break;
         case 5:
-            break;
-        case 6:
             break;
         default:
             
