@@ -229,7 +229,7 @@
 {
     NSMutableDictionary *paramDict =[NSMutableDictionary dictionary];
     [paramDict setObject:[CommonMethods getLoggedUserValueFromNSUserDefaultsWithKey:kWS_Login_Req_auth_token] forKey:kWS_grouplist_Req_auth_token];
-    [paramDict setObject:kWS_user_type forKey:kWS_grouplist_Req_user_type];
+    [paramDict setObject:[CommonMethods getLoggedUserValueFromNSUserDefaultsWithKey:kWS_Login_Res_user_type] forKey:kWS_grouplist_Req_user_type];
     [paramDict setObject:[CommonMethods getLoggedUserValueFromNSUserDefaultsWithKey:kWS_Login_Res_user_id] forKey:kWS_grouplist_Req_type_id];
     [paramDict setObject:actionName forKey:kAction];
     return paramDict;

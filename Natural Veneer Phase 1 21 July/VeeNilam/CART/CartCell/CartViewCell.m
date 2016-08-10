@@ -31,6 +31,6 @@
 }
 -(IBAction)btnRemoveCartTapped:(UIButton *)sender
 {
-    [self.delegate btnRemoveFromCartTapped:(sender.tag - 1)];
+    [self.delegate btnRemoveFromCartTapped:(int)(sender.tag - 1)];
 }
 @end

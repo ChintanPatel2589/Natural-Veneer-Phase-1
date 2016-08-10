@@ -38,8 +38,10 @@
     if ([[NSUserDefaults standardUserDefaults] valueForKey:kloggedUserInfo] != Nil) {
         //After Login
         self.RootViewController =(ProductListViewController *) [[ProductListViewController alloc] initWithNibName:@"ProductListViewController" bundle:nil];
+        [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     }else{
         self.RootViewController =(ViewController *) [[ViewController alloc] initWithNibName:@"ViewController" bundle:nil];
+        [[UIApplication sharedApplication] setStatusBarHidden:YES];
     }
     navigationController = [[DEMONavigationController alloc] initWithRootViewController:self.RootViewController];
     
@@ -55,7 +57,7 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.rootViewController = frostedViewController;
     self.window.backgroundColor = [UIColor whiteColor];
-    [[UIApplication sharedApplication] setStatusBarHidden:YES];
+    [[UIApplication sharedApplication] setStatusBarHidden:NO];
     [self.window makeKeyAndVisible];
 }
 - (void)applicationWillResignActive:(UIApplication *)application {

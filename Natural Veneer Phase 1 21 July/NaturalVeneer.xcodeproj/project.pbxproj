@@ -15,16 +15,13 @@
 		36ED2DD21D4A0D85008FD862 /* ProductInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36ED2DD01D4A0D85008FD862 /* ProductInfoViewController.xib */; };
 		36ED2DD71D4A0FAB008FD862 /* ProductViewInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 36ED2DD51D4A0FAB008FD862 /* ProductViewInfoCell.m */; };
 		36ED2DD81D4A0FAB008FD862 /* ProductViewInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36ED2DD61D4A0FAB008FD862 /* ProductViewInfoCell.xib */; };
+		36EEAF941D5B0AA90061DF83 /* empty-cart.png in Resources */ = {isa = PBXBuildFile; fileRef = 36EEAF931D5B0AA90061DF83 /* empty-cart.png */; };
 		B91547AD1D3DEEC8009E71FA /* ProductListViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B91547AB1D3DEEC8009E71FA /* ProductListViewCell.m */; };
 		B91547AE1D3DEEC8009E71FA /* ProductListViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B91547AC1D3DEEC8009E71FA /* ProductListViewCell.xib */; };
 		B91547B21D3DEF66009E71FA /* ProductListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B91547B01D3DEF66009E71FA /* ProductListViewController.m */; };
 		B91547B31D3DEF66009E71FA /* ProductListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B91547B11D3DEF66009E71FA /* ProductListViewController.xib */; };
 		B92E44261D38C8B600A6CE34 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B92E43B41D38C8B600A6CE34 /* AppDelegate.m */; };
 		B92E44271D38C8B600A6CE34 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B92E43B51D38C8B600A6CE34 /* Assets.xcassets */; };
-		B92E44281D38C8B600A6CE34 /* CPLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = B92E43BA1D38C8B600A6CE34 /* CPLoader.m */; };
-		B92E44291D38C8B600A6CE34 /* RTSpinKitBounceAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = B92E43BD1D38C8B600A6CE34 /* RTSpinKitBounceAnimation.m */; };
-		B92E442A1D38C8B600A6CE34 /* RTSpinKitUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = B92E43BF1D38C8B600A6CE34 /* RTSpinKitUtils.m */; };
-		B92E442B1D38C8B600A6CE34 /* RTSpinKitView.m in Sources */ = {isa = PBXBuildFile; fileRef = B92E43C11D38C8B600A6CE34 /* RTSpinKitView.m */; };
 		B92E442C1D38C8B600A6CE34 /* CommonMethods.m in Sources */ = {isa = PBXBuildFile; fileRef = B92E43C51D38C8B600A6CE34 /* CommonMethods.m */; };
 		B92E442D1D38C8B600A6CE34 /* FontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B92E43C71D38C8B600A6CE34 /* FontAwesome.ttf */; };
 		B92E442E1D38C8B600A6CE34 /* NSString+FontAwesome.m in Sources */ = {isa = PBXBuildFile; fileRef = B92E43C91D38C8B600A6CE34 /* NSString+FontAwesome.m */; };
@@ -109,6 +106,7 @@
 		36ED2DD41D4A0FAB008FD862 /* ProductViewInfoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductViewInfoCell.h; sourceTree = "<group>"; };
 		36ED2DD51D4A0FAB008FD862 /* ProductViewInfoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductViewInfoCell.m; sourceTree = "<group>"; };
 		36ED2DD61D4A0FAB008FD862 /* ProductViewInfoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProductViewInfoCell.xib; sourceTree = "<group>"; };
+		36EEAF931D5B0AA90061DF83 /* empty-cart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "empty-cart.png"; sourceTree = "<group>"; };
 		B0427E7D1CE99D80007A1D10 /* NaturalVeneer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NaturalVeneer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B91547AA1D3DEEC8009E71FA /* ProductListViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductListViewCell.h; sourceTree = "<group>"; };
 		B91547AB1D3DEEC8009E71FA /* ProductListViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductListViewCell.m; sourceTree = "<group>"; };
@@ -119,15 +117,6 @@
 		B92E43B31D38C8B600A6CE34 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		B92E43B41D38C8B600A6CE34 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		B92E43B51D38C8B600A6CE34 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		B92E43B91D38C8B600A6CE34 /* CPLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPLoader.h; sourceTree = "<group>"; };
-		B92E43BA1D38C8B600A6CE34 /* CPLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPLoader.m; sourceTree = "<group>"; };
-		B92E43BB1D38C8B600A6CE34 /* RTSpinKitAnimating.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTSpinKitAnimating.h; sourceTree = "<group>"; };
-		B92E43BC1D38C8B600A6CE34 /* RTSpinKitBounceAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTSpinKitBounceAnimation.h; sourceTree = "<group>"; };
-		B92E43BD1D38C8B600A6CE34 /* RTSpinKitBounceAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTSpinKitBounceAnimation.m; sourceTree = "<group>"; };
-		B92E43BE1D38C8B600A6CE34 /* RTSpinKitUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTSpinKitUtils.h; sourceTree = "<group>"; };
-		B92E43BF1D38C8B600A6CE34 /* RTSpinKitUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTSpinKitUtils.m; sourceTree = "<group>"; };
-		B92E43C01D38C8B600A6CE34 /* RTSpinKitView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTSpinKitView.h; sourceTree = "<group>"; };
-		B92E43C11D38C8B600A6CE34 /* RTSpinKitView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTSpinKitView.m; sourceTree = "<group>"; };
 		B92E43C41D38C8B600A6CE34 /* CommonMethods.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonMethods.h; sourceTree = "<group>"; };
 		B92E43C51D38C8B600A6CE34 /* CommonMethods.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommonMethods.m; sourceTree = "<group>"; };
 		B92E43C71D38C8B600A6CE34 /* FontAwesome.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = FontAwesome.ttf; sourceTree = "<group>"; };
@@ -377,7 +366,6 @@
 			children = (
 				36517E211D59B20000478184 /* MBProgressHUD */,
 				B95BCDDE1D3F346E00EEE569 /* ImageViewer */,
-				B92E43B81D38C8B600A6CE34 /* AlertView */,
 				B92E43C31D38C8B600A6CE34 /* Common Method Class */,
 				B92E43C61D38C8B600A6CE34 /* Font Awsome */,
 				B92E43CC1D38C8B600A6CE34 /* IconDownloader */,
@@ -387,22 +375,6 @@
 				B92E43FB1D38C8B600A6CE34 /* Side Menu */,
 			);
 			path = "External Classes";
-			sourceTree = "<group>";
-		};
-		B92E43B81D38C8B600A6CE34 /* AlertView */ = {
-			isa = PBXGroup;
-			children = (
-				B92E43B91D38C8B600A6CE34 /* CPLoader.h */,
-				B92E43BA1D38C8B600A6CE34 /* CPLoader.m */,
-				B92E43BB1D38C8B600A6CE34 /* RTSpinKitAnimating.h */,
-				B92E43BC1D38C8B600A6CE34 /* RTSpinKitBounceAnimation.h */,
-				B92E43BD1D38C8B600A6CE34 /* RTSpinKitBounceAnimation.m */,
-				B92E43BE1D38C8B600A6CE34 /* RTSpinKitUtils.h */,
-				B92E43BF1D38C8B600A6CE34 /* RTSpinKitUtils.m */,
-				B92E43C01D38C8B600A6CE34 /* RTSpinKitView.h */,
-				B92E43C11D38C8B600A6CE34 /* RTSpinKitView.m */,
-			);
-			path = AlertView;
 			sourceTree = "<group>";
 		};
 		B92E43C31D38C8B600A6CE34 /* Common Method Class */ = {
@@ -562,6 +534,7 @@
 		B92E441B1D38C8B600A6CE34 /* UIImages */ = {
 			isa = PBXGroup;
 			children = (
+				36EEAF931D5B0AA90061DF83 /* empty-cart.png */,
 				B92E441C1D38C8B600A6CE34 /* MainBackground.jpeg */,
 				B92E441D1D38C8B600A6CE34 /* MainLogo.png */,
 				B92E441E1D38C8B600A6CE34 /* mehndisangeet.jpg */,
@@ -741,6 +714,7 @@
 				B92E44501D38C8B600A6CE34 /* Default-Portrait@2x~ipad.png in Resources */,
 				B92E44581D38C8B600A6CE34 /* MainBackground.jpeg in Resources */,
 				B92E44691D38C9AD00A6CE34 /* CartViewCell.xib in Resources */,
+				36EEAF941D5B0AA90061DF83 /* empty-cart.png in Resources */,
 				B92E44571D38C8B600A6CE34 /* logo~iphone.png in Resources */,
 				B9DF409C1D3E7EFF004FFB88 /* ProductDetailsViewController.xib in Resources */,
 				36ED2DD21D4A0D85008FD862 /* ProductInfoViewController.xib in Resources */,
@@ -763,7 +737,6 @@
 				B92E444A1D38C8B600A6CE34 /* UIImage+REFrostedViewController.m in Sources */,
 				36ED2DCB1D49B5BD008FD862 /* AddToCartCell.m in Sources */,
 				B92E44481D38C8B600A6CE34 /* REFrostedContainerViewController.m in Sources */,
-				B92E442A1D38C8B600A6CE34 /* RTSpinKitUtils.m in Sources */,
 				B92E44411D38C8B600A6CE34 /* UIImage+WebP.m in Sources */,
 				B9909F671D429FAD00FD923D /* OrderViewCell.m in Sources */,
 				B95BCDE51D3F347800EEE569 /* AsyncImageView.m in Sources */,
@@ -775,7 +748,6 @@
 				B92E445E1D38C8B600A6CE34 /* main.m in Sources */,
 				B9DF409B1D3E7EFF004FFB88 /* ProductDetailsViewController.m in Sources */,
 				B92E443B1D38C8B600A6CE34 /* SDWebImageDownloaderOperation.m in Sources */,
-				B92E442B1D38C8B600A6CE34 /* RTSpinKitView.m in Sources */,
 				B95BCDEC1D3F349400EEE569 /* ImagesLocalViewController.m in Sources */,
 				B92E44681D38C9AD00A6CE34 /* CartViewCell.m in Sources */,
 				B92E44371D38C8B600A6CE34 /* SDImageCache.m in Sources */,
@@ -796,7 +768,6 @@
 				B92E44621D38C96F00A6CE34 /* CartViewController.m in Sources */,
 				B91547B21D3DEF66009E71FA /* ProductListViewController.m in Sources */,
 				B92E44381D38C8B600A6CE34 /* SDWebImageCompat.m in Sources */,
-				B92E44291D38C8B600A6CE34 /* RTSpinKitBounceAnimation.m in Sources */,
 				B92E443F1D38C8B600A6CE34 /* UIImage+GIF.m in Sources */,
 				B92E44401D38C8B600A6CE34 /* UIImage+MultiFormat.m in Sources */,
 				B9909F641D429FAD00FD923D /* UISegmentedControl+Multiline.m in Sources */,
@@ -813,7 +784,6 @@
 				B92E44441D38C8B600A6CE34 /* UIView+WebCacheOperation.m in Sources */,
 				B92E443C1D38C8B600A6CE34 /* SDWebImageManager.m in Sources */,
 				B92E44341D38C8B600A6CE34 /* Reachability.m in Sources */,
-				B92E44281D38C8B600A6CE34 /* CPLoader.m in Sources */,
 				36517E241D59B20000478184 /* MBProgressHUD.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

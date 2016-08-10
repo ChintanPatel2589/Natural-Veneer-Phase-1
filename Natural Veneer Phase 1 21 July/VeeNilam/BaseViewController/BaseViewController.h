@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "M13BadgeView.h"
 @interface BaseViewController : UIViewController
 {
     __weak IBOutlet UILabel *lblTitle;
@@ -20,6 +20,9 @@
     __weak IBOutlet UIButton *btnMenu;
     __weak IBOutlet UIView *viewNavigation;
     __weak IBOutlet UIButton *btnBack;
-    
+    __weak IBOutlet UIButton *btnInfo;
+    __weak IBOutlet UIButton *btnPlay;
+    __weak IBOutlet UIButton *btnZoom;
+    M13BadgeView *badgeView;
 }
 @end

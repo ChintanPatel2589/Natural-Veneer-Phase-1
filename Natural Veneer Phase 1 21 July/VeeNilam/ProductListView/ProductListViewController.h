@@ -16,6 +16,7 @@
     IBOutlet UICollectionView *collectionViewProductList;
     NSMutableArray *arraayData;
     __weak IBOutlet UISearchBar *searchBarProduct;
+    UIRefreshControl *refreshControl;
 }
 
 @end

@@ -8,6 +8,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ProductDetailsViewController">
             <connections>
                 <outlet property="btnBack" destination="TrJ-sR-6vS" id="bS3-Ad-6Nk"/>
+                <outlet property="btnCart" destination="wBk-mm-cav" id="jTs-5S-D8f"/>
                 <outlet property="btnCloseAddtoCartView" destination="ZDB-y9-fG3" id="fro-HF-5LV"/>
                 <outlet property="btnInfo" destination="70R-gX-HfI" id="oda-Nm-F7A"/>
                 <outlet property="btnPlay" destination="fha-eg-xoC" id="XdS-l7-TUq"/>
@@ -29,7 +30,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="White stone wood" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="4kr-Li-xaR">
-                    <rect key="frame" x="5" y="65" width="181" height="21"/>
+                    <rect key="frame" x="5" y="65" width="168" height="21"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
@@ -37,18 +38,18 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="16/Test data for checking" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="oSL-s8-WCI">
-                    <rect key="frame" x="5" y="86" width="181" height="16"/>
+                    <rect key="frame" x="5" y="87" width="181" height="16"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="11"/>
                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="70R-gX-HfI">
-                    <rect key="frame" x="266" y="65" width="21" height="21"/>
+                    <rect key="frame" x="260" y="65" width="25" height="21"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                    <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <state key="normal">
                         <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
@@ -57,10 +58,10 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="fha-eg-xoC">
-                    <rect key="frame" x="292" y="65" width="21" height="21"/>
+                    <rect key="frame" x="290" y="65" width="25" height="21"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                    <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <state key="normal">
                         <color key="titleColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </state>
@@ -78,7 +79,7 @@
                             <gestureRecognizers/>
                         </imageView>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="OfZ-vG-z6C">
-                            <rect key="frame" x="130" y="127" width="50" height="50"/>
+                            <rect key="frame" x="130" y="137" width="50" height="50"/>
                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
@@ -89,7 +90,7 @@
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="9Dv-9I-E6d">
-                    <rect key="frame" x="191" y="65" width="70" height="21"/>
+                    <rect key="frame" x="178" y="65" width="77" height="21"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
@@ -119,6 +120,15 @@
                                 <action selector="btnBackTapped:" destination="-1" eventType="touchUpInside" id="fkf-wg-CLH"/>
                             </connections>
                         </button>
+                        <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="wBk-mm-cav">
+                            <rect key="frame" x="285" y="28" width="25" height="25"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="btnTapped:" destination="-1" eventType="touchUpInside" id="XWi-cg-NI0"/>
+                            </connections>
+                        </button>
                     </subviews>
                     <color key="backgroundColor" red="0.031453845059999999" green="0.65070762429999995" blue="0.1465957131" alpha="1" colorSpace="calibratedRGB"/>
                 </view>
@@ -126,7 +136,7 @@
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <nil key="simulatedTopBarMetrics"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="508" y="254"/>
+            <point key="canvasLocation" x="447" y="254"/>
         </view>
         <view contentMode="scaleToFill" id="R9q-Nh-K4C">
             <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>

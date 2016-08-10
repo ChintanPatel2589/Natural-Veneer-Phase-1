@@ -25,12 +25,15 @@
     [CommonMethods setRadiousAndBorderToTextField:txtPassword];
     [CommonMethods setRadiousAndBorderToTextField:txtEmail];
     
+    
     txtEmail.layer.sublayerTransform = CATransform3DMakeTranslation(10, 0, 0);
     txtPassword.layer.sublayerTransform = CATransform3DMakeTranslation(10, 0, 0);
     txtOTP.layer.sublayerTransform = CATransform3DMakeTranslation(10, 0, 0);
     txtForgotPassEmail.layer.sublayerTransform = CATransform3DMakeTranslation(10, 0, 0);
 }
-
+- (BOOL)prefersStatusBarHidden {
+    return YES;
+}
 -(void)viewWillAppear:(BOOL)animated{
     self.navigationController.navigationBarHidden = true;
     NSLog(@"%@",[CommonMethods getValueFromNSUserDefaultsWithKey:kloggedUserInfo]);
@@ -76,7 +79,7 @@
         return;
     }
     [self hideKeyboard];
-    [[CPLoader sharedLoader]showLoader:self.view];
+    
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [self checkOTP];
     });
@@ -96,7 +99,7 @@
         return;
     }
     [self hideKeyboard];
-    [[CPLoader sharedLoader]showLoader:self.view];
+    
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [self sendEmailForForgotPass];
     });
@@ -132,7 +135,7 @@
     [paramDict setObject:txtOTP.text forKey:kWS_otp_verification_Req_OTP];
     
     [paramDict setObject:[CommonMethods getValueFromNSUserDefaultsWithKey:kWS_Login_Req_email] forKey:kWS_otp_verification_Req_email];
-    [paramDict setObject:kWS_user_type forKey:kWS_otp_verification_Req_user_type];
+    [paramDict setObject:[CommonMethods getLoggedUserValueFromNSUserDefaultsWithKey:kWS_Login_Res_user_type] forKey:kWS_otp_verification_Req_user_type];
     [paramDict setObject:[CommonMethods getLoggedUserValueFromNSUserDefaultsWithKey:kWS_Login_Req_auth_token] forKey:kWS_otp_verification_Req_auth_token];
     [paramDict setObject:kWS_otp_verification forKey:kWS_Login_Req_action];
     
@@ -142,7 +145,7 @@
         }else{
             [CommonMethods showAlertViewWithMessage:@"Invalid username or password."];
         }
-        [[CPLoader sharedLoader]hideSpinner];
+        
     }];
 }
 - (void)sendEmailForForgotPass
@@ -158,7 +161,7 @@
         }else{
             [CommonMethods showAlertViewWithMessage:@"Some error occured while sending Email."];
         }
-        [[CPLoader sharedLoader]hideSpinner];
+        
     }];
 }
 - (void)gotoProductList

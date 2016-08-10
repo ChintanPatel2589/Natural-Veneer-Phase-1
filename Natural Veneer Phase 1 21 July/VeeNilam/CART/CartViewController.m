@@ -34,19 +34,28 @@
     [[WebServiceHandler sharedWebServiceHandler] callWebServiceWithParam:[CommonMethods getDefaultValueDictWithActionName:kWS_cartlist] withCompletion:^(NSDictionary *result) {
         if ([[result valueForKey:@"success"]intValue] == 1){
             arrayCartList =[[NSMutableArray alloc]initWithArray:[result valueForKey:@"data"]];
-            
-            if (arrayCartList.count > 0) {
-                [tblViewCartList reloadData];
-                btnContinueShopping.enabled = true;
-                btnGenerateOrderForm.enabled = true;
-            }else{
-                btnContinueShopping.enabled = false;
-                btnGenerateOrderForm.enabled = false;
-            }
+            [self reloadTableData];
         }else{
-            [CommonMethods showAlertViewWithMessage:kErrorAlertMsg];
+            [self applyEmptyCartSettings];
         }
     }];
+}
+- (void)reloadTableData
+{
+    [tblViewCartList reloadData];
+    if (arrayCartList.count > 0) {
+        btnContinueShopping.enabled = true;
+        btnGenerateOrderForm.enabled = true;
+    }else{
+        [self applyEmptyCartSettings];
+    }
+}
+- (void)applyEmptyCartSettings
+{
+    viewEmptyCart.hidden = false;
+    btnContinueShopping.enabled = true;
+    btnGenerateOrderForm.enabled = false;
+    btnGenerateOrderForm.alpha = 0.6;
 }
 -(void)setMenuIcon
 {
@@ -63,22 +72,23 @@
 - (void)btnRemoveFromCartTapped:(NSInteger)tappedIndex{
     if ([CommonMethods connected]) {
         [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-        [self performSelector:@selector(removeItemFromCartAtIndex:) withObject:[NSNumber numberWithInteger:tappedIndex] afterDelay:0.1];
+        
+        [self performSelector:@selector(removeItemFromCartAtIndex:) withObject:[NSString stringWithFormat:@"%d",tappedIndex] afterDelay:0.1];
         //[self removeItemFromCartAtIndex:tappedIndex];
     }else{
         [CommonMethods showAlertViewWithMessage:kErrorAlertMsg];
     }
 }
-- (void)removeItemFromCartAtIndex:(NSInteger)tappedIndex
+- (void)removeItemFromCartAtIndex:(NSString *)tappedIndex
 {
     NSMutableDictionary *paramDict = [CommonMethods getDefaultValueDictWithActionName:kWS_removecartitem];
-    [paramDict setObject:[[arrayCartList objectAtIndex:tappedIndex] valueForKey:kWS_removecartitem_req_inquiry_id]  forKey:kWS_removecartitem_req_inquiry_id];
+    [paramDict setObject:[[arrayCartList objectAtIndex:[tappedIndex intValue]] valueForKey:kWS_removecartitem_req_inquiry_id]  forKey:kWS_removecartitem_req_inquiry_id];
     
     [[WebServiceHandler sharedWebServiceHandler]callWebServiceWithParam:paramDict withCompletion:^(NSDictionary *result) {
   
         if ([[result valueForKey:@"success"]intValue] == 1){
-            [arrayCartList removeObjectAtIndex:tappedIndex];
-            [tblViewCartList reloadData];
+            [arrayCartList removeObjectAtIndex:[tappedIndex intValue]];
+            [self reloadTableData];
         }else{
             [CommonMethods showAlertViewWithMessage:kErrorAlertMsg];
         }
@@ -87,7 +97,7 @@
 }
 -(void)hideSpinner
 {
-    [[CPLoader sharedLoader]hideSpinner];
+    
 }
 #pragma mark IBACtions
 - (IBAction)btnGenerateOrderFormTapped:(id)sender{

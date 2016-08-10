@@ -4,18 +4,28 @@
    version = "2.0">
    <Breakpoints>
       <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.ExceptionBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            scope = "0"
+            stopOnStyle = "0">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "VeeNilam/ProductDetail/ProductDetailsViewController.m"
-            timestampString = "492416062.652034"
+            filePath = "VeeNilam/LoginView/ViewController.m"
+            timestampString = "492516361.601826"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "95"
-            endingLineNumber = "95"
-            landmarkName = "-btnPlayTapped:"
+            startingLineNumber = "35"
+            endingLineNumber = "35"
+            landmarkName = "-prefersStatusBarHidden"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

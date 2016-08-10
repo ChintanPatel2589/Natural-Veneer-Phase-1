@@ -35,10 +35,12 @@ static WebServiceHandler * sharedWebServiceHandler = nil;
         [request setHTTPBody:jsonData];
         NSURLResponse *result= nil;
         NSData * data = [NSURLConnection sendSynchronousRequest:request returningResponse:&result  error:&error];
-        NSDictionary *parsedObject = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
-        block(parsedObject);
-  
-    
+        if (error) {
+            [CommonMethods showAlertViewWithMessage:@"Network busy. Please try after some time."];
+        }else{
+            NSDictionary *parsedObject = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
+            block(parsedObject);
+        }
 }
 
 //

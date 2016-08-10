@@ -20,16 +20,29 @@
     self.navigationController.navigationBarHidden = true;
     lblTitle.text = @"NATURAL";
     [collectionViewProductList registerNib:[UINib nibWithNibName:@"ProductListViewCell" bundle:nil] forCellWithReuseIdentifier:@"ProductListViewCell"];
+    [self performSelector:@selector(setDefaultData) withObject:nil afterDelay:0.1];
+}
+- (void)setDefaultData
+{
+    refreshControl = [[UIRefreshControl alloc]init];
+    [collectionViewProductList addSubview:refreshControl];
+    [refreshControl addTarget:self action:@selector(refreshCollectionViewData) forControlEvents:UIControlEventValueChanged];
+    [self getDataFromServer];
+    
+}
+- (void)refreshCollectionViewData
+{
+    [refreshControl endRefreshing];
+}
+- (void)getDataFromServer
+{
     if ([CommonMethods connected]) {
         [MBProgressHUD showHUDAddedTo:self.view animated:YES];
         [self callWsGetProductListWithSearchTerm:nil];
-        [MBProgressHUD hideHUDForView:self.view animated:YES];
-        
     }else{
         [CommonMethods showAlertViewWithMessage:kNoInternetConnection_alert_Title];
     }
 }
-
 -(void)search
 {
     
@@ -49,7 +62,7 @@
     NSMutableDictionary *paramDict =[NSMutableDictionary dictionary];
     [paramDict setObject:[CommonMethods getLoggedUserValueFromNSUserDefaultsWithKey:kWS_Login_Req_auth_token] forKey:kWS_grouplist_Req_auth_token];
     [paramDict setObject:kWS_grouplist forKey:kWS_grouplist_Req_action];
-    [paramDict setObject:kWS_user_type forKey:kWS_grouplist_Req_user_type];
+    [paramDict setObject:[CommonMethods getLoggedUserValueFromNSUserDefaultsWithKey:kWS_Login_Res_user_type] forKey:kWS_grouplist_Req_user_type];
     [paramDict setObject:[CommonMethods getLoggedUserValueFromNSUserDefaultsWithKey:kWS_Login_Res_user_id] forKey:kWS_grouplist_Req_type_id];
     [paramDict setObject:@"0" forKey:kWS_grouplist_Req_start_index];
     [paramDict setObject:@"20" forKey:kWS_grouplist_Req_page_size];
@@ -63,7 +76,7 @@
         }else{
             [CommonMethods showAlertViewWithMessage:[result valueForKey:@"error while getting products."]];
         }
-        [[CPLoader sharedLoader]hideSpinner];
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
     }];
 }
 #pragma mark Cell Delegate
@@ -109,7 +122,7 @@
 
 - (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar{
     [self cancelSearching];
-    [[CPLoader sharedLoader]showLoader:self.view];
+    
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [self callWsGetProductListWithSearchTerm:nil];
     });
@@ -117,7 +130,7 @@
     [collectionViewProductList reloadData];
 }
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar{
-    [[CPLoader sharedLoader]showLoader:self.view];
+    
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [self callWsGetProductListWithSearchTerm:searchBar.text];
     });
@@ -144,54 +157,7 @@
     // Dispose of any resources that can be recreated.
 }
 #pragma mark - Menu Icon Action
--(void)setMenuIcon
-{
-    
-    UIImage *icon = [UIImage imageWithIcon:@"fa-bars" backgroundColor:[UIColor clearColor] iconColor:[UIColor whiteColor] fontSize:20];
-    icon = [icon imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-    UIBarButtonItem *_btn=[[UIBarButtonItem alloc]initWithImage:icon
-                                                          style:UIBarButtonItemStylePlain
-                                                         target:(DEMONavigationController *)self.navigationController
-                                                         action:@selector(showMenu)];
-    self.navigationItem.leftBarButtonItem=_btn;
-    
-    UIButton *tmpBtnSearch = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 20, 20)];
-    [tmpBtnSearch setImage:[CommonMethods imageWithIcon:@"fa-search" backgroundColor:[UIColor clearColor] iconColor:[UIColor whiteColor] fontSize:20] forState:UIControlStateNormal];
-    UIBarButtonItem *btnSearch=[[UIBarButtonItem alloc]initWithCustomView:tmpBtnSearch];
-    btnSearch.tintColor =[UIColor whiteColor];
-    [tmpBtnSearch addTarget:self action:@selector(search) forControlEvents:UIControlEventTouchUpInside];
-    
-    UIButton *tmpBtn = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 20, 20)];
-    [tmpBtn setImage:[CommonMethods imageWithIcon:@"fa-cart-arrow-down" backgroundColor:[UIColor clearColor] iconColor:[UIColor whiteColor] fontSize:20] forState:UIControlStateNormal];
-    UIBarButtonItem *btncart=[[UIBarButtonItem alloc]initWithCustomView:tmpBtn];
-    btncart.tintColor =[UIColor whiteColor];
-    [tmpBtn addTarget:self action:@selector(showCart) forControlEvents:UIControlEventTouchUpInside];
-    
-    UIButton *tmpBtnClone = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 20, 20)];
-    [tmpBtnClone setImage:[CommonMethods imageWithIcon:@"fa-clone" backgroundColor:[UIColor clearColor] iconColor:[UIColor whiteColor] fontSize:20] forState:UIControlStateNormal];
-    UIBarButtonItem *btnClone=[[UIBarButtonItem alloc]initWithCustomView:tmpBtnClone];
-    btnClone.tintColor =[UIColor whiteColor];
-    [tmpBtnClone addTarget:self action:@selector(clone) forControlEvents:UIControlEventTouchUpInside];
-    
-    
-    UIButton *tmpBtnForm = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 20, 20)];
-    [tmpBtnForm setImage:[CommonMethods imageWithIcon:@"fa-building-o" backgroundColor:[UIColor clearColor] iconColor:[UIColor whiteColor] fontSize:20] forState:UIControlStateNormal];
-    UIBarButtonItem *btnForm=[[UIBarButtonItem alloc]initWithCustomView:tmpBtnForm];
-    btnForm.tintColor =[UIColor whiteColor];
-    [tmpBtnForm addTarget:self action:@selector(gotoOrderForm) forControlEvents:UIControlEventTouchUpInside];
-    
-    UIButton *tmpBtnalert = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 20, 20)];
-    [tmpBtnalert setImage:[CommonMethods imageWithIcon:@"fa-bell-o" backgroundColor:[UIColor clearColor] iconColor:[UIColor whiteColor] fontSize:20] forState:UIControlStateNormal];
-    UIBarButtonItem *btnlert=[[UIBarButtonItem alloc]initWithCustomView:tmpBtnalert];
-    btnClone.tintColor =[UIColor whiteColor];
-    [tmpBtnClone addTarget:self action:@selector(clone) forControlEvents:UIControlEventTouchUpInside];
-    
-    
-    [self.navigationItem setRightBarButtonItems:[NSArray arrayWithObjects: btncart,btnlert,btnForm,btnClone,btnSearch , nil]];
-    [self setUpTwoLineNavigationTitle];
-    
-    
-}
+
 -(void)setUpTwoLineNavigationTitle {
     CGFloat width = 0.95 * self.view.frame.size.width;
     UIView *contentView = [[UIView alloc] initWithFrame:CGRectMake(-10, 0, width, self.navigationController.navigationBar.frame.size.height)];

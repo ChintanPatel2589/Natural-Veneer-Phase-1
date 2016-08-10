@@ -18,18 +18,26 @@
     [super viewDidLoad];
     self.navigationController.navigationBarHidden = true;
     viewNavigation.backgroundColor = AppGreenColor;
+    
     [btnMenu setImage:[UIImage imageWithIcon:@"fa-bars" backgroundColor:[UIColor clearColor] iconColor:[UIColor whiteColor] fontSize:25] forState:UIControlStateNormal];
     [btnMenu addTarget:(DEMONavigationController *)self.navigationController action:@selector(showMenu) forControlEvents:UIControlEventTouchUpInside];
     
-    [btnSearch setImage:[CommonMethods imageWithIcon:@"fa-search" backgroundColor:[UIColor clearColor] iconColor:[UIColor whiteColor] fontSize:20] forState:UIControlStateNormal];
-    [btnCart setImage:[CommonMethods imageWithIcon:@"fa-cart-arrow-down" backgroundColor:[UIColor clearColor] iconColor:[UIColor whiteColor] fontSize:20] forState:UIControlStateNormal];
-    [btnClone setImage:[CommonMethods imageWithIcon:@"fa-clone" backgroundColor:[UIColor clearColor] iconColor:[UIColor whiteColor] fontSize:20] forState:UIControlStateNormal];
-    [btnForm setImage:[CommonMethods imageWithIcon:@"fa-building-o" backgroundColor:[UIColor clearColor] iconColor:[UIColor whiteColor] fontSize:20] forState:UIControlStateNormal];
-    [btnAlert setImage:[CommonMethods imageWithIcon:@"fa-bell-o" backgroundColor:[UIColor clearColor] iconColor:[UIColor whiteColor] fontSize:20] forState:UIControlStateNormal];
-    [btnBack setImage:[CommonMethods imageWithIcon:@"fa-chevron-left" backgroundColor:[UIColor clearColor] iconColor:[UIColor whiteColor] fontSize:20] forState:UIControlStateNormal];
+    [btnSearch setImage:[CommonMethods imageWithIcon:@"fa-search" backgroundColor:[UIColor clearColor] iconColor:[UIColor whiteColor] fontSize:23] forState:UIControlStateNormal];
+    [btnCart setImage:[CommonMethods imageWithIcon:@"fa-cart-arrow-down" backgroundColor:[UIColor clearColor] iconColor:[UIColor whiteColor] fontSize:23] forState:UIControlStateNormal];
+    [btnClone setImage:[CommonMethods imageWithIcon:@"fa-clone" backgroundColor:[UIColor clearColor] iconColor:[UIColor whiteColor] fontSize:23] forState:UIControlStateNormal];
+    [btnForm setImage:[CommonMethods imageWithIcon:@"fa-building-o" backgroundColor:[UIColor clearColor] iconColor:[UIColor whiteColor] fontSize:23] forState:UIControlStateNormal];
+    [btnAlert setImage:[CommonMethods imageWithIcon:@"fa-bell-o" backgroundColor:[UIColor clearColor] iconColor:[UIColor whiteColor] fontSize:23] forState:UIControlStateNormal];
+    [btnBack setImage:[CommonMethods imageWithIcon:@"fa-chevron-left" backgroundColor:[UIColor clearColor] iconColor:[UIColor whiteColor] fontSize:23] forState:UIControlStateNormal];
+    
+    [btnInfo setImage:[CommonMethods imageWithIcon:@"fa-info" backgroundColor:[UIColor clearColor] iconColor:[UIColor whiteColor] fontSize:17] forState:UIControlStateNormal];
+    
+    [btnPlay setImage:[CommonMethods imageWithIcon:@"fa-play" backgroundColor:[UIColor clearColor] iconColor:[UIColor whiteColor] fontSize:17] forState:UIControlStateNormal];
+    
+    [btnZoom setImage:[CommonMethods imageWithIcon:@"fa-search-plus" backgroundColor:[UIColor clearColor] iconColor:[UIColor whiteColor] fontSize:40] forState:UIControlStateNormal];
 
     // Do any additional setup after loading the view from its nib.
 }
+
 #pragma mark - IBActions
 - (IBAction)btnTapped:(UIButton *)sender
 {

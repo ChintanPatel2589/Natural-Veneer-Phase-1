@@ -16,9 +16,7 @@
     __weak IBOutlet UILabel *lblProductDesc;
     __weak IBOutlet UIImageView *imgViewProduct;
     
-    __weak IBOutlet UIButton *btnInfo;
-    __weak IBOutlet UIButton *btnPlay;
-    __weak IBOutlet UIButton *btnZoom;
+
     __weak IBOutlet UIButton *btnCloseAddtoCartView;
     IBOutlet UIView *viewAddToCart;
     __weak IBOutlet UITableView *tblView;
@@ -27,6 +25,8 @@
     BOOL isKeyUp;
     ProductInfoViewController *prodInfoViewOBJ;
     NSMutableArray *arraySizeAndQty;
+    NSMutableArray *arrayOrderList;
+    
 }
 @property(nonatomic,retain)NSDictionary *dataDict;
 @end

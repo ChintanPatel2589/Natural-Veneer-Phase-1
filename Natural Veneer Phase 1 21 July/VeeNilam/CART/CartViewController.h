@@ -15,7 +15,7 @@
     __weak IBOutlet UITableView *tblViewCartList;
     __weak IBOutlet UIButton *btnContinueShopping;
     __weak IBOutlet UIButton *btnGenerateOrderForm;
-    
+    __weak IBOutlet UIView *viewEmptyCart;
 }
 
 @end
