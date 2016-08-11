@@ -10,9 +10,10 @@
 #import "DEMOMenuViewController.h"
 #import "UIViewController+REFrostedViewController.h"
 #import "ViewController.h"
+
 @interface DEMONavigationController ()
 
-@property (strong, readwrite, nonatomic) DEMOMenuViewController *menuViewController;
+@property (strong, readwrite, nonatomic)DEMOMenuViewController *menuViewController;
 
 @end
 

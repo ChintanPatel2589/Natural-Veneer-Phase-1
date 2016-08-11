@@ -138,12 +138,16 @@
 //6 Cart List
 #define  kWS_cartlist @"cartlist"
 #define kWS_cartlist_Res_category_name @"category_name"
-
+#define kWS_cartlist_Res_inquiry_id @"inquiry_id"
+#define  kquantity @"quantity"
+#define  kmessage @"message"
 //7 removecartitem
 #define  kWS_removecartitem @"removecartitem"
 #define  kWS_removecartitem_req_inquiry_id @"inquiry_id"
 
-
+//8 checkout
+#define kWS_checkout @"checkout"
+#define kWS_checkout_req_required_quantity @"required_quantity"
 
 
 

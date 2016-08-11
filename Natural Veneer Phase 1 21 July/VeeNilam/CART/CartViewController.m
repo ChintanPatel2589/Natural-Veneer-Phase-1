@@ -20,9 +20,8 @@
     //[self setMenuIcon];
     
     if ([CommonMethods connected]) {
-        [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-        [self getCartList];
-       [MBProgressHUD hideHUDForView:self.view animated:YES];
+            [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+            [self performSelector:@selector(getCartList) withObject:nil afterDelay:0.1];
     }else{
         [CommonMethods showAlertViewWithMessage:kNoInternetConnection_alert_Title];
     }
@@ -34,10 +33,11 @@
     [[WebServiceHandler sharedWebServiceHandler] callWebServiceWithParam:[CommonMethods getDefaultValueDictWithActionName:kWS_cartlist] withCompletion:^(NSDictionary *result) {
         if ([[result valueForKey:@"success"]intValue] == 1){
             arrayCartList =[[NSMutableArray alloc]initWithArray:[result valueForKey:@"data"]];
-            [self reloadTableData];
+                [self reloadTableData];
         }else{
             [self applyEmptyCartSettings];
         }
+        [MBProgressHUD hideHUDForView:self.view animated:NO];
     }];
 }
 - (void)reloadTableData
@@ -49,6 +49,7 @@
     }else{
         [self applyEmptyCartSettings];
     }
+    
 }
 - (void)applyEmptyCartSettings
 {
@@ -72,9 +73,7 @@
 - (void)btnRemoveFromCartTapped:(NSInteger)tappedIndex{
     if ([CommonMethods connected]) {
         [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-        
-        [self performSelector:@selector(removeItemFromCartAtIndex:) withObject:[NSString stringWithFormat:@"%d",tappedIndex] afterDelay:0.1];
-        //[self removeItemFromCartAtIndex:tappedIndex];
+        [self performSelector:@selector(removeItemFromCartAtIndex:) withObject:[NSString stringWithFormat:@"%ld",(long)tappedIndex] afterDelay:0.1];
     }else{
         [CommonMethods showAlertViewWithMessage:kErrorAlertMsg];
     }
@@ -83,26 +82,43 @@
 {
     NSMutableDictionary *paramDict = [CommonMethods getDefaultValueDictWithActionName:kWS_removecartitem];
     [paramDict setObject:[[arrayCartList objectAtIndex:[tappedIndex intValue]] valueForKey:kWS_removecartitem_req_inquiry_id]  forKey:kWS_removecartitem_req_inquiry_id];
-    
     [[WebServiceHandler sharedWebServiceHandler]callWebServiceWithParam:paramDict withCompletion:^(NSDictionary *result) {
-  
+        [MBProgressHUD hideHUDForView:self.view animated:NO];
         if ([[result valueForKey:@"success"]intValue] == 1){
             [arrayCartList removeObjectAtIndex:[tappedIndex intValue]];
             [self reloadTableData];
         }else{
             [CommonMethods showAlertViewWithMessage:kErrorAlertMsg];
         }
-        [MBProgressHUD hideHUDForView:self.view animated:NO];
     }];
 }
--(void)hideSpinner
-{
-    
-}
+
 #pragma mark IBACtions
 - (IBAction)btnGenerateOrderFormTapped:(id)sender{
-
-    
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    [self performSelector:@selector(checkOut) withObject:nil afterDelay:0.1];
+}
+-(void)checkOut
+{
+    NSMutableArray *tmpArray = [NSMutableArray array];
+    for (NSDictionary *tmpDict in arrayCartList) {
+        for (NSDictionary *tmpOrderList in [tmpDict valueForKey:kWS_grouplist_Res_sizes_quantity]) {
+            NSMutableDictionary *tmpOrderArray = [NSMutableDictionary dictionary];
+            [tmpOrderArray setObject:[tmpOrderList valueForKey:kquantity] forKey:[tmpOrderList valueForKey:kWS_grouplist_Res_product_size_id]];
+            NSDictionary *tmpKeyDict = [[NSDictionary alloc]initWithObjectsAndKeys:tmpOrderArray,[tmpDict valueForKey:kWS_cartlist_Res_inquiry_id] ,nil];
+            [tmpArray addObject:tmpKeyDict];
+        }
+    }
+    NSMutableDictionary *paramDict =[[NSMutableDictionary alloc]initWithDictionary:[CommonMethods getDefaultValueDictWithActionName:kWS_checkout]];
+    [paramDict setObject:[CommonMethods getJSONString:tmpArray] forKey:kWS_addtocart_req_required_quantity];
+    [[WebServiceHandler sharedWebServiceHandler] callWebServiceWithParam:paramDict withCompletion:^(NSDictionary *result) {
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
+        if ([[result valueForKey:@"success"]intValue] == 1){
+            [CommonMethods showAlertViewWithMessage:[result valueForKey:kmessage]];
+        }else{
+            [CommonMethods showAlertViewWithMessage:@"Some error occured while adding item into cart."];
+        }
+    }];
 }
 -(IBAction)btnContinueShopppingTapped:(id)sender{
 

@@ -10,6 +10,7 @@
 #import "DEMONavigationController.h"
 #import "ViewController.h"
 #import "DEMOMenuViewController.h"
+
 @interface AppDelegate ()
 
 @end
@@ -47,7 +48,7 @@
     
     navigationController.navigationBar.tintColor = [UIColor grayColor];
     DEMOMenuViewController *menuController = [[DEMOMenuViewController alloc] initWithStyle:UITableViewStylePlain];
-
+    
     REFrostedViewController *frostedViewController = [[REFrostedViewController alloc] initWithContentViewController:navigationController menuViewController:menuController];
     frostedViewController.direction = REFrostedViewControllerDirectionLeft;
     frostedViewController.liveBlurBackgroundStyle = REFrostedViewControllerLiveBackgroundStyleDark;

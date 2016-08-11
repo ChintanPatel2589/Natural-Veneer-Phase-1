@@ -18,25 +18,27 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.view.backgroundColor = kColorSideMenu;
-    self.tableView.separatorColor = [UIColor colorWithRed:150/255.0f green:161/255.0f blue:177/255.0f alpha:1.0f];
+    self.view.backgroundColor = [UIColor whiteColor];
+    self.tableView.separatorColor = [UIColor clearColor];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     self.tableView.opaque = NO;
     
-    self.tableView.backgroundColor = kColorSideMenu;
+    self.tableView.backgroundColor = [UIColor whiteColor];
+    [self addLogoView];
     self.tableView.tableHeaderView = ({
-        UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0, 150.0f)];
-//        UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 40, 100, 100)];
-//        imageView.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;
-//        imageView.image = [UIImage imageNamed:@"avatar.jpg"];
-//        imageView.layer.masksToBounds = YES;
-//        imageView.layer.cornerRadius = 50.0;
-//        imageView.layer.borderColor = [UIColor whiteColor].CGColor;
-//        imageView.layer.borderWidth = 3.0f;
-//        imageView.layer.rasterizationScale = [UIScreen mainScreen].scale;
-//        imageView.layer.shouldRasterize = YES;
-//        imageView.clipsToBounds = YES;
+        UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0, 200.0f)];
+        UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 50, 127 , 106)];
+        imageView.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;
+        imageView.image = [UIImage imageNamed:@"MainLogo.png"];
+        imageView.contentMode = UIViewContentModeScaleToFill;
+        //        imageView.layer.masksToBounds = YES;
+        //        imageView.layer.cornerRadius = 50.0;
+        //        imageView.layer.borderColor = [UIColor whiteColor].CGColor;
+        //        imageView.layer.borderWidth = 3.0f;
+        //        imageView.layer.rasterizationScale = [UIScreen mainScreen].scale;
+        //        imageView.layer.shouldRasterize = YES;
+        //        imageView.clipsToBounds = YES;
         
         UILabel *lblWelcome = [[UILabel alloc] initWithFrame:CGRectMake(0, 60, 0, 24)];
         lblWelcome.text =@"Welcome";
@@ -53,24 +55,58 @@
         label.textColor = [UIColor whiteColor];
         [label sizeToFit];
         label.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;
-
-        //[view addSubview:imageView];
-        [view addSubview:lblWelcome];
-        [view addSubview:label];
+        
+        [view addSubview:imageView];
+        //[view addSubview:lblWelcome];
+        //[view addSubview:label];
         view;
     });
     
-    arrayMenu = [[NSArray alloc]initWithObjects:@"Products",  @"Order Form", @"Logout", nil];
+    arrayMenu = [[NSArray alloc]initWithObjects:@"DASHBOARD",  @"DISCUSSION", @"UPDATES",@"ORDER FORMS",@"LOGOUT", nil];
 }
-
+- (void)addLogoView
+{
+    
+}
 #pragma mark -
 #pragma mark UITableView Delegate
 
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     cell.backgroundColor = [UIColor clearColor];
-    cell.textLabel.textColor = [UIColor whiteColor];
+    cell.textLabel.textColor = AppGreenColor;
     cell.textLabel.font = [UIFont fontWithName:@"HelveticaNeue" size:17];
+    NSString *imageName;
+    switch (indexPath.row) {
+        case 0:
+        {
+            imageName=@"fa-home";
+        }
+            break;
+        case 1:
+        {
+            imageName=@"fa-comments-o";
+        }
+            break;
+        case 2:
+        {
+            imageName=@"fa-bell-o";
+        }
+            break;
+        case 3:
+        {
+            imageName=@"fa-building-o";
+        }
+            break;
+        case 4:
+        {
+            imageName=@"fa-sign-out";
+        }
+            break;
+        default:
+            break;
+    }
+    cell.imageView.image = [CommonMethods imageWithIcon:imageName backgroundColor:[UIColor clearColor] iconColor:AppGreenColor fontSize:20];
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)sectionIndex
@@ -84,7 +120,7 @@
     UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(10, 8, 0, 0)];
     label.text = @"Friends Online";
     label.font = [UIFont systemFontOfSize:15];
-    label.textColor = [UIColor whiteColor];
+    label.textColor = AppGreenColor;
     label.backgroundColor = [UIColor clearColor];
     [label sizeToFit];
     [view addSubview:label];
@@ -109,23 +145,24 @@
                 viewControllerOBJ =(ProductListViewController *)[[ProductListViewController alloc]initWithNibName:@"ProductListViewController" bundle:nil];
             }
             break;
-//        case 1:
-//            {
-//                viewControllerOBJ =(CartViewController *)[[CartViewController alloc]initWithNibName:@"CartViewController" bundle:nil];
-//            }
-//            break;
         case 1:{
-                viewControllerOBJ =(OrderFormViewController *)[[OrderFormViewController alloc]initWithNibName:@"OrderFormViewController" bundle:nil];
+            
             }
             break;
         case 2:{
-                [CommonMethods saveDataIntoPreference:nil forKey:kloggedUserInfo];
-                viewControllerOBJ =(ViewController *)[[ViewController alloc]initWithNibName:@"ViewController" bundle:nil];
+            
         }
             break;
         case 3:
+            {
+                viewControllerOBJ =(OrderFormViewController *)[[OrderFormViewController alloc]initWithNibName:@"OrderFormViewController" bundle:nil];
+            }
             break;
         case 4:
+            {
+                [CommonMethods saveDataIntoPreference:nil forKey:kloggedUserInfo];
+                viewControllerOBJ =(ViewController *)[[ViewController alloc]initWithNibName:@"ViewController" bundle:nil];
+            }
             break;
         case 5:
             break;
@@ -151,7 +188,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 54;
+    return 50;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView

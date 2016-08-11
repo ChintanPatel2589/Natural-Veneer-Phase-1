@@ -20,6 +20,7 @@
     self.navigationController.navigationBarHidden = true;
     lblTitle.text = @"NATURAL";
     [collectionViewProductList registerNib:[UINib nibWithNibName:@"ProductListViewCell" bundle:nil] forCellWithReuseIdentifier:@"ProductListViewCell"];
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     [self performSelector:@selector(setDefaultData) withObject:nil afterDelay:0.1];
 }
 - (void)setDefaultData
@@ -37,7 +38,6 @@
 - (void)getDataFromServer
 {
     if ([CommonMethods connected]) {
-        [MBProgressHUD showHUDAddedTo:self.view animated:YES];
         [self callWsGetProductListWithSearchTerm:nil];
     }else{
         [CommonMethods showAlertViewWithMessage:kNoInternetConnection_alert_Title];
