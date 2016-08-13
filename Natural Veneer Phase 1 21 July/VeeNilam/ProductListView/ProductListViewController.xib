@@ -25,7 +25,7 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="qD4-PD-AWI">
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="qD4-PD-AWI">
                     <rect key="frame" x="0.0" y="104" width="320" height="376"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="5" minimumInteritemSpacing="5" id="ve2-yt-Jf6">
@@ -39,7 +39,7 @@
                         <outlet property="delegate" destination="-1" id="UyP-0W-KgJ"/>
                     </connections>
                 </collectionView>
-                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="U1N-eH-h42">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U1N-eH-h42">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Title Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5QU-C6-qDR">
@@ -81,8 +81,11 @@
                         </button>
                     </subviews>
                     <color key="backgroundColor" red="0.031453845059999999" green="0.65070762429999995" blue="0.1465957131" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="60" id="0Lm-8f-G4U"/>
+                    </constraints>
                 </view>
-                <searchBar contentMode="redraw" fixedFrame="YES" placeholder="Search " translatesAutoresizingMaskIntoConstraints="NO" id="cod-bo-Fcz">
+                <searchBar contentMode="redraw" placeholder="Search " translatesAutoresizingMaskIntoConstraints="NO" id="cod-bo-Fcz">
                     <rect key="frame" x="0.0" y="60" width="320" height="44"/>
                     <textInputTraits key="textInputTraits"/>
                     <connections>
@@ -91,6 +94,20 @@
                 </searchBar>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="qD4-PD-AWI" firstAttribute="top" secondItem="cod-bo-Fcz" secondAttribute="bottom" id="4op-2q-v4G"/>
+                <constraint firstItem="qD4-PD-AWI" firstAttribute="width" secondItem="cod-bo-Fcz" secondAttribute="width" id="FEu-Wy-rTV"/>
+                <constraint firstAttribute="bottom" secondItem="qD4-PD-AWI" secondAttribute="bottom" id="Md6-NR-dPl"/>
+                <constraint firstItem="cod-bo-Fcz" firstAttribute="top" secondItem="U1N-eH-h42" secondAttribute="bottom" id="Ply-c2-pO6"/>
+                <constraint firstItem="cod-bo-Fcz" firstAttribute="leading" secondItem="U1N-eH-h42" secondAttribute="leading" id="Q59-Fj-VK4"/>
+                <constraint firstAttribute="trailing" secondItem="U1N-eH-h42" secondAttribute="trailing" id="QD1-sZ-Gg6"/>
+                <constraint firstItem="cod-bo-Fcz" firstAttribute="trailing" secondItem="U1N-eH-h42" secondAttribute="trailing" id="Vzn-A5-syM"/>
+                <constraint firstItem="U1N-eH-h42" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="lZI-fn-t0Q"/>
+                <constraint firstItem="U1N-eH-h42" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="oMe-B3-zgY"/>
+                <constraint firstItem="qD4-PD-AWI" firstAttribute="leading" secondItem="cod-bo-Fcz" secondAttribute="leading" id="vhU-sQ-Wkw"/>
+                <constraint firstItem="qD4-PD-AWI" firstAttribute="trailing" secondItem="cod-bo-Fcz" secondAttribute="trailing" id="yP2-sY-RhW"/>
+                <constraint firstItem="cod-bo-Fcz" firstAttribute="width" secondItem="U1N-eH-h42" secondAttribute="width" id="zNh-uC-u0O"/>
+            </constraints>
             <nil key="simulatedTopBarMetrics"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
             <point key="canvasLocation" x="111" y="291"/>

@@ -13,6 +13,7 @@
 #import "ProductListViewController.h"
 #import "OrderFormViewController.h"
 #import "CartViewController.h"
+#import "DealerListViewController.h"
 @implementation DEMOMenuViewController
 
 - (void)viewDidLoad
@@ -146,7 +147,7 @@
             }
             break;
         case 1:{
-            
+            viewControllerOBJ = (DealerListViewController *)[[DealerListViewController alloc]initWithNibName:@"DealerListViewController" bundle:nil];
             }
             break;
         case 2:{

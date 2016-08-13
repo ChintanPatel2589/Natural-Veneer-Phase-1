@@ -16,6 +16,10 @@
 		36ED2DD71D4A0FAB008FD862 /* ProductViewInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 36ED2DD51D4A0FAB008FD862 /* ProductViewInfoCell.m */; };
 		36ED2DD81D4A0FAB008FD862 /* ProductViewInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36ED2DD61D4A0FAB008FD862 /* ProductViewInfoCell.xib */; };
 		36EEAF941D5B0AA90061DF83 /* empty-cart.png in Resources */ = {isa = PBXBuildFile; fileRef = 36EEAF931D5B0AA90061DF83 /* empty-cart.png */; };
+		B9117D671D5E2C8700976875 /* DealerListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B9117D651D5E2C8700976875 /* DealerListViewController.m */; };
+		B9117D681D5E2C8700976875 /* DealerListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9117D661D5E2C8700976875 /* DealerListViewController.xib */; };
+		B9117D6D1D5E2D6300976875 /* DealerListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B9117D6B1D5E2D6300976875 /* DealerListCell.m */; };
+		B9117D6E1D5E2D6300976875 /* DealerListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9117D6C1D5E2D6300976875 /* DealerListCell.xib */; };
 		B91547AD1D3DEEC8009E71FA /* ProductListViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B91547AB1D3DEEC8009E71FA /* ProductListViewCell.m */; };
 		B91547AE1D3DEEC8009E71FA /* ProductListViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B91547AC1D3DEEC8009E71FA /* ProductListViewCell.xib */; };
 		B91547B21D3DEF66009E71FA /* ProductListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B91547B01D3DEF66009E71FA /* ProductListViewController.m */; };
@@ -108,6 +112,12 @@
 		36ED2DD61D4A0FAB008FD862 /* ProductViewInfoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProductViewInfoCell.xib; sourceTree = "<group>"; };
 		36EEAF931D5B0AA90061DF83 /* empty-cart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "empty-cart.png"; sourceTree = "<group>"; };
 		B0427E7D1CE99D80007A1D10 /* NaturalVeneer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NaturalVeneer.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B9117D641D5E2C8700976875 /* DealerListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DealerListViewController.h; sourceTree = "<group>"; };
+		B9117D651D5E2C8700976875 /* DealerListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DealerListViewController.m; sourceTree = "<group>"; };
+		B9117D661D5E2C8700976875 /* DealerListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DealerListViewController.xib; sourceTree = "<group>"; };
+		B9117D6A1D5E2D6300976875 /* DealerListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DealerListCell.h; sourceTree = "<group>"; };
+		B9117D6B1D5E2D6300976875 /* DealerListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DealerListCell.m; sourceTree = "<group>"; };
+		B9117D6C1D5E2D6300976875 /* DealerListCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DealerListCell.xib; sourceTree = "<group>"; };
 		B91547AA1D3DEEC8009E71FA /* ProductListViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductListViewCell.h; sourceTree = "<group>"; };
 		B91547AB1D3DEEC8009E71FA /* ProductListViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductListViewCell.m; sourceTree = "<group>"; };
 		B91547AC1D3DEEC8009E71FA /* ProductListViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProductListViewCell.xib; sourceTree = "<group>"; };
@@ -308,6 +318,27 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		B9117D631D5E2C7500976875 /* Dealer List */ = {
+			isa = PBXGroup;
+			children = (
+				B9117D691D5E2D4400976875 /* DealerListCell */,
+				B9117D641D5E2C8700976875 /* DealerListViewController.h */,
+				B9117D651D5E2C8700976875 /* DealerListViewController.m */,
+				B9117D661D5E2C8700976875 /* DealerListViewController.xib */,
+			);
+			path = "Dealer List";
+			sourceTree = "<group>";
+		};
+		B9117D691D5E2D4400976875 /* DealerListCell */ = {
+			isa = PBXGroup;
+			children = (
+				B9117D6A1D5E2D6300976875 /* DealerListCell.h */,
+				B9117D6B1D5E2D6300976875 /* DealerListCell.m */,
+				B9117D6C1D5E2D6300976875 /* DealerListCell.xib */,
+			);
+			path = DealerListCell;
+			sourceTree = "<group>";
+		};
 		B915479E1D3D9A27009E71FA /* ProductListView */ = {
 			isa = PBXGroup;
 			children = (
@@ -344,6 +375,7 @@
 				B96655731D3CEE60004E4334 /* Order Form */,
 				B915479E1D3D9A27009E71FA /* ProductListView */,
 				B9DF40971D3E7EE6004FFB88 /* ProductDetail */,
+				B9117D631D5E2C7500976875 /* Dealer List */,
 				B92E44241D38C8B600A6CE34 /* main.m */,
 				B92E44251D38C8B600A6CE34 /* PrefixHeader-NaturalVeneer.pch */,
 			);
@@ -710,9 +742,11 @@
 				B92E44561D38C8B600A6CE34 /* logo~ipad.png in Resources */,
 				B91547B31D3DEF66009E71FA /* ProductListViewController.xib in Resources */,
 				B9909F661D429FAD00FD923D /* OrderHeaderView.xib in Resources */,
+				B9117D6E1D5E2D6300976875 /* DealerListCell.xib in Resources */,
 				B92E444F1D38C8B600A6CE34 /* Default-Portrait-736h@3x.png in Resources */,
 				B92E44501D38C8B600A6CE34 /* Default-Portrait@2x~ipad.png in Resources */,
 				B92E44581D38C8B600A6CE34 /* MainBackground.jpeg in Resources */,
+				B9117D681D5E2C8700976875 /* DealerListViewController.xib in Resources */,
 				B92E44691D38C9AD00A6CE34 /* CartViewCell.xib in Resources */,
 				36EEAF941D5B0AA90061DF83 /* empty-cart.png in Resources */,
 				B92E44571D38C8B600A6CE34 /* logo~iphone.png in Resources */,
@@ -749,6 +783,7 @@
 				B9DF409B1D3E7EFF004FFB88 /* ProductDetailsViewController.m in Sources */,
 				B92E443B1D38C8B600A6CE34 /* SDWebImageDownloaderOperation.m in Sources */,
 				B95BCDEC1D3F349400EEE569 /* ImagesLocalViewController.m in Sources */,
+				B9117D671D5E2C8700976875 /* DealerListViewController.m in Sources */,
 				B92E44681D38C9AD00A6CE34 /* CartViewCell.m in Sources */,
 				B92E44371D38C8B600A6CE34 /* SDImageCache.m in Sources */,
 				B92E44361D38C8B600A6CE34 /* NSData+ImageContentType.m in Sources */,
@@ -768,6 +803,7 @@
 				B92E44621D38C96F00A6CE34 /* CartViewController.m in Sources */,
 				B91547B21D3DEF66009E71FA /* ProductListViewController.m in Sources */,
 				B92E44381D38C8B600A6CE34 /* SDWebImageCompat.m in Sources */,
+				B9117D6D1D5E2D6300976875 /* DealerListCell.m in Sources */,
 				B92E443F1D38C8B600A6CE34 /* UIImage+GIF.m in Sources */,
 				B92E44401D38C8B600A6CE34 /* UIImage+MultiFormat.m in Sources */,
 				B9909F641D429FAD00FD923D /* UISegmentedControl+Multiline.m in Sources */,

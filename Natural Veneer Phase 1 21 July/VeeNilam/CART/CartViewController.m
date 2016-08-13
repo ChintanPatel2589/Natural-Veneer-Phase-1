@@ -25,7 +25,6 @@
     }else{
         [CommonMethods showAlertViewWithMessage:kNoInternetConnection_alert_Title];
     }
-    
     // Do any additional setup after loading the view from its nib.
 }
 - (void)getCartList
@@ -49,7 +48,6 @@
     }else{
         [self applyEmptyCartSettings];
     }
-    
 }
 - (void)applyEmptyCartSettings
 {

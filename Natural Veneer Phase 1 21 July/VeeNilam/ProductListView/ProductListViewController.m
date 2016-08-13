@@ -20,15 +20,17 @@
     self.navigationController.navigationBarHidden = true;
     lblTitle.text = @"NATURAL";
     [collectionViewProductList registerNib:[UINib nibWithNibName:@"ProductListViewCell" bundle:nil] forCellWithReuseIdentifier:@"ProductListViewCell"];
-    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    [self performSelector:@selector(setDefaultData) withObject:nil afterDelay:0.1];
+    //[self performSelector:@selector(setDefaultData) withObject:nil afterDelay:0.1];
+    [self setDefaultData];
 }
 - (void)setDefaultData
 {
     refreshControl = [[UIRefreshControl alloc]init];
     [collectionViewProductList addSubview:refreshControl];
     [refreshControl addTarget:self action:@selector(refreshCollectionViewData) forControlEvents:UIControlEventValueChanged];
-    [self getDataFromServer];
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    [self performSelector:@selector(getDataFromServer) withObject:nil afterDelay:0.1];
+    //[self getDataFromServer];
     
 }
 - (void)refreshCollectionViewData
@@ -40,6 +42,7 @@
     if ([CommonMethods connected]) {
         [self callWsGetProductListWithSearchTerm:nil];
     }else{
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
         [CommonMethods showAlertViewWithMessage:kNoInternetConnection_alert_Title];
     }
 }

@@ -149,8 +149,10 @@
 #define kWS_checkout @"checkout"
 #define kWS_checkout_req_required_quantity @"required_quantity"
 
-
-
+//9 dealerlist
+#define kWS_dealerlist @"dealerlist"
+#define kWS_dealerlist_Res_dealer_name @"dealer_name"
+#define kWS_dealerlist_Res_dealer_id @"dealer_id"
 
 
 
