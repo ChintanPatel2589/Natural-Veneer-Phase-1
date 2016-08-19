@@ -7,7 +7,7 @@
 //
 
 #import "DealerListViewController.h"
-
+#import "DiscussionViewController.h"
 @interface DealerListViewController ()
 
 @end
@@ -64,6 +64,18 @@
         [cell setLayoutWithDict:[arrayDealerList objectAtIndex:indexPath.row]];
     }
     return cell;
+}
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (arrayDealerList.count >0) {
+        [self gotoDiscussionWithIndexPath:indexPath];
+    }
+}
+- (void)gotoDiscussionWithIndexPath:(NSIndexPath *)indexPath
+{
+    DiscussionViewController *discussionViewOBJ = [[DiscussionViewController alloc]initWithNibName:@"DiscussionViewController" bundle:nil];
+    discussionViewOBJ.dataDictDealer = [arrayDealerList objectAtIndex:indexPath.row];
+    [self.navigationController pushViewController:discussionViewOBJ animated:YES];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

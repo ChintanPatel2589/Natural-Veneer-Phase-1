@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		361031C31D6320DE00BC5587 /* DiscussionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 361031C11D6320DE00BC5587 /* DiscussionViewController.m */; };
+		361031C41D6320DE00BC5587 /* DiscussionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 361031C21D6320DE00BC5587 /* DiscussionViewController.xib */; };
+		361031C81D63214800BC5587 /* GrowingTextViewHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 361031C71D63214800BC5587 /* GrowingTextViewHandler.m */; };
+		361031D31D632A4300BC5587 /* ChatTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 361031D11D632A4300BC5587 /* ChatTableViewCell.m */; };
+		361031D41D632A4300BC5587 /* ChatTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 361031D21D632A4300BC5587 /* ChatTableViewCell.xib */; };
 		36517E241D59B20000478184 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 36517E231D59B20000478184 /* MBProgressHUD.m */; };
 		36D2F9301D4863C90093ABD4 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 36D2F92E1D4863C90093ABD4 /* BaseViewController.m */; };
 		36ED2DCB1D49B5BD008FD862 /* AddToCartCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 36ED2DC91D49B5BD008FD862 /* AddToCartCell.m */; };
@@ -97,6 +102,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		361031C01D6320DE00BC5587 /* DiscussionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DiscussionViewController.h; sourceTree = "<group>"; };
+		361031C11D6320DE00BC5587 /* DiscussionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DiscussionViewController.m; sourceTree = "<group>"; };
+		361031C21D6320DE00BC5587 /* DiscussionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DiscussionViewController.xib; sourceTree = "<group>"; };
+		361031C61D63214800BC5587 /* GrowingTextViewHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GrowingTextViewHandler.h; sourceTree = "<group>"; };
+		361031C71D63214800BC5587 /* GrowingTextViewHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GrowingTextViewHandler.m; sourceTree = "<group>"; };
+		361031D01D632A4300BC5587 /* ChatTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatTableViewCell.h; sourceTree = "<group>"; };
+		361031D11D632A4300BC5587 /* ChatTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatTableViewCell.m; sourceTree = "<group>"; };
+		361031D21D632A4300BC5587 /* ChatTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChatTableViewCell.xib; sourceTree = "<group>"; };
 		36517E221D59B20000478184 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
 		36517E231D59B20000478184 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		36D2F92D1D4863C90093ABD4 /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
@@ -253,6 +266,36 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		361031BF1D6320C800BC5587 /* DiscussionView */ = {
+			isa = PBXGroup;
+			children = (
+				361031C91D632A1E00BC5587 /* ChatCell */,
+				361031C01D6320DE00BC5587 /* DiscussionViewController.h */,
+				361031C11D6320DE00BC5587 /* DiscussionViewController.m */,
+				361031C21D6320DE00BC5587 /* DiscussionViewController.xib */,
+			);
+			path = DiscussionView;
+			sourceTree = "<group>";
+		};
+		361031C51D63214800BC5587 /* GrawingTextView */ = {
+			isa = PBXGroup;
+			children = (
+				361031C61D63214800BC5587 /* GrowingTextViewHandler.h */,
+				361031C71D63214800BC5587 /* GrowingTextViewHandler.m */,
+			);
+			path = GrawingTextView;
+			sourceTree = "<group>";
+		};
+		361031C91D632A1E00BC5587 /* ChatCell */ = {
+			isa = PBXGroup;
+			children = (
+				361031D01D632A4300BC5587 /* ChatTableViewCell.h */,
+				361031D11D632A4300BC5587 /* ChatTableViewCell.m */,
+				361031D21D632A4300BC5587 /* ChatTableViewCell.xib */,
+			);
+			path = ChatCell;
+			sourceTree = "<group>";
+		};
 		36517E211D59B20000478184 /* MBProgressHUD */ = {
 			isa = PBXGroup;
 			children = (
@@ -376,6 +419,7 @@
 				B915479E1D3D9A27009E71FA /* ProductListView */,
 				B9DF40971D3E7EE6004FFB88 /* ProductDetail */,
 				B9117D631D5E2C7500976875 /* Dealer List */,
+				361031BF1D6320C800BC5587 /* DiscussionView */,
 				B92E44241D38C8B600A6CE34 /* main.m */,
 				B92E44251D38C8B600A6CE34 /* PrefixHeader-NaturalVeneer.pch */,
 			);
@@ -396,6 +440,7 @@
 		B92E43B71D38C8B600A6CE34 /* External Classes */ = {
 			isa = PBXGroup;
 			children = (
+				361031C51D63214800BC5587 /* GrawingTextView */,
 				36517E211D59B20000478184 /* MBProgressHUD */,
 				B95BCDDE1D3F346E00EEE569 /* ImageViewer */,
 				B92E43C31D38C8B600A6CE34 /* Common Method Class */,
@@ -736,6 +781,7 @@
 				B92E44271D38C8B600A6CE34 /* Assets.xcassets in Resources */,
 				B92E445A1D38C8B600A6CE34 /* mehndisangeet.jpg in Resources */,
 				B92E444D1D38C8B600A6CE34 /* Default-568h@2x~iphone.png in Resources */,
+				361031D41D632A4300BC5587 /* ChatTableViewCell.xib in Resources */,
 				B92E44591D38C8B600A6CE34 /* MainLogo.png in Resources */,
 				B92E44531D38C8B600A6CE34 /* Default~iphone.png in Resources */,
 				36ED2DD81D4A0FAB008FD862 /* ProductViewInfoCell.xib in Resources */,
@@ -756,6 +802,7 @@
 				B92E444E1D38C8B600A6CE34 /* Default-667h@2x.png in Resources */,
 				B92E44631D38C96F00A6CE34 /* CartViewController.xib in Resources */,
 				B91547AE1D3DEEC8009E71FA /* ProductListViewCell.xib in Resources */,
+				361031C41D6320DE00BC5587 /* DiscussionViewController.xib in Resources */,
 				B92E44511D38C8B600A6CE34 /* Default-Portrait~ipad.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -802,8 +849,11 @@
 				B95BCDE61D3F347800EEE569 /* ImageCache.m in Sources */,
 				B92E44621D38C96F00A6CE34 /* CartViewController.m in Sources */,
 				B91547B21D3DEF66009E71FA /* ProductListViewController.m in Sources */,
+				361031D31D632A4300BC5587 /* ChatTableViewCell.m in Sources */,
 				B92E44381D38C8B600A6CE34 /* SDWebImageCompat.m in Sources */,
 				B9117D6D1D5E2D6300976875 /* DealerListCell.m in Sources */,
+				361031C31D6320DE00BC5587 /* DiscussionViewController.m in Sources */,
+				361031C81D63214800BC5587 /* GrowingTextViewHandler.m in Sources */,
 				B92E443F1D38C8B600A6CE34 /* UIImage+GIF.m in Sources */,
 				B92E44401D38C8B600A6CE34 /* UIImage+MultiFormat.m in Sources */,
 				B9909F641D429FAD00FD923D /* UISegmentedControl+Multiline.m in Sources */,
