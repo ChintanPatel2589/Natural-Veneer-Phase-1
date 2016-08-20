@@ -23,7 +23,13 @@
     lblDealerName.text = [tmpDataDict valueForKey:kWS_dealerlist_Res_dealer_name];
     lblDesc.text = @"Test Description";
     lblTime.text = @"yesterday";
-    lblUnreadMsgCount.text = @"1";
+    if ([[tmpDataDict valueForKey:kWS_dealerlist_Res_unread_msg] intValue] > 0) {
+        lblUnreadMsgCount.text = [tmpDataDict valueForKey:kWS_dealerlist_Res_unread_msg];
+        lblUnreadMsgCount.hidden = false;
+    }else{
+        lblUnreadMsgCount.hidden = true;
+    }
+    
     imgView.image = [CommonMethods imageWithIcon:@"fa-user" backgroundColor:[UIColor clearColor] iconColor:[UIColor lightGrayColor] fontSize:60];
 }
 

@@ -49,10 +49,13 @@
 #define kNoInternetConnection_alert_Msg @"Please check your Internet Connection."
 #define kLoading @"Loading..."
 #define kErrorAlertMsg @"Some error occured Please try after some time."
-#define DatabaseName @"DS.sqlite"
+#define kDatabaseName @"DealerSystem.sqlite"
 
 #define kAction @"action"
 #define kData @"data"
+
+
+#define kIsStatusIDSync @"IsStatusIDSync"
 //Logged User Details Keys
 #pragma mark - User Details Keys
 #define kloggedUserInfo @"loggedUserInfo"
@@ -153,8 +156,15 @@
 #define kWS_dealerlist @"dealerlist"
 #define kWS_dealerlist_Res_dealer_name @"dealer_name"
 #define kWS_dealerlist_Res_dealer_id @"dealer_id"
+#define kWS_dealerlist_Res_unread_msg @"unread_msg"
 
-
+//11 statussyn
+#define kWS_statussyn @"statussyn"
+#define  kstatus_code_Table @"status_code"
+#define kWS_statussyn_Res_status_id @"status_id"
+#define kWS_statussyn_Res_status_name @"status_name"
+#define kWS_statussyn_Res_sort_order @"sort_order"
+#define kWS_statussyn_Res_is_price_editable @"is_price_editable"
 
 
 

@@ -97,6 +97,9 @@
 		B9909F681D429FAD00FD923D /* OrderViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9909F601D429FAD00FD923D /* OrderViewCell.xib */; };
 		B9909F6E1D429FEB00FD923D /* OrderFormViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B9909F6C1D429FEB00FD923D /* OrderFormViewController.m */; };
 		B9909F6F1D429FEB00FD923D /* OrderFormViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9909F6D1D429FEB00FD923D /* OrderFormViewController.xib */; };
+		B9B279311D68BD1C00372DA8 /* api_Database.m in Sources */ = {isa = PBXBuildFile; fileRef = B9B2792F1D68BD1C00372DA8 /* api_Database.m */; };
+		B9B279321D68BD1C00372DA8 /* DealerSystem.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = B9B279301D68BD1C00372DA8 /* DealerSystem.sqlite */; };
+		B9B279341D68C68D00372DA8 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = B9B279331D68C68D00372DA8 /* libsqlite3.tbd */; };
 		B9DF409B1D3E7EFF004FFB88 /* ProductDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B9DF40991D3E7EFF004FFB88 /* ProductDetailsViewController.m */; };
 		B9DF409C1D3E7EFF004FFB88 /* ProductDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9DF409A1D3E7EFF004FFB88 /* ProductDetailsViewController.xib */; };
 /* End PBXBuildFile section */
@@ -250,6 +253,10 @@
 		B9909F6B1D429FEB00FD923D /* OrderFormViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OrderFormViewController.h; path = TableviewCell/OrderFormViewController.h; sourceTree = "<group>"; };
 		B9909F6C1D429FEB00FD923D /* OrderFormViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OrderFormViewController.m; path = TableviewCell/OrderFormViewController.m; sourceTree = "<group>"; };
 		B9909F6D1D429FEB00FD923D /* OrderFormViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = OrderFormViewController.xib; path = TableviewCell/OrderFormViewController.xib; sourceTree = "<group>"; };
+		B9B2792E1D68BD1C00372DA8 /* api_Database.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = api_Database.h; sourceTree = "<group>"; };
+		B9B2792F1D68BD1C00372DA8 /* api_Database.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = api_Database.m; sourceTree = "<group>"; };
+		B9B279301D68BD1C00372DA8 /* DealerSystem.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = DealerSystem.sqlite; sourceTree = "<group>"; };
+		B9B279331D68C68D00372DA8 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		B9DF40981D3E7EFF004FFB88 /* ProductDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductDetailsViewController.h; sourceTree = "<group>"; };
 		B9DF40991D3E7EFF004FFB88 /* ProductDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductDetailsViewController.m; sourceTree = "<group>"; };
 		B9DF409A1D3E7EFF004FFB88 /* ProductDetailsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProductDetailsViewController.xib; sourceTree = "<group>"; };
@@ -260,6 +267,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B9B279341D68C68D00372DA8 /* libsqlite3.tbd in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -348,6 +356,7 @@
 		B0427E741CE99D80007A1D10 = {
 			isa = PBXGroup;
 			children = (
+				B9B279331D68C68D00372DA8 /* libsqlite3.tbd */,
 				B92E43B21D38C8B600A6CE34 /* VeeNilam */,
 				B0427E7E1CE99D80007A1D10 /* Products */,
 			);
@@ -440,6 +449,7 @@
 		B92E43B71D38C8B600A6CE34 /* External Classes */ = {
 			isa = PBXGroup;
 			children = (
+				B9B2792D1D68BD1C00372DA8 /* Database */,
 				361031C51D63214800BC5587 /* GrawingTextView */,
 				36517E211D59B20000478184 /* MBProgressHUD */,
 				B95BCDDE1D3F346E00EEE569 /* ImageViewer */,
@@ -699,6 +709,16 @@
 			path = TableviewCell;
 			sourceTree = "<group>";
 		};
+		B9B2792D1D68BD1C00372DA8 /* Database */ = {
+			isa = PBXGroup;
+			children = (
+				B9B2792E1D68BD1C00372DA8 /* api_Database.h */,
+				B9B2792F1D68BD1C00372DA8 /* api_Database.m */,
+				B9B279301D68BD1C00372DA8 /* DealerSystem.sqlite */,
+			);
+			path = Database;
+			sourceTree = "<group>";
+		};
 		B9DF40971D3E7EE6004FFB88 /* ProductDetail */ = {
 			isa = PBXGroup;
 			children = (
@@ -798,6 +818,7 @@
 				B92E44571D38C8B600A6CE34 /* logo~iphone.png in Resources */,
 				B9DF409C1D3E7EFF004FFB88 /* ProductDetailsViewController.xib in Resources */,
 				36ED2DD21D4A0D85008FD862 /* ProductInfoViewController.xib in Resources */,
+				B9B279321D68BD1C00372DA8 /* DealerSystem.sqlite in Resources */,
 				B92E442D1D38C8B600A6CE34 /* FontAwesome.ttf in Resources */,
 				B92E444E1D38C8B600A6CE34 /* Default-667h@2x.png in Resources */,
 				B92E44631D38C96F00A6CE34 /* CartViewController.xib in Resources */,
@@ -817,6 +838,7 @@
 				B92E442E1D38C8B600A6CE34 /* NSString+FontAwesome.m in Sources */,
 				B92E444A1D38C8B600A6CE34 /* UIImage+REFrostedViewController.m in Sources */,
 				36ED2DCB1D49B5BD008FD862 /* AddToCartCell.m in Sources */,
+				B9B279311D68BD1C00372DA8 /* api_Database.m in Sources */,
 				B92E44481D38C8B600A6CE34 /* REFrostedContainerViewController.m in Sources */,
 				B92E44411D38C8B600A6CE34 /* UIImage+WebP.m in Sources */,
 				B9909F671D429FAD00FD923D /* OrderViewCell.m in Sources */,

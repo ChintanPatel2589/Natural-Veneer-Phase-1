@@ -8,9 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import "DealerListCell.h"
-@interface DealerListViewController : BaseViewController<UITableViewDataSource,UITableViewDelegate>
+@interface DealerListViewController : BaseViewController<UITableViewDataSource,UITableViewDelegate,UISearchBarDelegate, UISearchDisplayDelegate>
 {
     NSArray *arrayDealerList;
     __weak IBOutlet UITableView *tblView;
+    __weak IBOutlet UISearchBar *searchBarProduct;
 }
 @end

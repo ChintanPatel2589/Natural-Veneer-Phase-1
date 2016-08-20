@@ -19,15 +19,19 @@
     // Do any additional setup after loading the view from its nib.
     if ([CommonMethods connected]) {
         [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-        [self performSelector:@selector(getDealerList) withObject:nil afterDelay:0.1];
+        [self performSelector:@selector(getDealerListWithSearchTerm:) withObject:nil afterDelay:0.1];
     }else{
         [CommonMethods showAlertViewWithMessage:kNoInternetConnection_alert_Title];
     }
     // Do any additional setup after loading the view from its nib.
 }
-- (void)getDealerList
+- (void)getDealerListWithSearchTerm:(NSString *)searchStr
 {
-    [[WebServiceHandler sharedWebServiceHandler] callWebServiceWithParam:[CommonMethods getDefaultValueDictWithActionName:kWS_dealerlist] withCompletion:^(NSDictionary *result) {
+    NSMutableDictionary *paramDict = [NSMutableDictionary dictionaryWithDictionary:[CommonMethods getDefaultValueDictWithActionName:kWS_dealerlist]];
+    if (searchStr != nil) {
+        [paramDict setObject:searchStr forKey:kWS_grouplist_Req_search_term];
+    }
+    [[WebServiceHandler sharedWebServiceHandler] callWebServiceWithParam:paramDict withCompletion:^(NSDictionary *result) {
         if ([[result valueForKey:@"success"]intValue] == 1){
             arrayDealerList =[[NSMutableArray alloc]initWithArray:[result valueForKey:@"data"]];
             [tblView reloadData];
@@ -76,6 +80,36 @@
     DiscussionViewController *discussionViewOBJ = [[DiscussionViewController alloc]initWithNibName:@"DiscussionViewController" bundle:nil];
     discussionViewOBJ.dataDictDealer = [arrayDealerList objectAtIndex:indexPath.row];
     [self.navigationController pushViewController:discussionViewOBJ animated:YES];
+}
+#pragma mark - Serach View Controller
+#pragma mark Content Filtering
+#pragma mark - search
+- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText{
+}
+- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar{
+    [self cancelSearching];
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self getDealerListWithSearchTerm:nil];
+    });
+    [tblView reloadData];
+}
+- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar{
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self getDealerListWithSearchTerm:searchBar.text];
+    });
+    [self.view endEditing:YES];
+}
+- (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar{
+    [searchBarProduct setShowsCancelButton:YES animated:YES];
+}
+- (void)searchBarTextDidEndEditing:(UISearchBar *)searchBar{
+    [searchBarProduct setShowsCancelButton:NO animated:YES];
+}
+-(void)cancelSearching{
+    
+    [searchBarProduct resignFirstResponder];
+    searchBarProduct.text  = @"";
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

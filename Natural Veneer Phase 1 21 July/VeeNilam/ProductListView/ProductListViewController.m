@@ -9,6 +9,7 @@
 #import "ProductListViewController.h"
 #import "ProductDetailsViewController.h"
 #import "OrderFormViewController.h"
+#import "api_Database.h"
 @interface ProductListViewController ()
 
 @end
@@ -79,8 +80,23 @@
         }else{
             [CommonMethods showAlertViewWithMessage:[result valueForKey:@"error while getting products."]];
         }
+        [self getStatusIDs];
+    }];
+}
+- (void)getStatusIDs
+{
+    [[WebServiceHandler sharedWebServiceHandler]callWebServiceWithParam:[CommonMethods getDefaultValueDictWithActionName:kWS_statussyn] withCompletion:^(NSDictionary *result) {
+        if ([[result valueForKey:@"success"] boolValue]== true) {
+            [self insertDataIntoStatusCodeTable:[result valueForKey:kData]];
+        }
         [MBProgressHUD hideHUDForView:self.view animated:YES];
     }];
+}
+- (void)insertDataIntoStatusCodeTable:(NSArray *)arrayData
+{
+    for (NSDictionary *tmpDict in arrayData) {
+        [api_Database genericQueryforDatabase:kDatabaseName query:[NSString stringWithFormat:@"insert into %@ (%@,%@,%@,%@) values (%d,\"%@\",\"%@\",\"%@\")",kstatus_code_Table,kWS_statussyn_Res_status_id,kWS_statussyn_Res_sort_order,kWS_statussyn_Res_status_name,kWS_statussyn_Res_is_price_editable,[[tmpDict valueForKey:kWS_statussyn_Res_status_id] intValue],[tmpDict valueForKey:kWS_statussyn_Res_sort_order],[tmpDict valueForKey:kWS_statussyn_Res_status_name],[tmpDict valueForKey:kWS_statussyn_Res_is_price_editable]]];
+    }
 }
 #pragma mark Cell Delegate
 -(void)ansButtonTappedAtIndex:(NSInteger)index WithAns:(NSString *)ans
@@ -116,20 +132,14 @@
 }
 #pragma mark - Serach View Controller
 #pragma mark Content Filtering
-
 #pragma mark - search
-
-
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText{
 }
-
 - (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar{
     [self cancelSearching];
-    
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [self callWsGetProductListWithSearchTerm:nil];
     });
-   
     [collectionViewProductList reloadData];
 }
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar{
