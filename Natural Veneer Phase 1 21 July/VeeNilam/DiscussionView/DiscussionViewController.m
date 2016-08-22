@@ -16,8 +16,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    textView.text = @"";
-    self.handler = [[GrowingTextViewHandler alloc]initWithTextView:textView withHeightConstraint:heightConstraint];
+    textViewChat.text = @"";
+    self.handler = [[GrowingTextViewHandler alloc]initWithTextView:textViewChat withHeightConstraint:heightConstraint];
     [self.handler updateMinimumNumberOfLines:1 andMaximumNumberOfLine:INT_MAX];
     arrayChatList = [NSMutableArray array];
     
@@ -35,15 +35,33 @@
 #pragma mark IBActions
 - (IBAction)btnSendTapped:(id)sender
 {
+    [self sendMessageWithComment:textViewChat.text];
+}
+- (void)sendMessageWithComment:(NSString *)comment
+{
+    NSMutableDictionary *paramDict = [[NSMutableDictionary alloc]initWithDictionary:[CommonMethods getDefaultValueDictWithActionName:kWS_adddismsg]];
+    [paramDict setObject:comment forKey:kWS_adddismsg_Req_Comment];
+    [[WebServiceHandler sharedWebServiceHandler] callWebServiceWithParam:paramDict withCompletion:^(NSDictionary *result) {
+        if ([[result valueForKey:@"success"]intValue] == 1){
+        }
+    }];
     
 }
 #pragma mark Chat TextView Methods
 - (void)textViewDidChange:(UITextView *)textView {
+    [self enableSendButton];
     [self.handler resizeTextViewWithAnimation:YES];
 }
 
 - (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text {
     return YES;
+}
+- (void)enableSendButton
+{
+    if (textViewChat.text.length >0) {
+        btnSendMsg.enabled = true;
+    }else
+        btnSendMsg.enabled = false;
 }
 -(IBAction)hideKeyBoard
 {

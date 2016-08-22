@@ -10,11 +10,12 @@
 #import "GrowingTextViewHandler.h"
 @interface DiscussionViewController : BaseViewController
 {
-     __weak IBOutlet UITextView *textView;
+     __weak IBOutlet UITextView *textViewChat;
      __weak IBOutlet NSLayoutConstraint *heightConstraint;
     NSMutableArray *arrayChatList;
     IBOutlet UIView *viewChat;
     __weak IBOutlet UITableView *tblView;
+    __weak IBOutlet UIButton *btnSendMsg;
 }
 @property (strong, nonatomic) GrowingTextViewHandler *handler;
 @property (nonatomic,retain)NSDictionary *dataDictDealer;
