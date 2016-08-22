@@ -41,11 +41,12 @@
 {
     NSMutableDictionary *paramDict = [[NSMutableDictionary alloc]initWithDictionary:[CommonMethods getDefaultValueDictWithActionName:kWS_adddismsg]];
     [paramDict setObject:comment forKey:kWS_adddismsg_Req_Comment];
+    [paramDict setObject:[self.dataDictDealer valueForKey:kWS_dealerlist_Res_dealer_id] forKey:kWS_adddismsg_Req_receiver_id];
+    [paramDict setObject:@"9" forKey:kWS_adddismsg_Req_last_chat_id];
     [[WebServiceHandler sharedWebServiceHandler] callWebServiceWithParam:paramDict withCompletion:^(NSDictionary *result) {
         if ([[result valueForKey:@"success"]intValue] == 1){
         }
     }];
-    
 }
 #pragma mark Chat TextView Methods
 - (void)textViewDidChange:(UITextView *)textView {

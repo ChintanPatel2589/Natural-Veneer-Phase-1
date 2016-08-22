@@ -75,7 +75,7 @@
 #define kWS_Login_Req_user_type @"user_type"
 #define kWS_Login_Req_email @"email"
 #define kWS_Login_Req_password @"password"
-#define kWS_user_type @"dealer"
+#define kuser_type_dealer @"dealer"
 
 #define kWS_Login_Res_user_id @"user_id"
 #define kWS_Login_Res_user_type @"user_type"

@@ -14,6 +14,7 @@
 #import "OrderFormViewController.h"
 #import "CartViewController.h"
 #import "DealerListViewController.h"
+#import "DiscussionViewController.h"
 @implementation DEMOMenuViewController
 
 - (void)viewDidLoad
@@ -147,7 +148,11 @@
             }
             break;
         case 1:{
-            viewControllerOBJ = (DealerListViewController *)[[DealerListViewController alloc]initWithNibName:@"DealerListViewController" bundle:nil];
+                if ([[CommonMethods getLoggedUserValueFromNSUserDefaultsWithKey:kWS_Login_Res_user_type] isEqualToString:kuser_type_dealer]) {
+                    viewControllerOBJ = (DiscussionViewController *)[[DiscussionViewController alloc]initWithNibName:@"DiscussionViewController" bundle:nil];
+                }else{
+                    viewControllerOBJ = (DealerListViewController *)[[DealerListViewController alloc]initWithNibName:@"DealerListViewController" bundle:nil];
+                }
             }
             break;
         case 2:{
