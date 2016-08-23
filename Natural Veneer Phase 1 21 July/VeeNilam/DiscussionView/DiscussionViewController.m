@@ -30,17 +30,25 @@
                                              selector:@selector(keyboardWillHide:)
                                                  name:UIKeyboardWillHideNotification
                                                object:self.view.window];
+    [self performSelector:@selector(getAllChatMessages) withObject:nil afterDelay:0.1];
     // Do any additional setup after loading the view from its nib.
 }
-#pragma mark IBActions
-- (IBAction)btnSendTapped:(id)sender
+#pragma mark - Service Call
+- (void)getAllChatMessages
 {
-    [self sendMessageWithComment:textViewChat.text];
+    NSMutableDictionary *paramDict = [[NSMutableDictionary alloc]initWithDictionary:[CommonMethods getDefaultValueDictWithActionName:kWS_discussionmsg]];
+    [paramDict setObject:@"20" forKey:kWS_discussionmsg_Req_page_size];
+    [paramDict setObject:@"1" forKey:kWS_discussionmsg_Req_start_index];
+    [paramDict setObject:@"1" forKey:kWS_adddismsg_Req_last_chat_id];
+    [[WebServiceHandler sharedWebServiceHandler] callWebServiceWithParam:paramDict withCompletion:^(NSDictionary *result) {
+        if ([[result valueForKey:@"success"]intValue] == 1){
+        }
+    }];
 }
 - (void)sendMessageWithComment:(NSString *)comment
 {
     NSMutableDictionary *paramDict = [[NSMutableDictionary alloc]initWithDictionary:[CommonMethods getDefaultValueDictWithActionName:kWS_adddismsg]];
-    [paramDict setObject:comment forKey:kWS_adddismsg_Req_Comment];
+    [paramDict setObject:comment forKey:kWS_adddismsg_Req_comment];
     [paramDict setObject:[self.dataDictDealer valueForKey:kWS_dealerlist_Res_dealer_id] forKey:kWS_adddismsg_Req_receiver_id];
     [paramDict setObject:@"9" forKey:kWS_adddismsg_Req_last_chat_id];
     [[WebServiceHandler sharedWebServiceHandler] callWebServiceWithParam:paramDict withCompletion:^(NSDictionary *result) {
@@ -48,6 +56,12 @@
         }
     }];
 }
+#pragma mark IBActions
+- (IBAction)btnSendTapped:(id)sender
+{
+    [self sendMessageWithComment:textViewChat.text];
+}
+
 #pragma mark Chat TextView Methods
 - (void)textViewDidChange:(UITextView *)textView {
     [self enableSendButton];

@@ -168,11 +168,15 @@
 
 //12 adddismsg
 #define kWS_adddismsg @"adddismsg"
-#define kWS_adddismsg_Req_Comment @"Comment"
+#define kWS_adddismsg_Req_comment @"comment"
 #define kWS_adddismsg_Req_receiver_id @"receiver_id"
 #define kWS_adddismsg_Req_last_chat_id @"last_chat_id"
 
-
+//13 discussionmsg
+#define kWS_discussionmsg @"discussionmsg"
+#define kWS_discussionmsg_Req_start_index @"start_index"
+#define kWS_discussionmsg_Req_page_size @"page_size"
+#define kWS_discussionmsg_Req_last_chat_id @"last_chat_id"
 
 
 
