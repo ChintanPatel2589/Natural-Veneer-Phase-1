@@ -39,9 +39,14 @@
     NSMutableDictionary *paramDict = [[NSMutableDictionary alloc]initWithDictionary:[CommonMethods getDefaultValueDictWithActionName:kWS_discussionmsg]];
     [paramDict setObject:@"20" forKey:kWS_discussionmsg_Req_page_size];
     [paramDict setObject:@"1" forKey:kWS_discussionmsg_Req_start_index];
-    [paramDict setObject:@"1" forKey:kWS_adddismsg_Req_last_chat_id];
+    if (![[CommonMethods getLoggedUserValueFromNSUserDefaultsWithKey:kWS_Login_Res_user_type] isEqualToString:kuser_type_dealer]) {
+        [paramDict setObject:[self.dataDictDealer valueForKey:kWS_dealerlist_Res_dealer_id] forKey:kWS_dealerlist_Res_dealer_id];
+    }
+    //[paramDict setObject:@"1" forKey:kWS_adddismsg_Req_last_chat_id];
     [[WebServiceHandler sharedWebServiceHandler] callWebServiceWithParam:paramDict withCompletion:^(NSDictionary *result) {
         if ([[result valueForKey:@"success"]intValue] == 1){
+            arrayChatList = [result valueForKey:kData];
+            [tblView reloadData];
         }
     }];
 }
@@ -49,7 +54,9 @@
 {
     NSMutableDictionary *paramDict = [[NSMutableDictionary alloc]initWithDictionary:[CommonMethods getDefaultValueDictWithActionName:kWS_adddismsg]];
     [paramDict setObject:comment forKey:kWS_adddismsg_Req_comment];
-    [paramDict setObject:[self.dataDictDealer valueForKey:kWS_dealerlist_Res_dealer_id] forKey:kWS_adddismsg_Req_receiver_id];
+    if (![[CommonMethods getLoggedUserValueFromNSUserDefaultsWithKey:kWS_Login_Res_user_type] isEqualToString:kuser_type_dealer]) {
+        [paramDict setObject:[self.dataDictDealer valueForKey:kWS_dealerlist_Res_dealer_id] forKey:kWS_adddismsg_Req_receiver_id];
+    }
     [paramDict setObject:@"9" forKey:kWS_adddismsg_Req_last_chat_id];
     [[WebServiceHandler sharedWebServiceHandler] callWebServiceWithParam:paramDict withCompletion:^(NSDictionary *result) {
         if ([[result valueForKey:@"success"]intValue] == 1){
@@ -61,7 +68,16 @@
 {
     [self sendMessageWithComment:textViewChat.text];
 }
-
+- (IBAction)btnBackTappedInSameClass:(id)sender
+{
+    if ([[CommonMethods getLoggedUserValueFromNSUserDefaultsWithKey:kWS_Login_Res_user_type] isEqualToString:kuser_type_dealer]) {
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }else
+    {
+        [super btnBackTapped:self];
+    }
+    
+}
 #pragma mark Chat TextView Methods
 - (void)textViewDidChange:(UITextView *)textView {
     [self enableSendButton];

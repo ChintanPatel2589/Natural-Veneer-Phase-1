@@ -68,7 +68,7 @@
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
-                                <action selector="btnBackTapped:" destination="-1" eventType="touchUpInside" id="OKu-pp-SDo"/>
+                                <action selector="btnBackTappedInSameClass:" destination="-1" eventType="touchUpInside" id="KUH-fA-o9C"/>
                             </connections>
                         </button>
                         <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Wng-a3-XgY">

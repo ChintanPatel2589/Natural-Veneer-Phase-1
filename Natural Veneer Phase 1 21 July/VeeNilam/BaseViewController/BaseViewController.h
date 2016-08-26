@@ -25,4 +25,5 @@
     __weak IBOutlet UIButton *btnZoom;
     
 }
+- (IBAction)btnBackTapped:(id)sender;
 @end

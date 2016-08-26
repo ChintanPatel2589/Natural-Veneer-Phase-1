@@ -149,7 +149,9 @@
             break;
         case 1:{
                 if ([[CommonMethods getLoggedUserValueFromNSUserDefaultsWithKey:kWS_Login_Res_user_type] isEqualToString:kuser_type_dealer]) {
-                    viewControllerOBJ = (DiscussionViewController *)[[DiscussionViewController alloc]initWithNibName:@"DiscussionViewController" bundle:nil];
+                    [self.frostedViewController hideMenuViewController];
+                    [self performSelector:@selector(presentDiscussionViewForDealer) withObject:nil afterDelay:0.1];
+                    return;
                 }else{
                     viewControllerOBJ = (DealerListViewController *)[[DealerListViewController alloc]initWithNibName:@"DealerListViewController" bundle:nil];
                 }
@@ -179,6 +181,11 @@
     DEMONavigationController *navigationController = [[DEMONavigationController alloc] initWithRootViewController:viewControllerOBJ];
     self.frostedViewController.contentViewController = navigationController;
     [self.frostedViewController hideMenuViewController];
+}
+- (void)presentDiscussionViewForDealer
+{
+    DiscussionViewController *disuOBJ = [[DiscussionViewController alloc]initWithNibName:@"DiscussionViewController" bundle:nil];
+    [self presentViewController:disuOBJ animated:YES completion:nil];
 }
 #pragma mark - Menu Switch Methods
 
