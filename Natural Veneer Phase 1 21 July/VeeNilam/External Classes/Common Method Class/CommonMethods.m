@@ -199,6 +199,12 @@
     [textField.layer setBorderColor:[[UIColor whiteColor] CGColor]];
     [textField.layer setBorderWidth:1];
 }
++ (void)setRadiousAndBorderToUILabel:(UILabel *)textField
+{
+    [textField.layer setBorderColor:[AppGreenColor CGColor]];
+    [textField.layer setBorderWidth:1];
+    [textField.layer setCornerRadius:10];
+}
 +(UIImage*)imageWithIcon:(NSString*)identifier backgroundColor:(UIColor*)bgColor iconColor:(UIColor*)iconColor  fontSize:(int)fontSize
 {
     UIImage *icon = [UIImage imageWithIcon:identifier backgroundColor:bgColor iconColor:iconColor fontSize:fontSize];
@@ -245,5 +251,15 @@
 {
     [CommonMethods showAlertViewWithMessage:@"Some error occured while placing your order. Please try after some time."];
 }
-
++ (CGSize)textHeight:(NSString*)str widthofLabel:(CGFloat)width fontName:(UIFont*)font{
+    NSAttributedString *attributedText = [[NSAttributedString alloc] initWithString:str attributes:@{NSFontAttributeName: font}];
+    CGRect rect = [attributedText boundingRectWithSize:(CGSize){width, CGFLOAT_MAX}
+                                               options:NSStringDrawingUsesLineFragmentOrigin
+                                               context:nil];
+    CGSize size = rect.size;
+    size.height = ceilf(size.height);
+    size.width  = ceilf(size.width);
+    
+    return size;
+}
 @end

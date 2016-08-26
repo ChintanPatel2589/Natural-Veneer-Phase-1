@@ -10,6 +10,9 @@
 
 @interface ChatTableViewCell : UITableViewCell
 {
-    
+    __weak IBOutlet UILabel *lblChatMessageSender;
+    __weak IBOutlet UILabel *lblChatMessageReceiver;
 }
+
+- (void)setLayoutWithDict:(NSDictionary *)tmpDataDict;
 @end

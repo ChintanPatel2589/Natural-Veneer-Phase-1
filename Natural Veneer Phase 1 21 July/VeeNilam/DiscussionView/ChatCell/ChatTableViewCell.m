@@ -13,11 +13,24 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
+    lblChatMessageReceiver.hidden = true;
+    lblChatMessageSender.hidden = true;
+    [CommonMethods setRadiousAndBorderToUILabel:lblChatMessageSender];
+    [CommonMethods setRadiousAndBorderToUILabel:lblChatMessageReceiver];
     // Initialization code
 }
-- (void)setCellDataWithDict:(NSDictionary *)data
+
+- (void)setLayoutWithDict:(NSDictionary *)tmpDataDict
 {
-    
+    if ([[CommonMethods getLoggedUserValueFromNSUserDefaultsWithKey:kWS_Login_Res_user_id] intValue] == [[tmpDataDict valueForKey:kWS_discussionmsg_Res_created_by] intValue]) {//Me
+        lblChatMessageSender.text = [tmpDataDict valueForKey:kWS_discussionmsg_Res_chat_text];
+        lblChatMessageSender.hidden = false;
+
+    }else{//Receiver
+        lblChatMessageReceiver.text = [tmpDataDict valueForKey:kWS_discussionmsg_Res_chat_text];
+        
+        lblChatMessageReceiver.hidden = false;
+    }
 }
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];

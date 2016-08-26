@@ -27,6 +27,7 @@
 + (NSString *)getDeviceUUID;
 + (NSString *)getiOSVerion;
 + (void)setRadiousAndBorderToTextField:(UITextField *)textField;
++ (void)setRadiousAndBorderToUILabel:(UILabel *)textField;
 +(UIImage*)imageWithIcon:(NSString*)identifier backgroundColor:(UIColor*)bgColor iconColor:(UIColor*)iconColor  fontSize:(int)fontSize;
 + (UIBarButtonItem *)getBarButtonItemWithImage:(NSString *)imageName;
 + (BOOL)connected;
@@ -34,4 +35,5 @@
 + (NSMutableDictionary *)getDefaultValueDictWithActionName:(NSString *)actionName;
 + (NSString *)getJSONString:(NSMutableArray *)dataDict;
 + (void)showSomeErrorOccuredAlert;
++ (CGSize)textHeight:(NSString*)str widthofLabel:(CGFloat)width fontName:(UIFont*)font;
 @end

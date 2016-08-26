@@ -45,7 +45,7 @@
     //[paramDict setObject:@"1" forKey:kWS_adddismsg_Req_last_chat_id];
     [[WebServiceHandler sharedWebServiceHandler] callWebServiceWithParam:paramDict withCompletion:^(NSDictionary *result) {
         if ([[result valueForKey:@"success"]intValue] == 1){
-            arrayChatList = [result valueForKey:kData];
+            arrayChatList =[[NSMutableArray alloc]initWithArray: [result valueForKey:kData]];
             [tblView reloadData];
         }
     }];
@@ -60,6 +60,8 @@
     [paramDict setObject:@"9" forKey:kWS_adddismsg_Req_last_chat_id];
     [[WebServiceHandler sharedWebServiceHandler] callWebServiceWithParam:paramDict withCompletion:^(NSDictionary *result) {
         if ([[result valueForKey:@"success"]intValue] == 1){
+            [arrayChatList addObject:comment];
+            [tblView reloadData];
         }
     }];
 }
@@ -77,6 +79,36 @@
         [super btnBackTapped:self];
     }
     
+}
+#pragma mark - UITablview DataSource and Delegate
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    return arrayChatList.count;
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    CGSize tmpSize = [CommonMethods textHeight:[[arrayChatList objectAtIndex:indexPath.row] valueForKey:kWS_discussionmsg_Res_chat_text] widthofLabel:200 fontName:[UIFont systemFontOfSize:17]];
+    if (tmpSize.height > 40) {
+       return  tmpSize.height+10;
+    }else
+        return 40;
+}
+
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    static  NSString *identifier=@"ChatTableViewCell";
+    ChatTableViewCell *cell = (ChatTableViewCell *) [tableView dequeueReusableCellWithIdentifier:identifier];
+    if(cell == nil){
+        NSArray *nib = [[NSBundle mainBundle] loadNibNamed:identifier owner:self options:nil];
+        cell = [nib objectAtIndex:0];
+        //cell.delegate = self;
+    }
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    
+    if (arrayChatList.count>0) {
+        [cell setLayoutWithDict:[arrayChatList objectAtIndex:indexPath.row]];
+    }
+    return cell;
 }
 #pragma mark Chat TextView Methods
 - (void)textViewDidChange:(UITextView *)textView {

@@ -178,6 +178,12 @@
 #define kWS_discussionmsg_Req_page_size @"page_size"
 #define kWS_discussionmsg_Req_last_chat_id @"last_chat_id"
 
+#define kWS_discussionmsg_Res_chat_id @"chat_id"
+#define kWS_discussionmsg_Res_chat_text @"chat_text"
+#define kWS_discussionmsg_Res_chat_text_id @"chat_text_id"
+#define kWS_discussionmsg_Res_created_at @"created_at"
+#define kWS_discussionmsg_Res_created_by @"created_by"
+
 
 
 
