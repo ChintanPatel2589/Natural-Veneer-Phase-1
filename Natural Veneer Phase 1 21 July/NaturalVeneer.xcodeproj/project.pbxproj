@@ -100,6 +100,9 @@
 		B9B279311D68BD1C00372DA8 /* api_Database.m in Sources */ = {isa = PBXBuildFile; fileRef = B9B2792F1D68BD1C00372DA8 /* api_Database.m */; };
 		B9B279321D68BD1C00372DA8 /* DealerSystem.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = B9B279301D68BD1C00372DA8 /* DealerSystem.sqlite */; };
 		B9B279341D68C68D00372DA8 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = B9B279331D68C68D00372DA8 /* libsqlite3.tbd */; };
+		B9DCA2C41D7204680071A89D /* HPGrowingTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = B9DCA2BF1D7204680071A89D /* HPGrowingTextView.m */; };
+		B9DCA2C51D7204690071A89D /* HPTextViewInternal.m in Sources */ = {isa = PBXBuildFile; fileRef = B9DCA2C11D7204680071A89D /* HPTextViewInternal.m */; };
+		B9DCA2C61D7204690071A89D /* Inputbar.m in Sources */ = {isa = PBXBuildFile; fileRef = B9DCA2C31D7204680071A89D /* Inputbar.m */; };
 		B9DF409B1D3E7EFF004FFB88 /* ProductDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B9DF40991D3E7EFF004FFB88 /* ProductDetailsViewController.m */; };
 		B9DF409C1D3E7EFF004FFB88 /* ProductDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9DF409A1D3E7EFF004FFB88 /* ProductDetailsViewController.xib */; };
 /* End PBXBuildFile section */
@@ -257,6 +260,12 @@
 		B9B2792F1D68BD1C00372DA8 /* api_Database.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = api_Database.m; sourceTree = "<group>"; };
 		B9B279301D68BD1C00372DA8 /* DealerSystem.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = DealerSystem.sqlite; sourceTree = "<group>"; };
 		B9B279331D68C68D00372DA8 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		B9DCA2BE1D7204680071A89D /* HPGrowingTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HPGrowingTextView.h; sourceTree = "<group>"; };
+		B9DCA2BF1D7204680071A89D /* HPGrowingTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HPGrowingTextView.m; sourceTree = "<group>"; };
+		B9DCA2C01D7204680071A89D /* HPTextViewInternal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HPTextViewInternal.h; sourceTree = "<group>"; };
+		B9DCA2C11D7204680071A89D /* HPTextViewInternal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HPTextViewInternal.m; sourceTree = "<group>"; };
+		B9DCA2C21D7204680071A89D /* Inputbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Inputbar.h; sourceTree = "<group>"; };
+		B9DCA2C31D7204680071A89D /* Inputbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Inputbar.m; sourceTree = "<group>"; };
 		B9DF40981D3E7EFF004FFB88 /* ProductDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductDetailsViewController.h; sourceTree = "<group>"; };
 		B9DF40991D3E7EFF004FFB88 /* ProductDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductDetailsViewController.m; sourceTree = "<group>"; };
 		B9DF409A1D3E7EFF004FFB88 /* ProductDetailsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProductDetailsViewController.xib; sourceTree = "<group>"; };
@@ -449,6 +458,7 @@
 		B92E43B71D38C8B600A6CE34 /* External Classes */ = {
 			isa = PBXGroup;
 			children = (
+				B9DCA2BD1D7204680071A89D /* ChatTextView */,
 				B9B2792D1D68BD1C00372DA8 /* Database */,
 				361031C51D63214800BC5587 /* GrawingTextView */,
 				36517E211D59B20000478184 /* MBProgressHUD */,
@@ -719,6 +729,19 @@
 			path = Database;
 			sourceTree = "<group>";
 		};
+		B9DCA2BD1D7204680071A89D /* ChatTextView */ = {
+			isa = PBXGroup;
+			children = (
+				B9DCA2BE1D7204680071A89D /* HPGrowingTextView.h */,
+				B9DCA2BF1D7204680071A89D /* HPGrowingTextView.m */,
+				B9DCA2C01D7204680071A89D /* HPTextViewInternal.h */,
+				B9DCA2C11D7204680071A89D /* HPTextViewInternal.m */,
+				B9DCA2C21D7204680071A89D /* Inputbar.h */,
+				B9DCA2C31D7204680071A89D /* Inputbar.m */,
+			);
+			path = ChatTextView;
+			sourceTree = "<group>";
+		};
 		B9DF40971D3E7EE6004FFB88 /* ProductDetail */ = {
 			isa = PBXGroup;
 			children = (
@@ -859,6 +882,7 @@
 				B9909F651D429FAD00FD923D /* OrderHeaderView.m in Sources */,
 				B92E444B1D38C8B600A6CE34 /* UIView+REFrostedViewController.m in Sources */,
 				B95BCDED1D3F349400EEE569 /* TKScroller.m in Sources */,
+				B9DCA2C51D7204690071A89D /* HPTextViewInternal.m in Sources */,
 				36ED2DD11D4A0D85008FD862 /* ProductInfoViewController.m in Sources */,
 				B92E44301D38C8B600A6CE34 /* IconDownloader.m in Sources */,
 				B92E44391D38C8B600A6CE34 /* SDWebImageDecoder.m in Sources */,
@@ -874,6 +898,8 @@
 				361031D31D632A4300BC5587 /* ChatTableViewCell.m in Sources */,
 				B92E44381D38C8B600A6CE34 /* SDWebImageCompat.m in Sources */,
 				B9117D6D1D5E2D6300976875 /* DealerListCell.m in Sources */,
+				B9DCA2C61D7204690071A89D /* Inputbar.m in Sources */,
+				B9DCA2C41D7204680071A89D /* HPGrowingTextView.m in Sources */,
 				361031C31D6320DE00BC5587 /* DiscussionViewController.m in Sources */,
 				361031C81D63214800BC5587 /* GrowingTextViewHandler.m in Sources */,
 				B92E443F1D38C8B600A6CE34 /* UIImage+GIF.m in Sources */,
@@ -987,6 +1013,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PREFIX_HEADER = "VeeNilam/PrefixHeader-NaturalVeneer.pch";
@@ -996,6 +1023,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.naturalVeneer.TestAppChintan;
 				PRODUCT_NAME = NaturalVeneer;
 				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "VeeNilam/DiscussionView/NaturalVeneer-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -1004,6 +1033,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PREFIX_HEADER = "VeeNilam/PrefixHeader-NaturalVeneer.pch";
@@ -1013,6 +1043,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.naturalVeneer.TestAppChintan;
 				PRODUCT_NAME = NaturalVeneer;
 				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "VeeNilam/DiscussionView/NaturalVeneer-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;

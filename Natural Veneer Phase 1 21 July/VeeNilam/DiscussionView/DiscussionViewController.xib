@@ -8,11 +8,9 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DiscussionViewController">
             <connections>
                 <outlet property="btnBack" destination="hJk-1Z-7Yx" id="yFk-vF-gNT"/>
-                <outlet property="btnSendMsg" destination="X5d-mP-7y3" id="NE2-2c-2M5"/>
+                <outlet property="inputbar" destination="0Zz-br-7Lz" id="QrM-AI-bI5"/>
                 <outlet property="tblView" destination="GUF-GD-Hhw" id="dMN-H3-dTt"/>
-                <outlet property="textViewChat" destination="yLT-Eb-0XH" id="fLl-Lk-aOV"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
-                <outlet property="viewChat" destination="hLk-ze-WDP" id="Zn0-0S-u4e"/>
                 <outlet property="viewNavigation" destination="r5O-lf-FDc" id="7Wt-4z-dw8"/>
             </connections>
         </placeholder>
@@ -22,7 +20,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="40" sectionHeaderHeight="1" sectionFooterHeight="1" id="GUF-GD-Hhw">
-                    <rect key="frame" x="0.0" y="68" width="320" height="370"/>
+                    <rect key="frame" x="0.0" y="62" width="320" height="376"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <connections>
@@ -30,31 +28,11 @@
                         <outlet property="delegate" destination="-1" id="kDP-Kn-FzV"/>
                     </connections>
                 </tableView>
-                <view autoresizesSubviews="NO" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="hLk-ze-WDP">
-                    <rect key="frame" x="0.0" y="440" width="320" height="40"/>
+                <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="0Zz-br-7Lz" customClass="Inputbar">
+                    <rect key="frame" x="0.0" y="436" width="320" height="44"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                    <subviews>
-                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="yLT-Eb-0XH">
-                            <rect key="frame" x="5" y="3" width="267" height="34"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <color key="backgroundColor" red="0.93057537349999997" green="0.93057537349999997" blue="0.93057537349999997" alpha="1" colorSpace="calibratedRGB"/>
-                            <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="20"/>
-                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            <connections>
-                                <outlet property="delegate" destination="-1" id="k2W-D2-FFq"/>
-                            </connections>
-                        </textView>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="X5d-mP-7y3">
-                            <rect key="frame" x="270" y="0.0" width="50" height="40"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <state key="normal" title="send"/>
-                            <connections>
-                                <action selector="btnSendTapped:" destination="-1" eventType="touchUpInside" id="qFX-Ey-clm"/>
-                            </connections>
-                        </button>
-                    </subviews>
-                    <color key="backgroundColor" red="0.83093041181564331" green="0.4508318305015564" blue="0.25503551959991455" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                </view>
+                    <items/>
+                </toolbar>
                 <view contentMode="scaleToFill" id="r5O-lf-FDc">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>

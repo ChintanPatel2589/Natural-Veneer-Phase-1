@@ -36,4 +36,5 @@
 + (NSString *)getJSONString:(NSMutableArray *)dataDict;
 + (void)showSomeErrorOccuredAlert;
 + (CGSize)textHeight:(NSString*)str widthofLabel:(CGFloat)width fontName:(UIFont*)font;
++ (NSArray *)getAllChatMessages:(NSString *)dealerID;
 @end

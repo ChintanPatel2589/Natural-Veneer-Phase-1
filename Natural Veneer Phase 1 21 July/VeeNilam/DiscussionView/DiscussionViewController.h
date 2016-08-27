@@ -7,17 +7,18 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "GrowingTextViewHandler.h"
 #import "ChatTableViewCell.h"
-@interface DiscussionViewController : BaseViewController
+#import "Inputbar.h"
+@interface DiscussionViewController : BaseViewController<InputbarDelegate>
 {
-     __weak IBOutlet UITextView *textViewChat;
+    
      __weak IBOutlet NSLayoutConstraint *heightConstraint;
     NSMutableArray *arrayChatList;
-    IBOutlet UIView *viewChat;
+    
      IBOutlet UITableView *tblView;
     __weak IBOutlet UIButton *btnSendMsg;
 }
-@property (strong, nonatomic) GrowingTextViewHandler *handler;
+@property (weak, nonatomic) IBOutlet Inputbar *inputbar;
+
 @property (nonatomic,retain)NSDictionary *dataDictDealer;
 @end

@@ -7,6 +7,7 @@
 //
 
 #import "CommonMethods.h"
+
 @implementation CommonMethods
 
 + (void)saveDataIntoPreference:(NSDictionary *)dataDict forKey:(NSString *)key
@@ -261,5 +262,22 @@
     size.width  = ceilf(size.width);
     
     return size;
+}
++ (NSArray *)getAllChatMessages:(NSString *)dealerID
+{
+    NSMutableDictionary *paramDict = [[NSMutableDictionary alloc]initWithDictionary:[CommonMethods getDefaultValueDictWithActionName:kWS_discussionmsg]];
+    [paramDict setObject:@"20" forKey:kWS_discussionmsg_Req_page_size];
+    [paramDict setObject:@"1" forKey:kWS_discussionmsg_Req_start_index];
+    if (![[CommonMethods getLoggedUserValueFromNSUserDefaultsWithKey:kWS_Login_Res_user_type] isEqualToString:kuser_type_dealer]) {
+        [paramDict setObject:dealerID forKey:kWS_dealerlist_Res_dealer_id];
+    }
+    //[paramDict setObject:@"1" forKey:kWS_adddismsg_Req_last_chat_id];
+    __block NSArray *tmpArray;
+    [[WebServiceHandler sharedWebServiceHandler] callWebServiceWithParam:paramDict withCompletion:^(NSDictionary *result) {
+        if ([[result valueForKey:@"success"]intValue] == 1){
+           tmpArray =  [[result valueForKey:kData] copy];
+        }
+    }];
+    return tmpArray;
 }
 @end

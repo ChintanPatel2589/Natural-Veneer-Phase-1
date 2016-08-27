@@ -12,6 +12,7 @@
 {
     __weak IBOutlet UILabel *lblChatMessageSender;
     __weak IBOutlet UILabel *lblChatMessageReceiver;
+    __weak IBOutlet UIImageView *imgLogo;
 }
 
 - (void)setLayoutWithDict:(NSDictionary *)tmpDataDict;

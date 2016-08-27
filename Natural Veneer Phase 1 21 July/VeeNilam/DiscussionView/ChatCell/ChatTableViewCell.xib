@@ -3,50 +3,71 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ChatTableViewCell" id="KGk-i7-Jjw" customClass="ChatTableViewCell">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="40"/>
+            <rect key="frame" x="0.0" y="0.0" width="320" height="70"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="39"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="69"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IV0-7P-7x4">
-                        <rect key="frame" x="8" y="4" width="200" height="30"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wzR-bA-Dsk">
+                        <rect key="frame" x="112" y="24" width="200" height="21"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="200" id="ocP-qX-Q1h"/>
+                            <constraint firstAttribute="width" constant="200" id="X8Z-pv-r8m"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wzR-bA-Dsk">
-                        <rect key="frame" x="112" y="4" width="200" height="30"/>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="MainLogo.png" translatesAutoresizingMaskIntoConstraints="NO" id="gNV-Yx-wyb">
+                        <rect key="frame" x="8" y="9" width="50" height="50"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="50" id="16f-Ym-uwe"/>
+                            <constraint firstAttribute="height" constant="50" id="2Ue-Gv-pH6"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IV0-7P-7x4">
+                        <rect key="frame" x="60" y="24" width="200" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="width" relation="lessThanOrEqual" constant="200" id="3Xj-2A-mNS"/>
+                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="200" id="WTw-2t-uCU"/>
+                            <constraint firstAttribute="width" constant="200" id="lvf-Lw-ULx"/>
+                        </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="bottom" secondItem="wzR-bA-Dsk" secondAttribute="bottom" constant="5" id="5aj-cQ-1W0"/>
-                    <constraint firstItem="IV0-7P-7x4" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="4" id="6Go-pO-o4i"/>
-                    <constraint firstAttribute="bottom" secondItem="IV0-7P-7x4" secondAttribute="bottom" constant="5" id="NQR-7g-IDt"/>
-                    <constraint firstItem="wzR-bA-Dsk" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="112" id="NcJ-id-OBk"/>
-                    <constraint firstAttribute="trailing" secondItem="IV0-7P-7x4" secondAttribute="trailing" constant="112" id="RLb-bN-wsT"/>
-                    <constraint firstItem="wzR-bA-Dsk" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="4" id="gQZ-C7-daY"/>
-                    <constraint firstItem="IV0-7P-7x4" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="jaZ-jX-9nb"/>
-                    <constraint firstAttribute="trailing" secondItem="wzR-bA-Dsk" secondAttribute="trailing" constant="8" id="l7k-1R-vdh"/>
+                    <constraint firstAttribute="trailing" secondItem="IV0-7P-7x4" secondAttribute="trailing" constant="60" id="HeB-LW-ssg"/>
+                    <constraint firstItem="IV0-7P-7x4" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="Hr1-wd-dJ5"/>
+                    <constraint firstItem="IV0-7P-7x4" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="OX7-1C-da7"/>
+                    <constraint firstAttribute="trailing" secondItem="IV0-7P-7x4" secondAttribute="trailing" constant="60" id="Qdt-d1-IAa"/>
+                    <constraint firstItem="IV0-7P-7x4" firstAttribute="leading" secondItem="gNV-Yx-wyb" secondAttribute="trailing" constant="2" id="aD4-Mh-AdX"/>
+                    <constraint firstItem="IV0-7P-7x4" firstAttribute="leading" secondItem="gNV-Yx-wyb" secondAttribute="trailing" constant="2" id="atD-Ad-R9e"/>
+                    <constraint firstAttribute="leadingMargin" secondItem="gNV-Yx-wyb" secondAttribute="leading" id="cfy-yn-32d"/>
+                    <constraint firstAttribute="trailing" secondItem="wzR-bA-Dsk" secondAttribute="trailing" constant="8" id="ctA-Zy-821"/>
+                    <constraint firstItem="gNV-Yx-wyb" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="h6G-ld-m8P"/>
+                    <constraint firstItem="wzR-bA-Dsk" firstAttribute="leading" secondItem="gNV-Yx-wyb" secondAttribute="trailing" constant="54" id="jVe-ye-JHo"/>
+                    <constraint firstItem="IV0-7P-7x4" firstAttribute="leading" secondItem="gNV-Yx-wyb" secondAttribute="trailing" constant="2" id="kI4-Ik-RgP"/>
+                    <constraint firstItem="wzR-bA-Dsk" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="yhv-Ry-Xlj"/>
                 </constraints>
             </tableViewCellContentView>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <connections>
+                <outlet property="imgLogo" destination="gNV-Yx-wyb" id="42M-uS-v2z"/>
                 <outlet property="lblChatMessageReceiver" destination="IV0-7P-7x4" id="bpB-tp-i2C"/>
                 <outlet property="lblChatMessageSender" destination="wzR-bA-Dsk" id="Ju5-ii-EAo"/>
             </connections>
             <point key="canvasLocation" x="303" y="341"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="MainLogo.png" width="351" height="287"/>
+    </resources>
 </document>

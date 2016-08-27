@@ -81,6 +81,7 @@
     discussionViewOBJ.dataDictDealer = [arrayDealerList objectAtIndex:indexPath.row];
     [self.navigationController pushViewController:discussionViewOBJ animated:YES];
 }
+
 #pragma mark - Serach View Controller
 #pragma mark Content Filtering
 #pragma mark - search
