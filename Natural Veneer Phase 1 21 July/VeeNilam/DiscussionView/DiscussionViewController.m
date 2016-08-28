@@ -17,7 +17,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     arrayChatList = [NSMutableArray array];
-    
+    lastChatID = @"0";
+    pageSize = @"5";
+    pageIndex = @"0";
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(keyboardWillShow:)
                                                  name:UIKeyboardWillShowNotification
@@ -29,24 +31,31 @@
                                                object:self.view.window];
     [self performSelector:@selector(getAllChatMessages) withObject:nil afterDelay:0.1];
     [self setInputbar];
+    refreshControl = [[UIRefreshControl alloc]init];
+    [tblView addSubview:refreshControl];
+    [refreshControl addTarget:self action:@selector(getAllChatMessages) forControlEvents:UIControlEventValueChanged];
     // Do any additional setup after loading the view from its nib.
 }
 #pragma mark - Service Call
 - (void)getAllChatMessages
 {
     NSMutableDictionary *paramDict = [[NSMutableDictionary alloc]initWithDictionary:[CommonMethods getDefaultValueDictWithActionName:kWS_discussionmsg]];
-    [paramDict setObject:@"50" forKey:kWS_discussionmsg_Req_page_size];
-    [paramDict setObject:@"1" forKey:kWS_discussionmsg_Req_start_index];
-    [paramDict setObject:@"50" forKey:kWS_discussionmsg_Req_last_chat_id];
+    [paramDict setObject:pageSize forKey:kWS_discussionmsg_Req_page_size];
+    [paramDict setObject:pageIndex forKey:kWS_discussionmsg_Req_start_index];
+    [paramDict setObject:lastChatID forKey:kWS_discussionmsg_Req_last_chat_id];
     if (![[CommonMethods getLoggedUserValueFromNSUserDefaultsWithKey:kWS_Login_Res_user_type] isEqualToString:kuser_type_dealer]) {
         [paramDict setObject:[self.dataDictDealer valueForKey:kWS_dealerlist_Res_dealer_id] forKey:kWS_dealerlist_Res_dealer_id];
     }
-    //[paramDict setObject:@"1" forKey:kWS_adddismsg_Req_last_chat_id];
     [[WebServiceHandler sharedWebServiceHandler] callWebServiceWithParam:paramDict withCompletion:^(NSDictionary *result) {
         if ([[result valueForKey:@"success"]intValue] == 1){
             arrayChatList =[[NSMutableArray alloc]initWithArray: [result valueForKey:kData]];
             [tblView reloadData];
+            lastChatID = [[arrayChatList lastObject] valueForKey:kWS_discussionmsg_Res_chat_text_id];
+            int tmpPageSize = [pageSize intValue] + 5;
+            pageSize = [NSString stringWithFormat:@"%d",tmpPageSize];
+            pageIndex = [NSString stringWithFormat:@"%d",[pageIndex intValue]+1];
             [self scrollToTheBottom:NO];
+            [refreshControl endRefreshing];
         }
     }];
 }

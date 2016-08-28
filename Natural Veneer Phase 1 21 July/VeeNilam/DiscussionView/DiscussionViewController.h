@@ -17,6 +17,10 @@
     
      IBOutlet UITableView *tblView;
     __weak IBOutlet UIButton *btnSendMsg;
+    NSString *lastChatID;
+    NSString *pageSize;
+    NSString *pageIndex;
+    UIRefreshControl *refreshControl;
 }
 @property (weak, nonatomic) IBOutlet Inputbar *inputbar;
 

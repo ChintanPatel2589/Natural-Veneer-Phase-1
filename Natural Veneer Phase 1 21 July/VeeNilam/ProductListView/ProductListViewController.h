@@ -17,6 +17,8 @@
     NSMutableArray *arraayData;
     __weak IBOutlet UISearchBar *searchBarProduct;
     UIRefreshControl *refreshControl;
+    NSString *pageSize;
+    NSString *pageIndex;
 }
 
 @end

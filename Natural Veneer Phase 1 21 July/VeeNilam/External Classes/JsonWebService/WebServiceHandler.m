@@ -23,7 +23,6 @@ static WebServiceHandler * sharedWebServiceHandler = nil;
 }
 - (void)callWebServiceWithParam :(NSDictionary *)paramDict withCompletion:(void (^)(NSDictionary *result))block
 {
-    
         NSError *error;
         NSData *jsonData = [NSJSONSerialization dataWithJSONObject:paramDict options:NSJSONWritingPrettyPrinted error:&error];
         NSLog(@"\n %@  ====> \n %@",self.serviceName,[[NSString alloc]initWithData:jsonData encoding:NSUTF8StringEncoding]);
@@ -36,7 +35,8 @@ static WebServiceHandler * sharedWebServiceHandler = nil;
         NSURLResponse *result= nil;
         NSData * data = [NSURLConnection sendSynchronousRequest:request returningResponse:&result  error:&error];
         if (error) {
-            [CommonMethods showAlertViewWithMessage:@"Network busy. Please try after some time."];
+            //[CommonMethods showAlertViewWithMessage:@"Network busy. Please try after some time."];
+            block(nil);
         }else{
             NSDictionary *parsedObject = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
             block(parsedObject);

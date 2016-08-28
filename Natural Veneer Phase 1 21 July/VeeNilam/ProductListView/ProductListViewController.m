@@ -23,6 +23,8 @@
     [collectionViewProductList registerNib:[UINib nibWithNibName:@"ProductListViewCell" bundle:nil] forCellWithReuseIdentifier:@"ProductListViewCell"];
     //[self performSelector:@selector(setDefaultData) withObject:nil afterDelay:0.1];
     [self setDefaultData];
+    pageIndex = @"0";
+    pageSize = @"20";
 }
 - (void)setDefaultData
 {
@@ -36,6 +38,7 @@
 }
 - (void)refreshCollectionViewData
 {
+    [self getDataFromServer];
     [refreshControl endRefreshing];
 }
 - (void)getDataFromServer
@@ -68,8 +71,8 @@
     [paramDict setObject:kWS_grouplist forKey:kWS_grouplist_Req_action];
     [paramDict setObject:[CommonMethods getLoggedUserValueFromNSUserDefaultsWithKey:kWS_Login_Res_user_type] forKey:kWS_grouplist_Req_user_type];
     [paramDict setObject:[CommonMethods getLoggedUserValueFromNSUserDefaultsWithKey:kWS_Login_Res_user_id] forKey:kWS_grouplist_Req_type_id];
-    [paramDict setObject:@"0" forKey:kWS_grouplist_Req_start_index];
-    [paramDict setObject:@"20" forKey:kWS_grouplist_Req_page_size];
+    [paramDict setObject:pageIndex forKey:kWS_grouplist_Req_start_index];
+    [paramDict setObject:pageSize forKey:kWS_grouplist_Req_page_size];
     if (strForSearch.length > 0) {
         [paramDict setObject:strForSearch forKey:kWS_grouplist_Req_search_term];
     }
@@ -77,6 +80,8 @@
         if ([[result valueForKey:@"success"]intValue] == 1){
             arraayData =[[NSMutableArray alloc]initWithArray:[result valueForKey:kData]];
             [collectionViewProductList reloadData];
+            pageSize = [NSString stringWithFormat:@"%d",[pageSize intValue]+20];
+            pageIndex = [NSString stringWithFormat:@"%d",[pageIndex intValue]+1];
         }else{
             [CommonMethods showAlertViewWithMessage:[result valueForKey:@"error while getting products."]];
         }
