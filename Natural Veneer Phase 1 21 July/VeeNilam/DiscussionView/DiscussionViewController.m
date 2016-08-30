@@ -53,7 +53,7 @@
         if ([[result valueForKey:@"success"]intValue] == 1){
             arrayChatList =[[NSMutableArray alloc]initWithArray: [result valueForKey:kData]];
             [tblView reloadData];
-            lastChatID = [[arrayChatList lastObject] valueForKey:kWS_discussionmsg_Res_chat_text_id];
+            lastChatID = [[arrayChatList firstObject] valueForKey:kWS_discussionmsg_Res_chat_text_id];
             int tmpPageSize = [pageSize intValue] + 10;
             pageSize = [NSString stringWithFormat:@"%d",tmpPageSize];
             pageIndex = [NSString stringWithFormat:@"%d",[pageIndex intValue]+1];
@@ -77,7 +77,7 @@
     if (![[CommonMethods getLoggedUserValueFromNSUserDefaultsWithKey:kWS_Login_Res_user_type] isEqualToString:kuser_type_dealer]) {
         [paramDict setObject:[self.dataDictDealer valueForKey:kWS_dealerlist_Res_dealer_id] forKey:kWS_adddismsg_Req_receiver_id];
     }
-    [paramDict setObject:@"9" forKey:kWS_adddismsg_Req_last_chat_id];
+    [paramDict setObject:[[arrayChatList lastObject] valueForKey:kWS_discussionmsg_Res_chat_text_id] forKey:kWS_adddismsg_Req_last_chat_id];
     [[WebServiceHandler sharedWebServiceHandler] callWebServiceWithParam:paramDict withCompletion:^(NSDictionary *result) {
         if ([[result valueForKey:@"success"]intValue] == 1){
             [self getAllChatMessages];
