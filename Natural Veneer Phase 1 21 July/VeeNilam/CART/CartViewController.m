@@ -98,17 +98,19 @@
 }
 -(void)checkOut
 {
-    NSMutableArray *tmpArray = [NSMutableArray array];
+    NSMutableArray *tmpMainArray = [NSMutableArray array];
     for (NSDictionary *tmpDict in arrayCartList) {
+        NSMutableArray *tmpSubArray = [NSMutableArray array];
         for (NSDictionary *tmpOrderList in [tmpDict valueForKey:kWS_grouplist_Res_sizes_quantity]) {
             NSMutableDictionary *tmpOrderArray = [NSMutableDictionary dictionary];
             [tmpOrderArray setObject:[tmpOrderList valueForKey:kquantity] forKey:[tmpOrderList valueForKey:kWS_grouplist_Res_product_size_id]];
-            NSDictionary *tmpKeyDict = [[NSDictionary alloc]initWithObjectsAndKeys:tmpOrderArray,[tmpDict valueForKey:kWS_cartlist_Res_inquiry_id] ,nil];
-            [tmpArray addObject:tmpKeyDict];
+            [tmpSubArray addObject:tmpOrderArray];
         }
+        NSDictionary *tmpKeyDict = [[NSDictionary alloc]initWithObjectsAndKeys:tmpSubArray,[tmpDict valueForKey:kWS_cartlist_Res_inquiry_id] ,nil];
+        [tmpMainArray addObject:tmpKeyDict];
     }
     NSMutableDictionary *paramDict =[[NSMutableDictionary alloc]initWithDictionary:[CommonMethods getDefaultValueDictWithActionName:kWS_checkout]];
-    [paramDict setObject:[CommonMethods getJSONString:tmpArray] forKey:kWS_addtocart_req_required_quantity];
+    [paramDict setObject:[CommonMethods getJSONString:tmpMainArray] forKey:kWS_addtocart_req_required_quantity];
     [[WebServiceHandler sharedWebServiceHandler] callWebServiceWithParam:paramDict withCompletion:^(NSDictionary *result) {
         [MBProgressHUD hideHUDForView:self.view animated:YES];
         if ([[result valueForKey:@"success"]intValue] == 1){

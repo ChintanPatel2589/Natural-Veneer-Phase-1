@@ -68,11 +68,11 @@
                   moduleName = "NaturalVeneer"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/chintan/Documents/003%20DEMO/Natural%20Veneer%20Phase%201%2026%20July/Natural%20Veneer%20Phase%201%2021%20July/VeeNilam/DiscussionView/ChatCell/ChatTableViewCell.m"
-                  timestampString = "494244993.796413"
+                  timestampString = "494330860.224075"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "52"
-                  endingLineNumber = "52"
+                  startingLineNumber = "61"
+                  endingLineNumber = "61"
                   offsetFromSymbolStart = "80">
                </Location>
                <Location
@@ -83,14 +83,46 @@
                   moduleName = "NaturalVeneer"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/chintan/Documents/003%20DEMO/Natural%20Veneer%20Phase%201%2026%20July/Natural%20Veneer%20Phase%201%2021%20July/VeeNilam/DiscussionView/ChatCell/ChatTableViewCell.m"
-                  timestampString = "494244993.796585"
+                  timestampString = "494330860.224782"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "52"
-                  endingLineNumber = "52"
-                  offsetFromSymbolStart = "171">
+                  startingLineNumber = "61"
+                  endingLineNumber = "61"
+                  offsetFromSymbolStart = "553">
                </Location>
             </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "VeeNilam/CART/CartViewController.m"
+            timestampString = "494330649.399993"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "116"
+            endingLineNumber = "116"
+            landmarkName = "-checkOut"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "VeeNilam/CART/CartViewController.m"
+            timestampString = "494330629.068839"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "112"
+            endingLineNumber = "112"
+            landmarkName = "-checkOut"
+            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

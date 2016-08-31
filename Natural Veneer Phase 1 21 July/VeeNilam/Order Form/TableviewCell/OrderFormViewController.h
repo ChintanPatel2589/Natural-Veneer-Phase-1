@@ -12,6 +12,7 @@
 
     __weak IBOutlet UITableView *tblOrderList;
     __weak IBOutlet UISegmentedControl *segOrderType;
+    
 }
 - (IBAction)segValueChanged:(UISegmentedControl *)sender;
 

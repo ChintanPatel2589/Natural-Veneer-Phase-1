@@ -184,8 +184,8 @@
 #define kWS_discussionmsg_Res_created_at @"created_at"
 #define kWS_discussionmsg_Res_created_by @"created_by"
 
-
-
+//14 orderlist
+#define kWS_orderlist @"orderlist"
 
 
 #endif /* PrefixHeader_VeeNilam_pch */

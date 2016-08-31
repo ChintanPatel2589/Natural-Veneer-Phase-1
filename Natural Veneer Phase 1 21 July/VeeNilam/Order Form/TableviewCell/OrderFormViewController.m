@@ -10,7 +10,7 @@
 #import "UISegmentedControl+Multiline.h"
 #import "OrderHeaderView.h"
 #import "OrderViewCell.h"
-
+#import "api_Database.h"
 #define RGBA(r, g, b, a) [UIColor colorWithRed:r/255.0 green:g/255.0 blue:b/255.0 alpha:a]
 
 @interface OrderFormViewController ()<UITableViewDelegate,UITableViewDataSource>{
@@ -26,13 +26,31 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    arrOrderType = [@[@"CONFIRMED",@"YET TO ORDER",@"ORDERED",@"DELIVERED"]mutableCopy];
+    //arrOrderType = [@[@"CONFIRMED",@"YET TO ORDER",@"ORDERED",@"DELIVERED"]mutableCopy];
+    arrOrderType = [api_Database selectDataFromDatabase:kDatabaseName query:[NSString stringWithFormat:@"select * from %@",kstatus_code_Table]];
     arrOrders = [@[@"CONFIRMED",@"CONFIRMED",@"CONFIRMED",@"CONFIRMED"]mutableCopy];
 
     [self setInitialLayout];
     segOrderType.selectedSegmentIndex= 0;
     [self setUpTwoLineNavigationTitle];
     // Do any additional setup after loading the view from its nib.
+    if ([CommonMethods connected]) {
+        [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+        [self performSelector:@selector(getOrderList) withObject:nil afterDelay:0.1];
+    }else{
+        [CommonMethods showAlertViewWithMessage:kNoInternetConnection_alert_Title];
+    }
+    // Do any additional setup after loading the view from its nib.
+}
+- (void)getOrderList
+{
+    NSMutableDictionary *paramDict = [NSMutableDictionary dictionaryWithDictionary:[CommonMethods getDefaultValueDictWithActionName:kWS_orderlist]];
+    [paramDict setObject:[[arrOrderType firstObject] valueForKey:kWS_statussyn_Res_status_id] forKey:kWS_statussyn_Res_status_id];
+    [[WebServiceHandler sharedWebServiceHandler] callWebServiceWithParam:paramDict withCompletion:^(NSDictionary *result) {
+        if ([[result valueForKey:@"success"]intValue] == 1){
+        }
+        [MBProgressHUD hideHUDForView:self.view animated:NO];
+    }];
 }
 
 -(void)resetTableArrForBool{
@@ -62,7 +80,7 @@
     int i = 0;
     for (i = 0; i < arrOrderType.count; i++) {
         [segOrderType removeSegmentAtIndex:i animated:NO];
-        [segOrderType insertSegmentWithMultilineTitle:arrOrderType[i] atIndex:i animated:NO];
+        [segOrderType insertSegmentWithMultilineTitle:[[arrOrderType objectAtIndex:i] valueForKey:kWS_statussyn_Res_status_name] atIndex:i animated:NO];
     }
     
     [self setSegmentAttributes:segOrderType andFontSize:10];
