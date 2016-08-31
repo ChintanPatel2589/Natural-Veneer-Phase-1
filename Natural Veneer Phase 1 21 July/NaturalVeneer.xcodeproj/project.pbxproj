@@ -13,6 +13,12 @@
 		361031D31D632A4300BC5587 /* ChatTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 361031D11D632A4300BC5587 /* ChatTableViewCell.m */; };
 		361031D41D632A4300BC5587 /* ChatTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 361031D21D632A4300BC5587 /* ChatTableViewCell.xib */; };
 		36517E241D59B20000478184 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 36517E231D59B20000478184 /* MBProgressHUD.m */; };
+		36AB519B1D7585350062B21C /* BubbleIncoming.png in Resources */ = {isa = PBXBuildFile; fileRef = 36AB51951D7585350062B21C /* BubbleIncoming.png */; };
+		36AB519C1D7585350062B21C /* BubbleIncoming@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 36AB51961D7585350062B21C /* BubbleIncoming@2x.png */; };
+		36AB519D1D7585350062B21C /* BubbleIncoming@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 36AB51971D7585350062B21C /* BubbleIncoming@3x.png */; };
+		36AB519E1D7585350062B21C /* BubbleOutgoing.png in Resources */ = {isa = PBXBuildFile; fileRef = 36AB51981D7585350062B21C /* BubbleOutgoing.png */; };
+		36AB519F1D7585350062B21C /* BubbleOutgoing@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 36AB51991D7585350062B21C /* BubbleOutgoing@2x.png */; };
+		36AB51A01D7585350062B21C /* BubbleOutgoing@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 36AB519A1D7585350062B21C /* BubbleOutgoing@3x.png */; };
 		36D2F9301D4863C90093ABD4 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 36D2F92E1D4863C90093ABD4 /* BaseViewController.m */; };
 		36ED2DCB1D49B5BD008FD862 /* AddToCartCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 36ED2DC91D49B5BD008FD862 /* AddToCartCell.m */; };
 		36ED2DCC1D49B5BD008FD862 /* AddToCartCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36ED2DCA1D49B5BD008FD862 /* AddToCartCell.xib */; };
@@ -118,6 +124,12 @@
 		361031D21D632A4300BC5587 /* ChatTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChatTableViewCell.xib; sourceTree = "<group>"; };
 		36517E221D59B20000478184 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
 		36517E231D59B20000478184 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
+		36AB51951D7585350062B21C /* BubbleIncoming.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BubbleIncoming.png; sourceTree = "<group>"; };
+		36AB51961D7585350062B21C /* BubbleIncoming@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "BubbleIncoming@2x.png"; sourceTree = "<group>"; };
+		36AB51971D7585350062B21C /* BubbleIncoming@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "BubbleIncoming@3x.png"; sourceTree = "<group>"; };
+		36AB51981D7585350062B21C /* BubbleOutgoing.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BubbleOutgoing.png; sourceTree = "<group>"; };
+		36AB51991D7585350062B21C /* BubbleOutgoing@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "BubbleOutgoing@2x.png"; sourceTree = "<group>"; };
+		36AB519A1D7585350062B21C /* BubbleOutgoing@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "BubbleOutgoing@3x.png"; sourceTree = "<group>"; };
 		36D2F92D1D4863C90093ABD4 /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
 		36D2F92E1D4863C90093ABD4 /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
 		36ED2DC81D49B5BD008FD862 /* AddToCartCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddToCartCell.h; sourceTree = "<group>"; };
@@ -631,6 +643,12 @@
 		B92E441B1D38C8B600A6CE34 /* UIImages */ = {
 			isa = PBXGroup;
 			children = (
+				36AB51951D7585350062B21C /* BubbleIncoming.png */,
+				36AB51961D7585350062B21C /* BubbleIncoming@2x.png */,
+				36AB51971D7585350062B21C /* BubbleIncoming@3x.png */,
+				36AB51981D7585350062B21C /* BubbleOutgoing.png */,
+				36AB51991D7585350062B21C /* BubbleOutgoing@2x.png */,
+				36AB519A1D7585350062B21C /* BubbleOutgoing@3x.png */,
 				36EEAF931D5B0AA90061DF83 /* empty-cart.png */,
 				B92E441C1D38C8B600A6CE34 /* MainBackground.jpeg */,
 				B92E441D1D38C8B600A6CE34 /* MainLogo.png */,
@@ -818,6 +836,8 @@
 				B9909F681D429FAD00FD923D /* OrderViewCell.xib in Resources */,
 				36ED2DCC1D49B5BD008FD862 /* AddToCartCell.xib in Resources */,
 				B92E445D1D38C8B600A6CE34 /* ViewController~iphone.xib in Resources */,
+				36AB519D1D7585350062B21C /* BubbleIncoming@3x.png in Resources */,
+				36AB51A01D7585350062B21C /* BubbleOutgoing@3x.png in Resources */,
 				B92E44551D38C8B600A6CE34 /* logo@2x~iphone.png in Resources */,
 				B92E445B1D38C8B600A6CE34 /* Info.plist in Resources */,
 				B92E44541D38C8B600A6CE34 /* logo@2x~ipad.png in Resources */,
@@ -828,6 +848,7 @@
 				B92E44591D38C8B600A6CE34 /* MainLogo.png in Resources */,
 				B92E44531D38C8B600A6CE34 /* Default~iphone.png in Resources */,
 				36ED2DD81D4A0FAB008FD862 /* ProductViewInfoCell.xib in Resources */,
+				36AB519C1D7585350062B21C /* BubbleIncoming@2x.png in Resources */,
 				B92E44561D38C8B600A6CE34 /* logo~ipad.png in Resources */,
 				B91547B31D3DEF66009E71FA /* ProductListViewController.xib in Resources */,
 				B9909F661D429FAD00FD923D /* OrderHeaderView.xib in Resources */,
@@ -838,7 +859,9 @@
 				B9117D681D5E2C8700976875 /* DealerListViewController.xib in Resources */,
 				B92E44691D38C9AD00A6CE34 /* CartViewCell.xib in Resources */,
 				36EEAF941D5B0AA90061DF83 /* empty-cart.png in Resources */,
+				36AB519F1D7585350062B21C /* BubbleOutgoing@2x.png in Resources */,
 				B92E44571D38C8B600A6CE34 /* logo~iphone.png in Resources */,
+				36AB519E1D7585350062B21C /* BubbleOutgoing.png in Resources */,
 				B9DF409C1D3E7EFF004FFB88 /* ProductDetailsViewController.xib in Resources */,
 				36ED2DD21D4A0D85008FD862 /* ProductInfoViewController.xib in Resources */,
 				B9B279321D68BD1C00372DA8 /* DealerSystem.sqlite in Resources */,
@@ -846,6 +869,7 @@
 				B92E444E1D38C8B600A6CE34 /* Default-667h@2x.png in Resources */,
 				B92E44631D38C96F00A6CE34 /* CartViewController.xib in Resources */,
 				B91547AE1D3DEEC8009E71FA /* ProductListViewCell.xib in Resources */,
+				36AB519B1D7585350062B21C /* BubbleIncoming.png in Resources */,
 				361031C41D6320DE00BC5587 /* DiscussionViewController.xib in Resources */,
 				B92E44511D38C8B600A6CE34 /* Default-Portrait~ipad.png in Resources */,
 			);

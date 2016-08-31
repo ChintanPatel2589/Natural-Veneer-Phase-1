@@ -7,7 +7,7 @@
 //
 
 #import "DiscussionViewController.h"
-#import "NaturalVeneer-Swift.h"
+
 @interface DiscussionViewController ()
 
 @end
@@ -18,8 +18,9 @@
     [super viewDidLoad];
     arrayChatList = [NSMutableArray array];
     lastChatID = @"0";
-    pageSize = @"5";
+    pageSize = @"10";
     pageIndex = @"0";
+    
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(keyboardWillShow:)
                                                  name:UIKeyboardWillShowNotification
@@ -29,6 +30,7 @@
                                              selector:@selector(keyboardWillHide:)
                                                  name:UIKeyboardWillHideNotification
                                                object:self.view.window];
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     [self performSelector:@selector(getAllChatMessages) withObject:nil afterDelay:0.1];
     [self setInputbar];
     refreshControl = [[UIRefreshControl alloc]init];
@@ -45,17 +47,19 @@
     [paramDict setObject:lastChatID forKey:kWS_discussionmsg_Req_last_chat_id];
     if (![[CommonMethods getLoggedUserValueFromNSUserDefaultsWithKey:kWS_Login_Res_user_type] isEqualToString:kuser_type_dealer]) {
         [paramDict setObject:[self.dataDictDealer valueForKey:kWS_dealerlist_Res_dealer_id] forKey:kWS_dealerlist_Res_dealer_id];
+        lblTitle.text = [self.dataDictDealer valueForKey:kWS_dealerlist_Res_dealer_name];
     }
     [[WebServiceHandler sharedWebServiceHandler] callWebServiceWithParam:paramDict withCompletion:^(NSDictionary *result) {
         if ([[result valueForKey:@"success"]intValue] == 1){
             arrayChatList =[[NSMutableArray alloc]initWithArray: [result valueForKey:kData]];
             [tblView reloadData];
             lastChatID = [[arrayChatList lastObject] valueForKey:kWS_discussionmsg_Res_chat_text_id];
-            int tmpPageSize = [pageSize intValue] + 5;
+            int tmpPageSize = [pageSize intValue] + 10;
             pageSize = [NSString stringWithFormat:@"%d",tmpPageSize];
             pageIndex = [NSString stringWithFormat:@"%d",[pageIndex intValue]+1];
             [self scrollToTheBottom:NO];
             [refreshControl endRefreshing];
+            [MBProgressHUD hideHUDForView:self.view animated:NO];
         }
     }];
 }
@@ -102,11 +106,16 @@
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    CGSize tmpSize = [CommonMethods textHeight:[[arrayChatList objectAtIndex:indexPath.row] valueForKey:kWS_discussionmsg_Res_chat_text] widthofLabel:200 fontName:[UIFont systemFontOfSize:17]];
-    if (tmpSize.height > 70) {
-       return  tmpSize.height+10;
-    }else
-        return 70;
+    NSDictionary *tmpDict = [arrayChatList objectAtIndex:indexPath.row];
+    CGSize tmpSize = [CommonMethods textHeight:[tmpDict valueForKey:kWS_discussionmsg_Res_chat_text] widthofLabel:200 fontName:[UIFont systemFontOfSize:17]];
+    if ([[CommonMethods getLoggedUserValueFromNSUserDefaultsWithKey:kWS_Login_Res_user_id] intValue] == [[tmpDict valueForKey:kWS_discussionmsg_Res_created_by] intValue]) {
+            return  tmpSize.height+20;
+    }else{
+        if ( tmpSize.height > 70) {
+                return  tmpSize.height+20;
+        }else
+            return 70;
+    }
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -184,7 +193,8 @@
 
 -(void)inputbarDidPressRightButton:(Inputbar *)inputbar
 {
-    [self sendMessageWithComment:inputbar.text];
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    [self performSelector:@selector(sendMessageWithComment:) withObject:inputbar.text afterDelay:0.1];
 }
 -(void)inputbarDidPressLeftButton:(Inputbar *)inputbar
 {

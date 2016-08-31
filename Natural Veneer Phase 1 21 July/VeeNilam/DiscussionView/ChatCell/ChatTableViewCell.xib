@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -15,8 +15,14 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="69"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BubbleOutgoing.png" translatesAutoresizingMaskIntoConstraints="NO" id="4Dm-Pv-bEC">
+                        <rect key="frame" x="95" y="0.0" width="225" height="69"/>
+                    </imageView>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BubbleIncoming.png" translatesAutoresizingMaskIntoConstraints="NO" id="2vb-Rf-XfC">
+                        <rect key="frame" x="0.0" y="0.0" width="225" height="69"/>
+                    </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wzR-bA-Dsk">
-                        <rect key="frame" x="112" y="24" width="200" height="21"/>
+                        <rect key="frame" x="106" y="24" width="200" height="21"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="200" id="X8Z-pv-r8m"/>
                         </constraints>
@@ -25,18 +31,16 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="MainLogo.png" translatesAutoresizingMaskIntoConstraints="NO" id="gNV-Yx-wyb">
-                        <rect key="frame" x="8" y="9" width="50" height="50"/>
+                        <rect key="frame" x="13" y="9" width="50" height="50"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="50" id="16f-Ym-uwe"/>
                             <constraint firstAttribute="height" constant="50" id="2Ue-Gv-pH6"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IV0-7P-7x4">
-                        <rect key="frame" x="60" y="24" width="200" height="21"/>
+                        <rect key="frame" x="65" y="24" width="200" height="21"/>
                         <constraints>
-                            <constraint firstAttribute="width" relation="lessThanOrEqual" constant="200" id="3Xj-2A-mNS"/>
-                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="200" id="WTw-2t-uCU"/>
-                            <constraint firstAttribute="width" constant="200" id="lvf-Lw-ULx"/>
+                            <constraint firstAttribute="width" constant="200" id="4iv-Gb-lGz"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -44,22 +48,30 @@
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="trailing" secondItem="IV0-7P-7x4" secondAttribute="trailing" constant="60" id="HeB-LW-ssg"/>
-                    <constraint firstItem="IV0-7P-7x4" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="Hr1-wd-dJ5"/>
-                    <constraint firstItem="IV0-7P-7x4" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="OX7-1C-da7"/>
-                    <constraint firstAttribute="trailing" secondItem="IV0-7P-7x4" secondAttribute="trailing" constant="60" id="Qdt-d1-IAa"/>
-                    <constraint firstItem="IV0-7P-7x4" firstAttribute="leading" secondItem="gNV-Yx-wyb" secondAttribute="trailing" constant="2" id="aD4-Mh-AdX"/>
-                    <constraint firstItem="IV0-7P-7x4" firstAttribute="leading" secondItem="gNV-Yx-wyb" secondAttribute="trailing" constant="2" id="atD-Ad-R9e"/>
-                    <constraint firstAttribute="leadingMargin" secondItem="gNV-Yx-wyb" secondAttribute="leading" id="cfy-yn-32d"/>
-                    <constraint firstAttribute="trailing" secondItem="wzR-bA-Dsk" secondAttribute="trailing" constant="8" id="ctA-Zy-821"/>
+                    <constraint firstItem="IV0-7P-7x4" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="1DR-L0-rYa"/>
+                    <constraint firstItem="4Dm-Pv-bEC" firstAttribute="leading" secondItem="gNV-Yx-wyb" secondAttribute="trailing" constant="32" id="4OP-Xj-3sc"/>
+                    <constraint firstAttribute="bottom" secondItem="4Dm-Pv-bEC" secondAttribute="bottom" id="5Hl-Hx-pNB"/>
+                    <constraint firstAttribute="trailing" secondItem="2vb-Rf-XfC" secondAttribute="trailing" constant="95" id="7It-CT-UoQ"/>
+                    <constraint firstAttribute="trailing" secondItem="4Dm-Pv-bEC" secondAttribute="trailing" id="7K6-m2-N4C"/>
+                    <constraint firstAttribute="bottom" secondItem="IV0-7P-7x4" secondAttribute="bottom" constant="24" id="KVw-6O-I2m"/>
+                    <constraint firstAttribute="bottom" secondItem="2vb-Rf-XfC" secondAttribute="bottom" id="Lxi-q6-AiJ"/>
+                    <constraint firstItem="IV0-7P-7x4" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="24" id="OzK-ov-tfL"/>
+                    <constraint firstItem="2vb-Rf-XfC" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="U9J-rY-fyV"/>
+                    <constraint firstItem="2vb-Rf-XfC" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="aSS-NT-O85"/>
+                    <constraint firstAttribute="leadingMargin" secondItem="gNV-Yx-wyb" secondAttribute="leading" constant="-5" id="cfy-yn-32d"/>
+                    <constraint firstAttribute="trailing" secondItem="wzR-bA-Dsk" secondAttribute="trailing" constant="14" id="ctA-Zy-821"/>
+                    <constraint firstItem="4Dm-Pv-bEC" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="fkn-K3-oJA"/>
+                    <constraint firstAttribute="trailing" secondItem="IV0-7P-7x4" secondAttribute="trailing" constant="55" id="geX-ns-iTf"/>
                     <constraint firstItem="gNV-Yx-wyb" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="h6G-ld-m8P"/>
-                    <constraint firstItem="wzR-bA-Dsk" firstAttribute="leading" secondItem="gNV-Yx-wyb" secondAttribute="trailing" constant="54" id="jVe-ye-JHo"/>
-                    <constraint firstItem="IV0-7P-7x4" firstAttribute="leading" secondItem="gNV-Yx-wyb" secondAttribute="trailing" constant="2" id="kI4-Ik-RgP"/>
+                    <constraint firstItem="wzR-bA-Dsk" firstAttribute="leading" secondItem="gNV-Yx-wyb" secondAttribute="trailing" constant="43" id="jVe-ye-JHo"/>
+                    <constraint firstItem="IV0-7P-7x4" firstAttribute="leading" secondItem="gNV-Yx-wyb" secondAttribute="trailing" constant="2" id="qtu-2j-lX6"/>
                     <constraint firstItem="wzR-bA-Dsk" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="yhv-Ry-Xlj"/>
                 </constraints>
             </tableViewCellContentView>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <connections>
+                <outlet property="_bubbleImageReceiver" destination="2vb-Rf-XfC" id="CzV-HM-QNF"/>
+                <outlet property="_bubbleImageSender" destination="4Dm-Pv-bEC" id="aHV-V6-2hL"/>
                 <outlet property="imgLogo" destination="gNV-Yx-wyb" id="42M-uS-v2z"/>
                 <outlet property="lblChatMessageReceiver" destination="IV0-7P-7x4" id="bpB-tp-i2C"/>
                 <outlet property="lblChatMessageSender" destination="wzR-bA-Dsk" id="Ju5-ii-EAo"/>
@@ -68,6 +80,8 @@
         </tableViewCell>
     </objects>
     <resources>
+        <image name="BubbleIncoming.png" width="38" height="35"/>
+        <image name="BubbleOutgoing.png" width="38" height="35"/>
         <image name="MainLogo.png" width="351" height="287"/>
     </resources>
 </document>
