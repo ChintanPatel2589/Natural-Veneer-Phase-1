@@ -186,6 +186,8 @@
 
 //14 orderlist
 #define kWS_orderlist @"orderlist"
-
+#define kinquiry_code @"inquiry_code"
+#define kItems @"Items"
+#define kSheets @"Sheets"
 
 #endif /* PrefixHeader_VeeNilam_pch */

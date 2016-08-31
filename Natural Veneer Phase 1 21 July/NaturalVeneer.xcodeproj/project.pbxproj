@@ -27,6 +27,8 @@
 		36ED2DD71D4A0FAB008FD862 /* ProductViewInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 36ED2DD51D4A0FAB008FD862 /* ProductViewInfoCell.m */; };
 		36ED2DD81D4A0FAB008FD862 /* ProductViewInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36ED2DD61D4A0FAB008FD862 /* ProductViewInfoCell.xib */; };
 		36EEAF941D5B0AA90061DF83 /* empty-cart.png in Resources */ = {isa = PBXBuildFile; fileRef = 36EEAF931D5B0AA90061DF83 /* empty-cart.png */; };
+		B9024D4A1D772F1A00F0CDBB /* StatusTypeCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B9024D481D772F1A00F0CDBB /* StatusTypeCollectionViewCell.m */; };
+		B9024D4B1D772F1A00F0CDBB /* StatusTypeCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9024D491D772F1A00F0CDBB /* StatusTypeCollectionViewCell.xib */; };
 		B9117D671D5E2C8700976875 /* DealerListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B9117D651D5E2C8700976875 /* DealerListViewController.m */; };
 		B9117D681D5E2C8700976875 /* DealerListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9117D661D5E2C8700976875 /* DealerListViewController.xib */; };
 		B9117D6D1D5E2D6300976875 /* DealerListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B9117D6B1D5E2D6300976875 /* DealerListCell.m */; };
@@ -143,6 +145,9 @@
 		36ED2DD61D4A0FAB008FD862 /* ProductViewInfoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProductViewInfoCell.xib; sourceTree = "<group>"; };
 		36EEAF931D5B0AA90061DF83 /* empty-cart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "empty-cart.png"; sourceTree = "<group>"; };
 		B0427E7D1CE99D80007A1D10 /* NaturalVeneer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NaturalVeneer.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B9024D471D772F1A00F0CDBB /* StatusTypeCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatusTypeCollectionViewCell.h; sourceTree = "<group>"; };
+		B9024D481D772F1A00F0CDBB /* StatusTypeCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatusTypeCollectionViewCell.m; sourceTree = "<group>"; };
+		B9024D491D772F1A00F0CDBB /* StatusTypeCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StatusTypeCollectionViewCell.xib; sourceTree = "<group>"; };
 		B9117D641D5E2C8700976875 /* DealerListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DealerListViewController.h; sourceTree = "<group>"; };
 		B9117D651D5E2C8700976875 /* DealerListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DealerListViewController.m; sourceTree = "<group>"; };
 		B9117D661D5E2C8700976875 /* DealerListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DealerListViewController.xib; sourceTree = "<group>"; };
@@ -389,6 +394,16 @@
 				B0427E7D1CE99D80007A1D10 /* NaturalVeneer.app */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		B9024D461D772EEA00F0CDBB /* StatusTypeCollectionViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				B9024D471D772F1A00F0CDBB /* StatusTypeCollectionViewCell.h */,
+				B9024D481D772F1A00F0CDBB /* StatusTypeCollectionViewCell.m */,
+				B9024D491D772F1A00F0CDBB /* StatusTypeCollectionViewCell.xib */,
+			);
+			path = StatusTypeCollectionViewCell;
 			sourceTree = "<group>";
 		};
 		B9117D631D5E2C7500976875 /* Dealer List */ = {
@@ -698,6 +713,7 @@
 		B96655731D3CEE60004E4334 /* Order Form */ = {
 			isa = PBXGroup;
 			children = (
+				B9024D461D772EEA00F0CDBB /* StatusTypeCollectionViewCell */,
 				B9909F561D429FAD00FD923D /* MultiLineSegment */,
 				B9909F591D429FAD00FD923D /* OrderHeaderView */,
 				B9909F5D1D429FAD00FD923D /* TableviewCell */,
@@ -866,6 +882,7 @@
 				36ED2DD21D4A0D85008FD862 /* ProductInfoViewController.xib in Resources */,
 				B9B279321D68BD1C00372DA8 /* DealerSystem.sqlite in Resources */,
 				B92E442D1D38C8B600A6CE34 /* FontAwesome.ttf in Resources */,
+				B9024D4B1D772F1A00F0CDBB /* StatusTypeCollectionViewCell.xib in Resources */,
 				B92E444E1D38C8B600A6CE34 /* Default-667h@2x.png in Resources */,
 				B92E44631D38C96F00A6CE34 /* CartViewController.xib in Resources */,
 				B91547AE1D3DEEC8009E71FA /* ProductListViewCell.xib in Resources */,
@@ -882,6 +899,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B9024D4A1D772F1A00F0CDBB /* StatusTypeCollectionViewCell.m in Sources */,
 				B92E442E1D38C8B600A6CE34 /* NSString+FontAwesome.m in Sources */,
 				B92E444A1D38C8B600A6CE34 /* UIImage+REFrostedViewController.m in Sources */,
 				36ED2DCB1D49B5BD008FD862 /* AddToCartCell.m in Sources */,

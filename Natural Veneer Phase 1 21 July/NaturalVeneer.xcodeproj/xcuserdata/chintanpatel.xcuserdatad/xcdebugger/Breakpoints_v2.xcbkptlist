@@ -43,6 +43,38 @@
             endingLineNumber = "114"
             landmarkName = "-checkOut"
             landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[CartViewController checkOut]"
+                  moduleName = "NaturalVeneer"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/chintanpatel/Documents/WORK/002%20Bhargav%20and%20Naitik/Natural-Veneer-Phase-1/Natural%20Veneer%20Phase%201%2021%20July/VeeNilam/CART/CartViewController.m"
+                  timestampString = "494358022.721344"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "114"
+                  endingLineNumber = "114"
+                  offsetFromSymbolStart = "1540">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__30-[CartViewController checkOut]_block_invoke"
+                  moduleName = "NaturalVeneer"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/chintanpatel/Documents/WORK/002%20Bhargav%20and%20Naitik/Natural-Veneer-Phase-1/Natural%20Veneer%20Phase%201%2021%20July/VeeNilam/CART/CartViewController.m"
+                  timestampString = "494358022.721574"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "114"
+                  endingLineNumber = "114"
+                  offsetFromSymbolStart = "24">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -90,6 +122,38 @@
             startingLineNumber = "77"
             endingLineNumber = "77"
             landmarkName = "-sendMessageWithComment:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "VeeNilam/Order Form/TableviewCell/OrderFormViewController.m"
+            timestampString = "494357834.281325"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "193"
+            endingLineNumber = "193"
+            landmarkName = "-tableView:cellForRowAtIndexPath:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "VeeNilam/Order Form/TableviewCell/OrderFormViewController.m"
+            timestampString = "494358062.18729"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "231"
+            endingLineNumber = "231"
+            landmarkName = "-tableView:viewForHeaderInSection:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

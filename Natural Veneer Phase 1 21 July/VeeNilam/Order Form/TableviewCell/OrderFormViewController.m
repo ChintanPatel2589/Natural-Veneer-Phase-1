@@ -16,7 +16,8 @@
 @interface OrderFormViewController ()<UITableViewDelegate,UITableViewDataSource>{
     NSString *selectedSection;
     NSMutableArray *arrOrderType, *arrayForBool;
-    NSMutableArray *arrOrders;
+    NSMutableArray *arrMainData;
+    NSMutableArray *arrayDisplayData;
 }
 
 @end
@@ -25,34 +26,77 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    tappedStatus = 0;
     
     //arrOrderType = [@[@"CONFIRMED",@"YET TO ORDER",@"ORDERED",@"DELIVERED"]mutableCopy];
+    [collectionViewStatusTypes registerNib:[UINib nibWithNibName:@"StatusTypeCollectionViewCell" bundle:nil] forCellWithReuseIdentifier:@"StatusTypeCollectionViewCell"];
+    [self setCollectionLauout];
     arrOrderType = [api_Database selectDataFromDatabase:kDatabaseName query:[NSString stringWithFormat:@"select * from %@",kstatus_code_Table]];
-    arrOrders = [@[@"CONFIRMED",@"CONFIRMED",@"CONFIRMED",@"CONFIRMED"]mutableCopy];
+    //arrMainData = [@[@"CONFIRMED",@"CONFIRMED",@"CONFIRMED",@"CONFIRMED"]mutableCopy];
 
     [self setInitialLayout];
     segOrderType.selectedSegmentIndex= 0;
     [self setUpTwoLineNavigationTitle];
     // Do any additional setup after loading the view from its nib.
+    [self getOrderListData];
+    // Do any additional setup after loading the view from its nib.
+}
+-(void)getOrderListData
+{
     if ([CommonMethods connected]) {
         [MBProgressHUD showHUDAddedTo:self.view animated:YES];
         [self performSelector:@selector(getOrderList) withObject:nil afterDelay:0.1];
     }else{
         [CommonMethods showAlertViewWithMessage:kNoInternetConnection_alert_Title];
     }
-    // Do any additional setup after loading the view from its nib.
 }
 - (void)getOrderList
 {
     NSMutableDictionary *paramDict = [NSMutableDictionary dictionaryWithDictionary:[CommonMethods getDefaultValueDictWithActionName:kWS_orderlist]];
-    [paramDict setObject:[[arrOrderType firstObject] valueForKey:kWS_statussyn_Res_status_id] forKey:kWS_statussyn_Res_status_id];
+    [paramDict setObject:[[arrOrderType objectAtIndex:tappedStatus] valueForKey:kWS_statussyn_Res_status_id] forKey:kWS_statussyn_Res_status_id];
     [[WebServiceHandler sharedWebServiceHandler] callWebServiceWithParam:paramDict withCompletion:^(NSDictionary *result) {
         if ([[result valueForKey:@"success"]intValue] == 1){
+            arrMainData =[[NSMutableArray alloc]initWithArray:[[result valueForKey:kData] copy]];
+            [self arrangeArrayDataToDisplayWithArray:arrMainData];
         }
-        [MBProgressHUD hideHUDForView:self.view animated:NO];
+            [MBProgressHUD hideHUDForView:self.view animated:NO];
     }];
 }
-
+- (void)arrangeArrayDataToDisplayWithArray:(NSArray *)arrayData
+{
+    @try {
+        arrayDisplayData = [NSMutableArray array];
+        NSArray *uniqueArrary = [arrayData valueForKeyPath:@"@distinctUnionOfObjects.inquiry_code"];
+        for (NSString *srtID in uniqueArrary) {
+            NSMutableDictionary *tmpDataDict = [NSMutableDictionary dictionary];
+            [tmpDataDict setObject:srtID forKey:kinquiry_code];
+            NSArray *tmpArray = [self filteredArrayWithKey:@"inquiry_code" andValue:srtID withingArray:arrayData];
+            [tmpDataDict setObject:[NSString stringWithFormat:@"%d",[tmpArray count]] forKey:kItems];
+            int totalSheet = 0;
+            for (NSDictionary *tmpDict in tmpArray) {
+                NSArray *arrayQty = [tmpDict  valueForKey:kWS_grouplist_Res_sizes_quantity];
+                for (NSDictionary *tmpQtyDict in arrayQty) {
+                    totalSheet = totalSheet + [[tmpQtyDict valueForKey:kWS_grouplist_Res_quantity] intValue];
+                }
+            }
+            [tmpDataDict setObject:[NSString stringWithFormat:@"%d",totalSheet] forKey:kSheets];
+            [arrayDisplayData addObject:tmpDataDict];
+            [tblOrderList reloadData];
+        }
+    } @catch (NSException *exception) {
+        NSLog(@"arrangeArrayDataToDisplayWithArray:%@",exception.description);
+    } @finally {
+        
+    }
+    
+}
+- (NSArray *)filteredArrayWithKey:(NSString *)key andValue:(NSString *)value withingArray:(NSArray *)arrayData
+{
+    NSPredicate *predicateString = [NSPredicate predicateWithFormat:@"%K contains[cd] %@", key, value];//keySelected is NSString itself
+    NSLog(@"predicate %@",predicateString);
+    NSMutableArray *filteredArray = [NSMutableArray arrayWithArray:[arrayData filteredArrayUsingPredicate:predicateString]];
+    return filteredArray;
+}
 -(void)resetTableArrForBool{
     
     if(arrayForBool){
@@ -61,7 +105,7 @@
     }
     
     arrayForBool = [NSMutableArray array];
-    for (int i=0; i<[arrOrders count]; i++) {
+    for (int i=0; i<[arrMainData count]; i++) {
         [arrayForBool addObject:[NSNumber numberWithBool:NO]];
     }
 
@@ -117,19 +161,19 @@
     switch (sender.selectedSegmentIndex) {
         case 0:
             //Confirmed
-           arrOrders = [@[@"CONFIRMED",@"CONFIRMED",@"CONFIRMED",@"CONFIRMED"]mutableCopy];
+           arrMainData = [@[@"CONFIRMED",@"CONFIRMED",@"CONFIRMED",@"CONFIRMED"]mutableCopy];
             break;
         case 1:
             //yet to
-            arrOrders = [@[@"YET TO ORDER",@"YET TO ORDER",@"YET TO ORDER"]mutableCopy];
+            arrMainData = [@[@"YET TO ORDER",@"YET TO ORDER",@"YET TO ORDER"]mutableCopy];
             break;
         case 2:
             //Ordered
-            arrOrders = [@[@"ORDER",@"ORDER"]mutableCopy];
+            arrMainData = [@[@"ORDER",@"ORDER"]mutableCopy];
             break;
         case 3:
             //delivered
-            arrOrders = [@[@"DELIVERED",@"DELIVERED",@"DELIVERED",@"DELIVERED"]mutableCopy];
+            arrMainData = [@[@"DELIVERED",@"DELIVERED",@"DELIVERED",@"DELIVERED"]mutableCopy];
             break;
         default:
             break;
@@ -146,7 +190,7 @@
     
     OrderViewCell * cell;
     
-    if (indexPath.row < arrOrders.count) {
+    if (indexPath.row < arrMainData.count) {
         
         cell = [tableView dequeueReusableCellWithIdentifier:@"CellID"];
         
@@ -171,14 +215,14 @@
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     
     if ([arrayForBool[section]intValue] == 1) {
-        return arrOrders.count+1;//+1 for Last save Button
+        return arrMainData.count+1;//+1 for Last save Button
     }else
         return 0;
 }
 
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-    return arrOrders.count;
+    return arrayDisplayData.count;
 }
 
 
@@ -187,7 +231,7 @@
     OrderHeaderView *headerView =[OrderHeaderView headerView];
     headerView.tag = section;
     
-    NSString *str =[NSString stringWithFormat:@"Section %@",arrOrders[section]];
+    NSString *str =[NSString stringWithFormat:@"Section %@",arrMainData[section]];
     [headerView setDetails:@{@"kOrderName":str,@"itemCount":@"2"}];
     
     UITapGestureRecognizer  *headerTapped   = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(sectionHeaderTapped:)];
@@ -206,7 +250,7 @@
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     
     if ([[arrayForBool objectAtIndex:indexPath.section] boolValue]) {
-        if (indexPath.row < arrOrders.count) {
+        if (indexPath.row < arrMainData.count) {
             OrderViewCell *orderviewcell = [[NSBundle mainBundle] loadNibNamed:@"OrderViewCell" owner:self options:nil][0];
             return orderviewcell.contentView.frame.size.height;
        
@@ -227,7 +271,7 @@
         BOOL collapsed  = [[arrayForBool objectAtIndex:indexPath.section] boolValue];
         
         [self resetTableArrForBool];
-        for (int i=0; i<[arrOrders count]; i++) {
+        for (int i=0; i<[arrMainData count]; i++) {
             if (indexPath.section==i) {
                 [arrayForBool replaceObjectAtIndex:i withObject:[NSNumber numberWithBool:!collapsed]];
             }
@@ -271,6 +315,55 @@
     contentView.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;
     self.navigationItem.titleView = contentView;
 }
+#pragma mark - UICollectionView DataSource and Delegate
+- (NSInteger)collectionView:(UICollectionView *)collectionView
+     numberOfItemsInSection:(NSInteger)section{
+    return arrOrderType.count;
+}
+- (UIEdgeInsets)collectionView:(UICollectionView*)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section {
+    return UIEdgeInsetsMake(0, 0, 0, 0); // top, left, bottom, right
+}
 
+- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section {
+    
+    return 0.0;
+}
+
+- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section {
+    return 0.0;
+}
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
+    
+    StatusTypeCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"StatusTypeCollectionViewCell" forIndexPath:indexPath];
+    if (arrOrderType.count > 0) {
+        if (indexPath.row == tappedStatus) {
+            cell.lblStatusType.textColor = AppGreenColor;
+            cell.lblStatusType.font = [UIFont boldSystemFontOfSize:14];
+        }else{
+            cell.lblStatusType.textColor = [UIColor darkGrayColor];
+            cell.lblStatusType.font = [UIFont systemFontOfSize:14];
+        }
+        cell.lblStatusType.text = [[arrOrderType objectAtIndex:indexPath.row] valueForKey:kWS_statussyn_Res_status_name];
+    }
+    return cell;
+}
+-(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (arrOrderType.count > 0) {
+        tappedStatus = indexPath.row;
+        [self getOrderListData];
+        [collectionViewStatusTypes reloadData];
+    }
+}
+- (void)setCollectionLauout
+{
+    UICollectionViewFlowLayout *flow = [[UICollectionViewFlowLayout alloc] init];
+    flow.itemSize = CGSizeMake(110,35);
+    flow.scrollDirection = UICollectionViewScrollDirectionHorizontal;
+    flow.minimumInteritemSpacing = 0;
+    flow.minimumLineSpacing = 0;
+    collectionViewStatusTypes.collectionViewLayout = flow;
+    collectionViewStatusTypes.backgroundColor = [UIColor whiteColor];
+}
 @end
 

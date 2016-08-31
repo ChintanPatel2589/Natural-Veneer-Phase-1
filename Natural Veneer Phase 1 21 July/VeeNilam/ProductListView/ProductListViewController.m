@@ -99,6 +99,7 @@
 }
 - (void)insertDataIntoStatusCodeTable:(NSArray *)arrayData
 {
+    [api_Database genericQueryforDatabase:kDatabaseName query:[NSString stringWithFormat:@"delete from %@",kstatus_code_Table]];
     for (NSDictionary *tmpDict in arrayData) {
         [api_Database genericQueryforDatabase:kDatabaseName query:[NSString stringWithFormat:@"insert into %@ (%@,%@,%@,%@) values (%d,\"%@\",\"%@\",\"%@\")",kstatus_code_Table,kWS_statussyn_Res_status_id,kWS_statussyn_Res_sort_order,kWS_statussyn_Res_status_name,kWS_statussyn_Res_is_price_editable,[[tmpDict valueForKey:kWS_statussyn_Res_status_id] intValue],[tmpDict valueForKey:kWS_statussyn_Res_sort_order],[tmpDict valueForKey:kWS_statussyn_Res_status_name],[tmpDict valueForKey:kWS_statussyn_Res_is_price_editable]]];
     }

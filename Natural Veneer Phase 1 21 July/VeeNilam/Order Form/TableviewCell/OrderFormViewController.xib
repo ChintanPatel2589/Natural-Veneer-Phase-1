@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -13,8 +13,8 @@
                 <outlet property="btnForm" destination="Npl-1e-Cnk" id="rfu-5N-SZ3"/>
                 <outlet property="btnMenu" destination="F9i-xL-tSC" id="bpV-pk-mMW"/>
                 <outlet property="btnSearch" destination="XmJ-Mm-ohB" id="UbI-h6-MIH"/>
+                <outlet property="collectionViewStatusTypes" destination="Dhm-W6-BBg" id="uHb-i8-XWu"/>
                 <outlet property="lblTitle" destination="xfd-TO-S1o" id="BsI-Cj-bT1"/>
-                <outlet property="segOrderType" destination="U8C-5U-ERQ" id="QLT-Vv-UEJ"/>
                 <outlet property="tblOrderList" destination="Tbl-9h-tAU" id="SDs-aU-aSv"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
                 <outlet property="viewNavigation" destination="1vQ-f7-vRU" id="pht-IT-Qcb"/>
@@ -81,60 +81,37 @@
                     </subviews>
                     <color key="backgroundColor" red="0.031453845059999999" green="0.65070762429999995" blue="0.1465957131" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="320" id="8wd-eQ-hhY"/>
+                        <constraint firstAttribute="height" constant="60" id="uVj-ae-gtq"/>
                     </constraints>
                 </view>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wwD-Aj-lEe">
-                    <rect key="frame" x="0.0" y="60" width="320" height="412"/>
-                    <subviews>
-                        <segmentedControl opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="U8C-5U-ERQ">
-                            <rect key="frame" x="5" y="5" width="310" height="29"/>
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            <segments>
-                                <segment title="CONFIRMED"/>
-                                <segment title="YET TO ORDER"/>
-                                <segment title="ORDERED"/>
-                                <segment title="DELIVERED"/>
-                            </segments>
-                            <color key="tintColor" red="0.0" green="0.44705882349999998" blue="0.77647058820000003" alpha="1" colorSpace="calibratedRGB"/>
-                            <connections>
-                                <action selector="segValueChanged:" destination="-1" eventType="valueChanged" id="NKS-0e-nF2"/>
-                            </connections>
-                        </segmentedControl>
-                        <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="150" sectionHeaderHeight="50" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="Tbl-9h-tAU">
-                            <rect key="frame" x="5" y="41" width="310" height="370"/>
-                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                            <connections>
-                                <outlet property="dataSource" destination="-1" id="LAH-yW-3GB"/>
-                                <outlet property="delegate" destination="-1" id="hAV-SE-d24"/>
-                            </connections>
-                        </tableView>
-                    </subviews>
-                    <color key="backgroundColor" red="0.79600793123245239" green="0.7961234450340271" blue="0.79598277807235718" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    <constraints>
-                        <constraint firstAttribute="trailing" secondItem="U8C-5U-ERQ" secondAttribute="trailing" constant="5" id="CUY-UA-pmZ"/>
-                        <constraint firstAttribute="trailing" secondItem="Tbl-9h-tAU" secondAttribute="trailing" constant="5" id="DTQ-4i-ygs"/>
-                        <constraint firstItem="Tbl-9h-tAU" firstAttribute="top" secondItem="U8C-5U-ERQ" secondAttribute="bottom" constant="8" id="Fif-bq-A2Y"/>
-                        <constraint firstItem="Tbl-9h-tAU" firstAttribute="width" secondItem="U8C-5U-ERQ" secondAttribute="width" id="JfA-zg-Nen"/>
-                        <constraint firstItem="Tbl-9h-tAU" firstAttribute="leading" secondItem="U8C-5U-ERQ" secondAttribute="leading" id="R0v-Hu-irR"/>
-                        <constraint firstItem="U8C-5U-ERQ" firstAttribute="top" secondItem="wwD-Aj-lEe" secondAttribute="top" constant="5" id="Z8W-K4-2tn"/>
-                        <constraint firstItem="U8C-5U-ERQ" firstAttribute="leading" secondItem="wwD-Aj-lEe" secondAttribute="leading" constant="5" id="cqQ-mS-aIX"/>
-                        <constraint firstAttribute="bottom" secondItem="Tbl-9h-tAU" secondAttribute="bottom" constant="1" id="rsh-G3-ZTl"/>
-                        <constraint firstItem="Tbl-9h-tAU" firstAttribute="trailing" secondItem="U8C-5U-ERQ" secondAttribute="trailing" id="wfu-3s-nuB"/>
-                        <constraint firstItem="Tbl-9h-tAU" firstAttribute="leading" secondItem="wwD-Aj-lEe" secondAttribute="leading" constant="5" id="yYd-kc-ASF"/>
-                    </constraints>
-                </view>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="150" sectionHeaderHeight="50" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="Tbl-9h-tAU">
+                    <rect key="frame" x="5" y="105" width="310" height="370"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="LAH-yW-3GB"/>
+                        <outlet property="delegate" destination="-1" id="hAV-SE-d24"/>
+                    </connections>
+                </tableView>
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="Dhm-W6-BBg">
+                    <rect key="frame" x="5" y="65" width="310" height="35"/>
+                    <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="1" minimumInteritemSpacing="1" id="6Ct-77-4GO">
+                        <size key="itemSize" width="150" height="35"/>
+                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    </collectionViewFlowLayout>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="4C4-TW-swy"/>
+                        <outlet property="delegate" destination="-1" id="A48-Pm-wet"/>
+                    </connections>
+                </collectionView>
             </subviews>
-            <color key="backgroundColor" red="0.43325480486159251" green="0.46639779972513939" blue="0.61068390052356025" alpha="0.58194813829787229" colorSpace="calibratedRGB"/>
+            <color key="backgroundColor" red="0.79600793120000002" green="0.79612344499999999" blue="0.79598277809999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstAttribute="bottom" secondItem="wwD-Aj-lEe" secondAttribute="bottom" constant="8" id="2Zx-0X-brV"/>
-                <constraint firstAttribute="trailing" secondItem="wwD-Aj-lEe" secondAttribute="trailing" id="3VO-tr-yJa"/>
-                <constraint firstItem="wwD-Aj-lEe" firstAttribute="top" secondItem="1vQ-f7-vRU" secondAttribute="bottom" id="C0l-kZ-NzN"/>
-                <constraint firstItem="wwD-Aj-lEe" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="LWr-8J-vZg"/>
-                <constraint firstItem="1vQ-f7-vRU" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="M28-5b-QwY"/>
-                <constraint firstItem="wwD-Aj-lEe" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="60" id="Moq-dO-jzD"/>
-                <constraint firstItem="1vQ-f7-vRU" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="XJL-0z-Gte"/>
-                <constraint firstAttribute="trailing" secondItem="1vQ-f7-vRU" secondAttribute="trailing" id="lCL-cy-CuU"/>
+                <constraint firstItem="1vQ-f7-vRU" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="1d4-xk-hV5"/>
+                <constraint firstAttribute="trailing" secondItem="1vQ-f7-vRU" secondAttribute="trailing" id="6gP-uQ-EhF"/>
+                <constraint firstItem="1vQ-f7-vRU" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="KSI-03-EGs"/>
+                <constraint firstItem="1vQ-f7-vRU" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" id="l0r-Gn-xhg"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <nil key="simulatedTopBarMetrics"/>

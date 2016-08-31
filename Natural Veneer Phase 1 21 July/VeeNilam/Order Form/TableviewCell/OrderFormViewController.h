@@ -7,12 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface OrderFormViewController : BaseViewController{
+#import "StatusTypeCollectionViewCell.h"
+@interface OrderFormViewController : BaseViewController<UICollectionViewDelegate,UICollectionViewDataSource>{
 
     __weak IBOutlet UITableView *tblOrderList;
     __weak IBOutlet UISegmentedControl *segOrderType;
-    
+    __weak IBOutlet UICollectionView *collectionViewStatusTypes;
+    NSInteger tappedStatus;
 }
 - (IBAction)segValueChanged:(UISegmentedControl *)sender;
 
